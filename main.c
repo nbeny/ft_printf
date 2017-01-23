@@ -3,11 +3,9 @@
 
 int	main()
 {
-	int	i = 96;
-	char	str[5] = "tot\n";
+	unsigned char c;
 
-	printf("%D\n", i);
-	printf("%\n", str);
-	ft_putstr(str);
+	c = 'c';
+	printf("%hho\n", c);
 	return (0);
 }
