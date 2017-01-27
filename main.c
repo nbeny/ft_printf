@@ -3,9 +3,9 @@
 
 int	main()
 {
-	int c;
+	long int c;
 
-	c = 123;
-	printf("%04d\n", c);
+	c = -152;
+	printf("%    LU\n", c);
 	return (0);
 }
