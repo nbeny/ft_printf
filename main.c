@@ -3,9 +3,9 @@
 
 int	main()
 {
-	unsigned char c;
+	int c;
 
-	c = 'c';
-	printf("%hho\n", c);
+	c = 123;
+	printf("%04d\n", c);
 	return (0);
 }

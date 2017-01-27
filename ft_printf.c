@@ -1,80 +1,87 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-static int	ft_first_forest_if(char **str, char **format, va_list argptr, int i)
+static int	ft_forest_if(const char *format, va_list arg, int i)
 {
-	int	ret;
+	if (format[i] == 's')
+		ft_putstr((char *)va_arg(arg, char *));
+	if (format[i] == 'd')
+		ft_putnbr((int)va_arg(arg, int));
+	return (0);
+}
 
-	ret = 1;
-	if (*format[1] == 'h' || *format[1] == 'H')
-		ret += ft_h(str, format, argptr, i);
-	else if (*format[1] == 'l' || *format[1] == 'L')
-		ret += ft_l(str, format, argptr, i);
-	else if (*format[1] == 'j' || *format[1] == 'J')
-		ret += ft_j(str, format, argptr, i);
-	else if (*format[1] == 't' || *format[1] == 'T')
-		ret += ft_t(str, format, argptr, i);
-	else if (*format[1] == 'z' || *format[1] == 'Z')
-		ret += ft_z(str, format, argptr, i);
-	else if (*format[1] == 'q' || *format[1] == 'Q')
-		ret += ft_q(str, format, argptr, i);
-	else if (*format[1] == 'd' || *format[1] == 'D' ||
-		 *format[1] == 'i' || *format[1] == 'I')
-		ret += ft_d(str, format, argptr, i);
-	else if (*format[1] == 'o' || *format[1] == 'O' ||
-			 *format[1] == 'u' || *format[1] == 'U' ||
-			 *format[1] == 'x' || *format[1] == 'X')
-		ret += ft_o(str, format, argptr, i);
-        else if (*format[1] == 'n' || *format[1] == 'N')
-			ret += ft_n(str, format, rgptr, i);
-	else if (*format[1] == '%')
+static int	ft_check(const char *format, va_list arg)
+{
+	int i;
+	int zero;
+	int space;
+
+	i = 1;
+	while (format[i])
 	{
-		ft_putchar('%');
-		ret += 1;
+		while (format[i] == ' ')
+			i++;
+		if (format[i] == '0')
+			zero = ft_gestion_zero(format, i);
+		if (format[i] == '+')
+			space = ft_gestion_plus(format, i);
+		if (format[i] == '-')
+			space = ft_gestion_moins(format, i);
+		else
+		{
+			ft_forest_if(format, arg, i);
+			return (i);
+		}
 	}
-	else
-		return (-1);
-	return (ret);
+	return (i);
 }
 
 int		ft_printf(const char *format, ...)
 {
 	char	*stop;
-	char	*str;
-	va_list	argptr;
+	int	end;
+	va_list	arg;
 	int	count;
 	int	ret;
 	int	i;
 
-	count = 0;
+	end = 1;
 	if (format == NULL)
 		return (-1);
-	str = ft_strnew(1);
-	count = ft_count(char *format);
-	while (*format)
+	count = ft_count_arg(format);
+	va_start(arg, format);
+	while (end == 1)
 	{
-		stop = ft_strchr(*format, '%');
-		*stop = '\0';
-		if (*format && *format != *stop)
-			ft_strjoin(*str, *format);
-		*str = *stop;
+		stop = NULL;
+		stop = ft_strchr(format, '%');
+		if (*format && *format != '%')
+			ft_putstr_printf(format);
+		format = stop;
 		ret = 0;
 		i = 0;
-		if (*str == *stop)
+		if (stop != NULL)
 		{
-			va_start(argptr, count);
-			while (i < count)
-			{
-				ret = ft_forest_if(&str, &format, argptr, i);
-				i++;
-			}
-			va_end(argptr);
+			ret = ft_check(format, arg);
+			format = format + ret + 1;
+			//if (ret == 0)
+			//	return (-1);
 		}
-		*str = '\0';
-		i = 0;
-		while (i < ret)
-			*str++;
-		stop = NULL;
+		else
+			end = 0;		
 	}
+	va_end(arg);
+	return (0);
+}
+
+int	main()
+{
+	char *str;
+	char *t;
+	int i;
+
+	i = 90;
+	t = NULL;
+	str = ft_strdup("maybe");
+	ft_printf("%  d    halo, %     s boum ! % s whethasd\n", i, str, t);
 	return (0);
 }

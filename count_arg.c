@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	ft_count(char *format)
+int	ft_count_arg(const char *format)
 {
 	int count;
 	int i;

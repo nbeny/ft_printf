@@ -85,5 +85,5 @@ int				ft_min(int *tab, size_t n);
 void			ft_sort_integer_tab(int *tab, int size);
 void			ft_sort_params(int argc, char **argv);
 int				ft_sqrt(int nb);
-
+void				ft_putstr_printf(const char *s);
 #endif
