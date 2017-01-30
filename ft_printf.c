@@ -1,10 +1,11 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-static t_var	*init_g(t_var *g)
+static t_var		*init_g(t_var *g)
 {
 	g->zero = 0;
-	g->space = 0;
+	g->s_plus = 0;
+	g->s_moins = 0;
 	return (g);
 }
 
@@ -37,7 +38,7 @@ static int		ft_forest_if(const char *format, va_list arg, int i, t_var *g)
 
 static int		ft_check(const char *format, va_list arg)
 {
-	int		i;
+	int	i;
 	t_var	*g;
 
 	i = 1;
@@ -45,30 +46,28 @@ static int		ft_check(const char *format, va_list arg)
 	{
 		while (format[i] == ' ')
 			i++;
-		if (format[i] == '0')
-			g->zero = ft_gestion_zero(format, i);
-		if (format[i] == '+' || format[i] == '-')
+		while (format[i] == '+' || format[i] == '-' || format[i] == '0')
 		{
+			if (format[i] == '0')
+				g->zero = ft_gestion_zero(format, i);
 			if (format[i] == '+')
-				g->space = ft_gestion_plus(format, i);
-			else
-				g->space = ft_gestion_moins(format, i);
+				g->s_plus = ft_gestion_plus(format, i);
+			if (format[i] == '-')
+				g->s_moins = ft_gestion_moins(format, i);
+			i++;
 		}
-		else
-		{
-			g = init_g(g);
-			ft_forest_if(format, arg, i, g);
-			return (i);
-		}
+		g = init_g(g);
+		ft_forest_if(format, arg, i, g);
+		return (i);
 	}
 	return (i);
 }
 
-int				ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
-	char	*stop;
+	char		*stop;
 	int		end;
-	va_list	arg;
+	va_list		arg;
 	int		count;
 	int		ret;
 	int		i;

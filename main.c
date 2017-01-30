@@ -3,9 +3,9 @@
 
 int	main()
 {
-	long int c;
+	int c;
 
-	c = -152;
-	printf("%    LU\n", c);
+	c = 0;
+	printf("%+i\n", c);
 	return (0);
 }

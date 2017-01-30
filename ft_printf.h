@@ -7,8 +7,9 @@
 typedef struct	s_var
 {
 	int zero;
-	int space;
-}				t_var;
+	int s_plus;
+	int s_moins;
+}		t_var;
 
 int		ft_printf(const char *format, ...);
 int		ft_count_arg(const char *format);
