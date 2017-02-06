@@ -19,6 +19,8 @@ typedef struct	s_flag
 	char	sign;
 	va_list	ap;
 	int	flag[13];
+	char	*Ox;
+	char	*s;
 }		t_flag;
 
 typedef struct	s_spec

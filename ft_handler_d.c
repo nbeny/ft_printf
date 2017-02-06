@@ -15,6 +15,7 @@ int		ft_handler_d(t_flag *f, va_list *ap)
 		return (ft_modifier_d(f, ap));
 	f->arg = ft_itoa((int)va_arg(ap, int));
 	if (flag[1] > ft_strlen(f->arg))
-		ft_flag_int(f);
+		ft_flags_int(f);
+	ft_putstr(f->arg);
 	return (0);
 }
