@@ -75,7 +75,10 @@ SRCS	=	ft_memset.c\
 			ft_sort_integer_tab.c\
 			ft_sort_params.c\
 			ft_sqrt.c\
-			ft_bchar.c
+			ft_bchar.c\
+			ft_capitalizer.c\
+			ft_sign.c\
+			ft_rotcstring.c
 
 OBJS	=	ft_memset.o\
 			ft_bzero.o\
@@ -140,7 +143,10 @@ OBJS	=	ft_memset.o\
 			ft_sort_integer_tab.o\
 			ft_sort_params.o\
 			ft_sqrt.o\
-			ft_bchar.o
+			ft_bchar.o\
+			ft_capitalizer.o\
+			ft_sign.o\
+			ft_rotcstring.o
 
 HDRS	=	libft.h
 
