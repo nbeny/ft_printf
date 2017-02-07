@@ -28,6 +28,8 @@ static int	ft_init_f(t_flag *f)
 	while (++i < 13)
 		f->flag[i] = 0;
 	f->size = 0;
+	f->0x = NULL;
+	f->s = NULL;
 	return (f);
 }
 

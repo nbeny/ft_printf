@@ -7,7 +7,7 @@ int	ft_handler_wc(t_flag *f, va_list *ap)
 
 	wc = va_arg(ap, wchar_t);
 	ws[0] = wc;
-	ws[1] = wc;
+	ws[1] = 0;
 	if (ws[0] < 0 && ws[0] > 55295 && ws[0] < 57344 && ws[0] > 1114111)
 	{
 		f->ret = -1;

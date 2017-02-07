@@ -30,5 +30,4 @@ typedef struct	s_spec
 }		t_spec;
 
 int		ft_printf(const char *format, ...);
-
-#endif
+void		ft_free(t_flag *f);

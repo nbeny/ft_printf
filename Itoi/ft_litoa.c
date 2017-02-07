@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_litoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbeny <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/16 10:42:37 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/07 21:27:57 by nbeny            ###   ########.fr       */
+/*   Created: 2017/02/07 23:01:30 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/07 23:10:26 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static char		*ft_reverse_itoa(char *itoa)
 	return (itoa);
 }
 
-static size_t	ft_ccl_malloc(int n)
+static size_t	ft_ccl_malloc(long long int n)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
 	if (n < 0)
@@ -55,14 +55,14 @@ static size_t	ft_ccl_malloc(int n)
 	return (i);
 }
 
-char			*ft_itoa(int n)
+char			*ft_litoa(long long int n)
 {
 	char	*itoa;
 	size_t	i;
 	size_t	j;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+	if (n == -9223372036854775808)
+		return (ft_strdup("-9223372036854775808"));
 	i = 0;
 	j = ft_ccl_malloc(n);
 	if (!(itoa = (char *)malloc(sizeof(char) * (j + 1))))

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_xitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nbeny <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/16 10:42:37 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/07 21:27:57 by nbeny            ###   ########.fr       */
+/*   Created: 2017/02/07 23:16:22 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/07 23:30:39 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*ft_reverse_itoa(char *itoa)
+static char*ft_reverse_itoa(char *itoa)
 {
-	size_t	i;
-	size_t	j;
-	char	tmp;
+	size_ti;
+	size_tj;
+	chartmp;
 
 	i = 0;
 	j = 0;
@@ -36,9 +36,9 @@ static char		*ft_reverse_itoa(char *itoa)
 	return (itoa);
 }
 
-static size_t	ft_ccl_malloc(int n)
+static size_tft_ccl_malloc(int n)
 {
-	size_t	i;
+	size_ti;
 
 	i = 0;
 	if (n < 0)
@@ -55,11 +55,11 @@ static size_t	ft_ccl_malloc(int n)
 	return (i);
 }
 
-char			*ft_itoa(int n)
+char*ft_itoa(int n)
 {
-	char	*itoa;
-	size_t	i;
-	size_t	j;
+	char*itoa;
+	size_ti;
+	size_tj;
 
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
