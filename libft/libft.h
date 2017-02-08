@@ -89,5 +89,10 @@ char			*ft_bchar(char c, int size);
 char			*ft_capitalizer(char *s);
 char			ft_sign(char *s);
 char			*ft_rotcstring(char *s);
-
+char			*ft_litoa(long long int n);
+char			*ft_uitoa(unsigned int n);
+char			*ft_ulitoa(unsigned long long int n);
+char			*ft_size_itoa(size_t n);
+char			*ft_max_itoa(intmax_t n);
+char			*ft_umax_itoa(uintmax_t n);
 #endif

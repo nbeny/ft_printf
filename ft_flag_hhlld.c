@@ -14,24 +14,24 @@
 
 int		ft_handler_hhd(t_flag *f, va_list *ap)
 {
-	f->arg = ft_itoa((int)va_arg(ap, signed char));
+	f->arg = ft_itoa((int)va_arg(*ap, signed char));
 	return (0);
 }
 
 int		ft_handler_hd(t_flag *f, va_list *ap)
 {
-	f->arg = ft_itoa((int)va_arg(ap, short int));
+	f->arg = ft_itoa((int)va_arg(*ap, short int));
 	return (0);
 }
 
 int		ft_handler_lld(t_flag *f, va_list *ap)
 {
-	f->arg = ft_litoa((long long int)va_arg(ap, long long int));
+	f->arg = ft_litoa((long long int)va_arg(*ap, long long int));
 	return (0);
 }
 
 int		ft_handler_ld(t_flag *f, va_list *ap)
 {
-	f->arg = ft_litoa((long long int)va_arg(ap, long int));
+	f->arg = ft_litoa((long long int)va_arg(*ap, long int));
 	return (0);
 }

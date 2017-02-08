@@ -14,12 +14,12 @@
 
 int		ft_handler_ju(t_flag *f, va_list *ap)
 {
-	f->arg = ft_umaxitoa((intmax_t)va_arg(ap, intmax_t));
+	f->arg = ft_umaxitoa((intmax_t)va_arg(*ap, intmax_t));
 	return (0);
 }
 
 int		ft_handler_zu(t_flag *f, va_list *ap)
 {
-	f->arg = ft_usitoa((size_t)va_arg(ap, size_t));
+	f->arg = ft_usitoa((size_t)va_arg(*ap, size_t));
 	return (0);
 }

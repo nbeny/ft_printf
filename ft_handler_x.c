@@ -10,27 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
 int		ft_modifier_x(t_flag *f, va_list *ap)
 {
-	if (flag[7] == 1)
+	if (f->flag[7] == 1)
 		return (ft_handler_hhx(f, ap));
-	if (flag[8] == 1)
+	if (f->flag[8] == 1)
 		return (ft_handler_hx(f, ap));
-	if (flag[9] == 1)
+	if (f->flag[9] == 1)
 		return (ft_handler_llx(f, ap));
-	if (flag[10] == 1)
+	if (f->flag[10] == 1)
 		return (ft_handler_lx(f, ap));
-	if (flag[11] == 1)
+	if (f->flag[11] == 1)
 		return (ft_handler_zx(f, ap));
-	if (flag[12] == 1)
+	if (f->flag[12] == 1)
 		return (ft_handler_tx(f, ap));
 	return (0);
 }
 
 int		ft_handler_wx(t_flag *f, va_list *ap)
 {
-	f->arg = ft_xlitoa((unsigned long long int)va_arg(ap, unsigned long int));
-	if (flag[1] > ft_strlen(f->arg))
+	f->arg = ft_xlitoa((unsigned long long int)va_arg(*ap, unsigned long int));
+	if (f->flag[1] > ft_strlen(f->arg))
 		ft_flags_int(f);
 	ft_putstr(f->arg);
 	return (0);
@@ -38,15 +40,15 @@ int		ft_handler_wx(t_flag *f, va_list *ap)
 
 int		ft_handler_x(t_flag *f, va_list *ap)
 {
-	if (flag[7] == 1 || flag[8] == 1 ||
-		flag[9] == 1 || flag[10] == 1 ||
-		flag[11] == 1 || flag[12] == 1)
+	if (f->flag[7] == 1 || f->flag[8] == 1 ||
+		f->flag[9] == 1 || f->flag[10] == 1 ||
+		f->flag[11] == 1 || f->flag[12] == 1)
 		ft_modifier_x(f, ap);
-	if (flag[7] != 1 && flag[8] != 1 &&
-		flag[9] != 1 && flag[10] != 1 &&
-		flag[11] != 1 && flag[12] != 1)
-		f->arg = ft_xitoa((unsigned int)va_arg(ap, unsigned int));
-	if (flag[1] > ft_strlen(f->arg))
+	if (f->flag[7] != 1 && f->flag[8] != 1 &&
+		f->flag[9] != 1 && f->flag[10] != 1 &&
+		f->flag[11] != 1 && f->flag[12] != 1)
+		f->arg = ft_xitoa((unsigned int)va_arg(*ap, unsigned int));
+	if (f->flag[1] > ft_strlen(f->arg))
 		ft_flags_int(f);
 	ft_putstr(f->arg);
 	return (0);

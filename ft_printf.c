@@ -1,19 +1,5 @@
 #include "../include/ft_printf.h"
 
-void		ft_free(t_flag *f)
-{
-	if (f->flag[0] >= 0 && f->arg != NULL &&
-	    f->arg[0] != '\0' && f->arg[0] != '0')
-	{
-		if (f->c == 's' || f->c == 'S' || f->c == 'p' ||
-		    f->c == 'd' || f->c == 'D' || f->c == 'i' ||
-		    f->c == 'o' || f->c == 'O' || f->c == 'u' ||
-		    f->c == 'U' || f->c == 'x' || f->c == 'X' ||
-		    f->c == 'c' || f->c == 'C')
-			free(f->arg);
-	}
-}
-
 static int	ft_init_f(t_flag *f)
 {
 	int i;
@@ -27,6 +13,7 @@ static int	ft_init_f(t_flag *f)
 	f->sign = 0;
 	while (++i < 13)
 		f->flag[i] = 0;
+	f->size = 0;
 	f->size = 0;
 	f->0x = NULL;
 	f->s = NULL;

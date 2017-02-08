@@ -52,11 +52,11 @@ static int	ft_flag_zero(t_flag *f)
 
 int		ft_flags_char(t_flag *f)
 {
-	if (flag[4] == 1)
+	if (f->flag[4] == 1)
 		return (ft_flag_moins(f));
-	if (flags[3] == 1)
+	if (f->flags[3] == 1)
 		return (ft_flag_zero(f));
-	if (flags[5] == 1 || flags[6] == 1 || flags[1] > 1)
+	if (f->flags[5] == 1 || f->flags[6] == 1 || f->flags[1] > 1)
 		return (ft_flag_plus(f));
 	if (f->arg != NULL)
 		ft_putstr(f->arg);

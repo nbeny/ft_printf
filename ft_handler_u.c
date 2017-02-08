@@ -14,25 +14,25 @@
 
 int		ft_modifier_u(t_flag *f)
 {
-	if (flag[7] == 1)
+	if (f->flag[7] == 1)
 		return (ft_handler_hhu(f, ap));
-	if (flag[8] == 1)
+	if (f->flag[8] == 1)
 		return (ft_handler_hu(f, ap));
-	if (flag[9] == 1)
+	if (f->flag[9] == 1)
 		return (ft_handler_llu(f, ap));
-	if (flag[10] == 1)
+	if (f->flag[10] == 1)
 		return (ft_handler_lu(f, ap));
-	if (flag[11] == 1)
+	if (f->flag[11] == 1)
 		return (ft_handler_zu(f, ap));
-	if (flag[12] == 1)
+	if (f->flag[12] == 1)
 		return (ft_handler_tu(f, ap));
 	return (0);
 }
 
 intft_handler_wu(t_flag *f, va_list *ap)
 {
-	f->arg = ft_ulitoa((unsigned long long int)va_arg(ap, unsigned long int));
-	if (flag[1] > ft_strlen(f->arg))
+	f->arg = ft_ulitoa((unsigned long long int)va_arg(*ap, unsigned long int));
+	if (f->flag[1] > ft_strlen(f->arg))
 		ft_flags_int(f);
 	ft_putstr(f->arg);
 	return (0);
@@ -40,15 +40,15 @@ intft_handler_wu(t_flag *f, va_list *ap)
 
 intft_handler_u(t_flag *f, va_list *ap)
 {
-	if (flag[7] == 1 || flag[8] == 1 ||
-		    flag[9] == 1 || flag[10] == 1 ||
-		flag[11] == 1 || flag[12] == 1)
+	if (f->flag[7] == 1 || f->flag[8] == 1 ||
+		    f->flag[9] == 1 || f->flag[10] == 1 ||
+		f->flag[11] == 1 || f->flag[12] == 1)
 		ft_modifier_u(f, ap);
-	if (flag[7] != 1 && flag[8] != 1 &&
-		flag[9] != 1 && flag[10] != 1 &&
-		flag[11] != 1 && flag[12] != 1)
-		f->arg = ft_uitoa((unsigned int)va_arg(ap, unsigned int));
-	if (flag[1] > ft_strlen(f->arg))
+	if (f->flag[7] != 1 && f->flag[8] != 1 &&
+		f->flag[9] != 1 && f->flag[10] != 1 &&
+		f->flag[11] != 1 && f->flag[12] != 1)
+		f->arg = ft_uitoa((unsigned int)va_arg(*ap, unsigned int));
+	if (f->flag[1] > ft_strlen(f->arg))
 		ft_flags_int(f);
 	ft_putstr(f->arg);
 	return (0);

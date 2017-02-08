@@ -108,16 +108,16 @@ int	ft_flags_plus(t_flag *f)
 
 int	ft_flags_int(t_flag *f)
 {
-	if (flag[5] == 1)
+	if (f->flag[5] == 1)
 		f->sign = ft_sign(f->arg);
-	if (flag[1] > ft_strlen(f->arg))
+	if (f->flag[1] > ft_strlen(f->arg))
 	{
-		if (flag[3] == 1)
+		if (f->flag[3] == 1)
 			return (ft_flag_zero(f));
-		else if (flag[4] == 1)
+		else if (f->flag[4] == 1)
 			return (ft_flag_moins(f));
-		else if (flag[5] == 1 || flag[6] == 1 ||
-			 flag[1] > ft_strlen(f->arg))
+		else if (f->flag[5] == 1 || f->flag[6] == 1 ||
+			 f->flag[1] > ft_strlen(f->arg))
 			return (ft_flag_plus(f));
 	}
 	ft_putstr(f->arg);

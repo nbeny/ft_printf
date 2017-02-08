@@ -26,7 +26,7 @@ int	ft_handler_ws(t_flag *f, va_list *ap)
 
 int	ft_handler_s(t_flag *f, va_list *ap)
 {
-	if (flag[10] == 1)
+	if (f->flag[10] == 1)
 		return (ft_handler_ws(f, ap));
 	f->arg = va_arg(*ap, char *);
 	f->size = ft_strlen(f->arg);
