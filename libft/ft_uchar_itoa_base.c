@@ -20,7 +20,7 @@ static void	ft_init(char *s)
 	s[15] = 'f';
 }
 
-static int	ft_size_nbr(int *tab, char *s, unsigned long long int nb, int base)
+static int	ft_size_nbr(int *tab, char *s, unsigned char nb, int base)
 {
 	int i;
 
@@ -36,14 +36,14 @@ static int	ft_size_nbr(int *tab, char *s, unsigned long long int nb, int base)
 
 }
 
-char		*ft_itoa_base(unsigned long long int nb, int base)
+char		*ft_itoa_base(unsigned char nb, int base)
 {
-	char			*itoa;
-	char			s[16];
-	int			tab[64];
-	int			i;
-	int			j;
-	unsigned long long int	n;
+	char		*itoa;
+	char		s[16];
+	int		tab[64];
+	int		i;
+	int		j;
+	unsigned char	n;
 
 	n = nb;
 	ft_init(s);

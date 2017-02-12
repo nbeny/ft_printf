@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 
 static void	ft_init(char *s)
 {
@@ -22,7 +21,7 @@ static void	ft_init(char *s)
 }
 
 static int	ft_size_nbr(int *tab, char *s,
-			    long long int nb, long long int base)
+			    long long int nb, int base)
 {
 	int i;
 
@@ -40,13 +39,13 @@ static int	ft_size_nbr(int *tab, char *s,
 
 }
 
-char		*ft_itoa_base(long long int nb, long long int base)
+char		*ft_itoa_base(long long int nb, int base)
 {
-	char	*itoa;
-	char	s[16];
-	int	tab[64];
-	int	i;
-	int	j;
+	char		*itoa;
+	char		s[16];
+	int		tab[64];
+	int		i;
+	int		j;
 	long long int	n;
 
 	n = nb;

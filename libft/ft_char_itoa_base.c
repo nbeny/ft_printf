@@ -20,11 +20,13 @@ static void	ft_init(char *s)
 	s[15] = 'f';
 }
 
-static int	ft_size_nbr(int *tab, char *s, unsigned long long int nb, int base)
+static int	ft_size_nbr(int *tab, char *s, signed char nb, int base)
 {
 	int i;
 
 	i = 0;
+	if (nb < 0)
+		nb = nb * -1;
 	while (nb != 0)
 	{
 		tab[i] = s[nb % base];
@@ -36,20 +38,26 @@ static int	ft_size_nbr(int *tab, char *s, unsigned long long int nb, int base)
 
 }
 
-char		*ft_itoa_base(unsigned long long int nb, int base)
+char		*ft_itoa_base(signed char nb, int base)
 {
-	char			*itoa;
-	char			s[16];
-	int			tab[64];
-	int			i;
-	int			j;
-	unsigned long long int	n;
+	char		*itoa;
+	char		s[16];
+	int		tab[64];
+	int		i;
+	int		j;
+	signed char	n;
 
 	n = nb;
 	ft_init(s);
 	i = ft_size_nbr(tab, s, nb, base);
 	itoa = (char *)malloc(sizeof(char) * (i + 1));
 	j = 0;
+	if (n < 0)
+	{
+		itoa[0] = '-';
+		n = 1;
+		j++;
+	}
 	while (i >= 0)
 	{
 		itoa[j] = tab[i];

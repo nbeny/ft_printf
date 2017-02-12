@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 static void	ft_init(char *s)
 {
@@ -79,11 +78,4 @@ char		*ft_itoa_base(int nb, int base)
 	}
 	itoa[j] = 0;
 	return (itoa);
-}
-
-int	main(int ac, char **av)
-{
-	(void)ac;
-	printf("%s\n", ft_itoa_base(atoi(av[1]), atoi(av[2])));
-	return (0);
 }
