@@ -63,7 +63,7 @@ clean:
 
 fclean:
 		@echo ">Delete $(NAME)"
-		@rm -f $(NAME)
+		@rm -f $(NAME) $(OBJ)
 		@make -C libft/ fclean
 
-re: fclean all clean
+re: fclean all
