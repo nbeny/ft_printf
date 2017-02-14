@@ -39,7 +39,7 @@ static int	ft_size_nbr(int *tab, char *s,
 
 }
 
-char		*ft_itoa_base(long long int nb, int base)
+char		*ft_litoa_base(long long int nb, int base)
 {
 	char		*itoa;
 	char		s[16];

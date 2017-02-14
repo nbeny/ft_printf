@@ -14,7 +14,6 @@ static t_flag	*ft_init_f(t_flag *f)
 	while (++i < 13)
 		f->flag[i] = 0;
 	f->size = 0;
-	f->size = 0;
 	f->Ox = NULL;
 	f->s = NULL;
 	return (f);
@@ -25,9 +24,11 @@ int		ft_printf(const char *format, ...)
 	va_list	ap;
 	t_flag	*f;
 	int	i;
+	int	ret;
 
 	va_start(ap, format);
 	i = -1;
+	ret = 0;
 	while (format[++i] != '\0')
 	{
 		if (format[i] == '%')
@@ -36,11 +37,15 @@ int		ft_printf(const char *format, ...)
 			f->format = (char *)&format[++i];
 			if (ft_dispatcher(f, &ap) == -1)
 				break;
+			ret += f->ret;
 			i += f->i;
 		}
 		else if (format[i] != '\0' && format[i] != '%')
+		{
 			ft_putchar(format[i]);
+			ret++;
+		}
 	}
 	va_end(ap);
-	return (f->ret);
+	return (ret);
 }

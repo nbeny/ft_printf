@@ -38,7 +38,7 @@ static int	ft_size_nbr(int *tab, char *s, signed char nb, int base)
 
 }
 
-char		*ft_itoa_base(signed char nb, int base)
+char		*ft_char_itoa_base(signed char nb, int base)
 {
 	char		*itoa;
 	char		s[16];

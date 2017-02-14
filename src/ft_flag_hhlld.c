@@ -15,23 +15,39 @@
 int		ft_handler_hhd(t_flag *f, va_list *ap)
 {
 	f->arg = ft_char_itoa_base((signed char)va_arg(*ap, int), 10);
+	if (f->flag[1] > ft_strlen(f->arg))
+		return (ft_flags_int(f));
+	f->ret += ft_strlen(f->arg);
+	ft_putstr(f->arg);
 	return (0);
 }
 
 int		ft_handler_hd(t_flag *f, va_list *ap)
 {
 	f->arg = ft_short_itoa_base((short int)va_arg(*ap, int), 10);
+	if (f->flag[1] > ft_strlen(f->arg))
+		return (ft_flags_int(f));
+	f->ret += ft_strlen(f->arg);
+	ft_putstr(f->arg);
 	return (0);
 }
 
 int		ft_handler_lld(t_flag *f, va_list *ap)
 {
 	f->arg = ft_litoa_base((long long int)va_arg(*ap, long long int), 10);
+	if (f->flag[1] > ft_strlen(f->arg))
+		return (ft_flags_int(f));
+	f->ret += ft_strlen(f->arg);
+	ft_putstr(f->arg);
 	return (0);
 }
 
 int		ft_handler_ld(t_flag *f, va_list *ap)
 {
 	f->arg = ft_litoa_base((long int)va_arg(*ap, long int), 10);
+	if (f->flag[1] > ft_strlen(f->arg))
+		return (ft_flags_int(f));
+	f->ret += ft_strlen(f->arg);
+	ft_putstr(f->arg);
 	return (0);
 }

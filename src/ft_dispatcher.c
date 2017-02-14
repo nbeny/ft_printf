@@ -1,17 +1,5 @@
 #include "../include/ft_printf.h"
 
-void		ft_check_init(t_flag *f)
-{
-	int i;
-
-	i = 0;
-	while (i < 14)
-	{
-		f->flag[i] = 0;
-		i++;
-	}
-}
-
 void	ft_init_specs2(t_spec *specs)
 {
 	specs[10].c = 'x';
@@ -22,8 +10,10 @@ void	ft_init_specs2(t_spec *specs)
 	specs[12].ptr = &ft_handler_c;
 	specs[13].c = 'C';
 	specs[13].ptr = &ft_handler_wc;
-	specs[14].c = 0;
-	specs[14].ptr = NULL;
+	specs[14].c = '%';
+	specs[14].ptr = &ft_handler;
+	specs[15].c = 0;
+	specs[15].ptr = NULL;
 }
 
 void    	ft_init_specs1(t_spec *specs)
@@ -67,5 +57,7 @@ int		ft_dispatcher(t_flag *f, va_list *ap)
 		j++;
 	if (specs[j].c == 0)
 		return (0);
+	if (j == 14)
+		return (specs[14].ptr(f));
 	return (specs[j].ptr(f, ap));
 }

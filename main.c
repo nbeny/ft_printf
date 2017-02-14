@@ -3,10 +3,12 @@
 
 int		main(int ac, char **av)
 {
-	unsigned int i;
+	int i;
+	int ret;
 
 	(void)ac;
-	i = 9876;
-	ft_printf("%s\nft_printf = %#065x\n", av[1], i);
+	i = ft_atoi(av[2]);
+	ret = ft_printf("%+50s : %40d\n", av[1], i);
+	ft_printf("%+i\n", ret);
 	return (0);
 }

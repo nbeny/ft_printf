@@ -91,7 +91,6 @@ void	ft_check_modifier(t_flag *f)
 
 int	ft_check(t_flag *f)
 {
-	ft_check_init(f);
 	while (f->format[f->i] == '#' || f->format[f->i] == '0' ||
 	       f->format[f->i] == '-' || f->format[f->i] == '+' ||
 	       f->format[f->i] == ' ' || f->format[f->i] == 'h' ||

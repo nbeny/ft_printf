@@ -5,9 +5,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
-char		g_buf[4096];
-int		g_i;
-
 typedef struct	s_flag
 {
 	int	ret;
@@ -44,13 +41,14 @@ void		ft_check_precision(t_flag *f);
 void		ft_check_modifier(t_flag *f);
 int		ft_check(t_flag *f);
 /*
-  handler c && s && p
+  handler c && s && p && %
 */
 int		ft_handler_wc(t_flag *f, va_list *ap);
 int		ft_handler_c(t_flag *f, va_list *ap);
 int		ft_handler_ws(t_flag *f, va_list *ap);
 int		ft_handler_s(t_flag *f, va_list *ap);
 int		ft_handler_p(t_flag *f, va_list *ap);
+int		ft_handler(t_flag *f);
 //handler d
 /*
 	modifier hhlld

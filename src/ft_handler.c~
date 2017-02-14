@@ -1,0 +1,6 @@
+#include "../include/ft_printf.h"
+
+int	ft_handler(t_flag *f)
+{
+	
+}

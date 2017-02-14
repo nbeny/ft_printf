@@ -7,7 +7,7 @@ char	*ft_bchar(char c, int size)
 
 	i = 0;
 	if (!(s = (char *)malloc(sizeof(char) * (size + 1))))
-		return (NULL);
+		s = NULL;
 	while (s[i] && i <= size)
 	{
 		s[i] = c;

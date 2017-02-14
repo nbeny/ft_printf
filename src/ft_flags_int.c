@@ -2,6 +2,9 @@
 
 static int	ft_flag_Ox(t_flag *f)
 {
+	int i;
+
+	i = 0;
 	if (!(f->Ox = (char *)malloc(sizeof(char) * 3)))
 		f->Ox = NULL;
 	ft_bzero(f->Ox, 3);
@@ -9,20 +12,20 @@ static int	ft_flag_Ox(t_flag *f)
 	    f->c == 'x' || f->c == 'X')
 	{
 		f->Ox[0] = '0';
-		return (1);
+		i++;
 	}
 	if (f->c == 'x')
 	{
 		f->Ox[1] = 'x';
-		return (2);
+		i++;
 	}
 	if (f->c == 'X')
 	{
 		f->Ox[1] = 'X';
 		f->arg = ft_capitalizer(f->arg);
-		return (2);
+		i++;
 	}
-	return (0);
+	return (i);
 }
 
 static int	ft_flag_zero(t_flag *f)
@@ -46,11 +49,16 @@ static int	ft_flag_zero(t_flag *f)
 	}
 	if (f->flag[2] == 1)
 	{
+		f->ret += ft_strlen(f->Ox);
 		ft_putstr(f->Ox);
 		free(f->Ox);
 	}
+	f->ret += ft_strlen(f->s);
 	ft_putstr(f->s);
 	free(f->s);
+	f->ret += ft_strlen(f->arg);
+	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }
 
@@ -68,15 +76,19 @@ static int	ft_flag_moins(t_flag *f)
 	     f->c == 'i') && f->flag[5] == 1)
 		if (f->sign == '+')
 			f->s[i] = '+';
-	ft_putstr(f->s);
-	free(f->s);
-	f->s = NULL;
 	if (f->flag[2] == 1)
 	{
+		f->ret += ft_strlen(f->Ox);
 		ft_putstr(f->Ox);
 		free(f->Ox);
 		f->Ox = NULL;
 	}
+	f->ret += ft_strlen(f->arg);
+	ft_putstr(f->arg);
+	free(f->arg);
+	f->ret += ft_strlen(f->s);
+	ft_putstr(f->s);
+	free(f->s);
 	return (0);
 }
 
@@ -94,20 +106,26 @@ static int	ft_flag_plus(t_flag *f)
 	     f->c == 'i') && f->flag[5] == 1)
 		if (f->sign == '+')
 			f->s[i] = '+';
+	f->ret += ft_strlen(f->s);
 	ft_putstr(f->s);
 	free(f->s);
 	f->s = NULL;
 	if (f->flag[2] == 1)
 	{
+		f->ret += ft_strlen(f->Ox);
 		ft_putstr(f->Ox);
 		free(f->Ox);
 		f->Ox = NULL;
 	}
+	f->ret += ft_strlen(f->arg);
+	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }
 
 int	ft_flags_int(t_flag *f)
 {
+	f->size = ft_strlen(f->arg);
 	if (f->flag[5] == 1)
 		f->sign = ft_sign(f->arg);
 	if (f->flag[1] > ft_strlen(f->arg))
@@ -120,6 +138,7 @@ int	ft_flags_int(t_flag *f)
 			 f->flag[1] > ft_strlen(f->arg))
 			return (ft_flag_plus(f));
 	}
+	f->ret += ft_strlen(f->arg);
 	ft_putstr(f->arg);
 	return (0);
 }
