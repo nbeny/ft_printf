@@ -86,7 +86,7 @@ int			ft_min(int *tab, size_t n);
 void			ft_sort_integer_tab(int *tab, int size);
 void			ft_sort_params(int argc, char **argv);
 int			ft_sqrt(int nb);
-char			*ft_bchar(char c, int size);
+void			ft_putcstr(char c, int size);
 char			*ft_capitalizer(char *s);
 char			ft_sign(char *s);
 char			*ft_rotcstring(char *s);

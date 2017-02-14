@@ -34,7 +34,7 @@ int	ft_handler_s(t_flag *f, va_list *ap)
 	f->size = ft_strlen(f->arg);
 	if (f->arg == NULL)
 		f->arg = ft_strdup("(null)");
-	if (f->flag[1] > ft_strlen(f->arg))
+	if (f->flag[1] > f->size)
 		return (ft_flags_char(f));
 	f->ret += ft_strlen(f->arg);
 	ft_putstr(f->arg);

@@ -16,7 +16,7 @@ OBJ	=	ft_printf.o ft_check.o ft_dispatcher.o\
 
 HDR	=	ft_printf.h
 
-SRC_LFT	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
+OBJ_LFT	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_memmove.o ft_memchr.o ft_memcmp.o\
 		ft_strlen.o ft_strdup.o	ft_strcpy.o ft_strncpy.o\
 		ft_strcat.o ft_strncat.o ft_strlcat.o ft_strchr.o\
@@ -39,7 +39,7 @@ SRC_LFT	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_lstiter.o ft_lstmap.o\
 		ft_max.o ft_min.o ft_sort_integer_tab.o ft_sort_params.o\
 		ft_sqrt.o\
-		ft_bchar.o ft_capitalizer.o ft_sign.o ft_rotcstring.o
+		ft_putcstr.o ft_capitalizer.o ft_sign.o ft_rotcstring.o
 
 HDR_LFT	=	-I libft/include -I include
 
@@ -53,7 +53,7 @@ $(NAME): $(SRC)
 		@echo ">Build $(NAME)"
 		@make -C libft/
 		@gcc -c $(FLAGS) $(SRC)
-		@ar rc $(NAME) $(OBJ) $(addprefix 'libft/', $(SRC_LFT))
+		@ar rc $(NAME) $(OBJ) $(addprefix 'libft/', $(OBJ_LFT))
 		@ranlib $(NAME)
 
 clean:

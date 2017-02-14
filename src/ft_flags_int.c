@@ -25,6 +25,7 @@ static int	ft_flag_Ox(t_flag *f)
 		f->arg = ft_capitalizer(f->arg);
 		i++;
 	}
+	f->Ox[i] = 0;
 	return (i);
 }
 
@@ -37,7 +38,6 @@ static int	ft_flag_zero(t_flag *f)
 		i = i - ft_flag_Ox(f);
 	if (i < 0)
 		i = 0;
-	f->s = ft_bchar('0', i);
 	if ((f->c == 'd' || f->c == 'D' ||
 	     f->c == 'x') && f->flag[5] == 1)
 		if (f->sign == '+')
@@ -49,14 +49,10 @@ static int	ft_flag_zero(t_flag *f)
 	}
 	if (f->flag[2] == 1)
 	{
-		f->ret += ft_strlen(f->Ox);
 		ft_putstr(f->Ox);
 		free(f->Ox);
 	}
-	f->ret += ft_strlen(f->s);
-	ft_putstr(f->s);
-	free(f->s);
-	f->ret += ft_strlen(f->arg);
+	ft_putcstr('0', i);
 	ft_putstr(f->arg);
 	free(f->arg);
 	return (0);
@@ -71,24 +67,18 @@ static int	ft_flag_moins(t_flag *f)
 		i = i - ft_flag_Ox(f);
 	if (i < 0)
 		i = 0;
-	f->s = ft_bchar(' ', i);
 	if ((f->c == 'd' || f->c == 'D' ||
 	     f->c == 'i') && f->flag[5] == 1)
 		if (f->sign == '+')
 			f->s[i] = '+';
 	if (f->flag[2] == 1)
 	{
-		f->ret += ft_strlen(f->Ox);
 		ft_putstr(f->Ox);
 		free(f->Ox);
-		f->Ox = NULL;
 	}
-	f->ret += ft_strlen(f->arg);
 	ft_putstr(f->arg);
 	free(f->arg);
-	f->ret += ft_strlen(f->s);
-	ft_putstr(f->s);
-	free(f->s);
+	ft_putcstr(' ', i);
 	return (0);
 }
 
@@ -101,23 +91,16 @@ static int	ft_flag_plus(t_flag *f)
 		i = i - ft_flag_Ox(f);
 	if (i < 0)
 		i = 0;
-	f->s = ft_bchar(' ', i);
 	if ((f->c == 'd' || f->c == 'D' ||
 	     f->c == 'i') && f->flag[5] == 1)
 		if (f->sign == '+')
 			f->s[i] = '+';
-	f->ret += ft_strlen(f->s);
-	ft_putstr(f->s);
-	free(f->s);
-	f->s = NULL;
+	ft_putcstr(' ', i);
 	if (f->flag[2] == 1)
 	{
-		f->ret += ft_strlen(f->Ox);
 		ft_putstr(f->Ox);
 		free(f->Ox);
-		f->Ox = NULL;
 	}
-	f->ret += ft_strlen(f->arg);
 	ft_putstr(f->arg);
 	free(f->arg);
 	return (0);
@@ -126,6 +109,7 @@ static int	ft_flag_plus(t_flag *f)
 int	ft_flags_int(t_flag *f)
 {
 	f->size = ft_strlen(f->arg);
+	f->ret = f->flag[1];
 	if (f->flag[5] == 1)
 		f->sign = ft_sign(f->arg);
 	if (f->flag[1] > ft_strlen(f->arg))
@@ -138,7 +122,7 @@ int	ft_flags_int(t_flag *f)
 			 f->flag[1] > ft_strlen(f->arg))
 			return (ft_flag_plus(f));
 	}
-	f->ret += ft_strlen(f->arg);
 	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }

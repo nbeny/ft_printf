@@ -26,14 +26,14 @@ void	ft_check_width(t_flag *f)
 	char	*str;
 
 	i = f->i;
-	if (ft_isdigit(f->format[f->i]) && f->format[f->i] != '0')
+	if (ft_isdigit(f->format[f->i]))
 	{
 		while (ft_isdigit(f->format[f->i]))
 			f->i++;
 		if (f->i - i > 0)
 		{
 			f->flag[1] = 0;
-			str = ft_strsub(f->format, i, f->i - i);
+			str = ft_strsub(f->format, i, (f->i - i));
 			f->flag[1] = ft_atoi((const char *)str);
 			free(str);
 		}
