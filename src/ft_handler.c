@@ -2,8 +2,11 @@
 
 int	ft_handler(t_flag *f)
 {
-	char s[2];
+	char *s;
 
+	s = (char *)malloc(sizeof(char) * 2);
+	if (s == NULL)
+		return (0);
 	s[0] = '%';
 	s[1] = 0;
 	f->arg = s;

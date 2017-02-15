@@ -51,7 +51,8 @@ char		*ft_litoa_base(long long int nb, int base)
 	n = nb;
 	ft_init(s);
 	i = ft_size_nbr(tab, s, nb, base);
-	itoa = (char *)malloc(sizeof(char) * (i + 1));
+	if (!(itoa = (char *)malloc(sizeof(char) * (i + 1))))
+		return (NULL);
 	j = 0;
 	if (n < 0)
 	{
@@ -60,11 +61,7 @@ char		*ft_litoa_base(long long int nb, int base)
 		j++;
 	}
 	while (i >= 0)
-	{
-		itoa[j] = tab[i];
-		j++;
-		i--;
-	}
+		itoa[j++] = tab[i--];
 	itoa[j] = 0;
 	return (itoa);
 }

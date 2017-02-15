@@ -33,7 +33,6 @@ static int	ft_size_nbr(int *tab, char *s, unsigned long long int nb, int base)
 	}
 	i--;
 	return (i);
-
 }
 
 char		*ft_ulitoa_base(unsigned long long int nb, int base)
@@ -48,14 +47,11 @@ char		*ft_ulitoa_base(unsigned long long int nb, int base)
 	n = nb;
 	ft_init(s);
 	i = ft_size_nbr(tab, s, nb, base);
-	itoa = (char *)malloc(sizeof(char) * (i + 1));
+	if (!(itoa = (char *)malloc(sizeof(char) * (i + 1))))
+		return (NULL);
 	j = 0;
 	while (i >= 0)
-	{
-		itoa[j] = tab[i];
-		j++;
-		i--;
-	}
+		itoa[j++] = tab[i--];
 	itoa[j] = 0;
 	return (itoa);
 }

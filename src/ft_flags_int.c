@@ -52,7 +52,7 @@ static int	ft_flag_zero(t_flag *f)
 		ft_putstr(f->Ox);
 		free(f->Ox);
 	}
-	ft_putcstr('0', i);
+	ft_putcstr(48, i);
 	ft_putstr(f->arg);
 	free(f->arg);
 	return (0);
@@ -89,8 +89,6 @@ static int	ft_flag_plus(t_flag *f)
 	i = f->flag[1] - f->size;
 	if (f->flag[2] == 1)
 		i = i - ft_flag_Ox(f);
-	if (i < 0)
-		i = 0;
 	if ((f->c == 'd' || f->c == 'D' ||
 	     f->c == 'i') && f->flag[5] == 1)
 		if (f->sign == '+')
