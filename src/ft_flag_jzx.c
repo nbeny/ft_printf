@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 22:55:11 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/07 22:55:34 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/16 12:00:30 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		ft_handler_jx(t_flag *f, va_list *ap)
 	if (f->flag[1] > ft_strlen(f->arg))
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
+	if (f->c == 'X')
+		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
 	return (0);
 }
@@ -28,6 +30,8 @@ int		ft_handler_zx(t_flag *f, va_list *ap)
 	if (f->flag[1] > ft_strlen(f->arg))
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
+	if (f->c == 'X')
+		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
 	return (0);
 }

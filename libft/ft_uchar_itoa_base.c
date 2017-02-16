@@ -1,4 +1,16 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_uchar_itoa_base.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/16 14:09:58 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/16 14:10:01 by nbeny            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static void	ft_init(char *s)
 {
@@ -38,13 +50,15 @@ static int	ft_size_nbr(int *tab, char *s, unsigned char nb, int base)
 
 char		*ft_uchar_itoa_base(unsigned char nb, int base)
 {
-	char		*itoa;
-	char		s[16];
-	int		tab[64];
-	int		i;
-	int		j;
+	char			*itoa;
+	char			s[16];
+	int				tab[64];
+	int				i;
+	int				j;
 	unsigned char	n;
 
+	if (nb == 0)
+		return (ft_strdup("0"));
 	n = nb;
 	ft_init(s);
 	i = ft_size_nbr(tab, s, nb, base);

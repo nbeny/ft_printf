@@ -22,7 +22,6 @@ static int	ft_flag_Ox(t_flag *f)
 	if (f->c == 'X')
 	{
 		f->Ox[1] = 'X';
-		f->arg = ft_capitalizer(f->arg);
 		i++;
 	}
 	f->Ox[i] = 0;
@@ -38,14 +37,12 @@ static int	ft_flag_zero(t_flag *f)
 		i = i - ft_flag_Ox(f);
 	if (i < 0)
 		i = 0;
-	if ((f->c == 'd' || f->c == 'D' ||
-	     f->c == 'x') && f->flag[5] == 1)
-		if (f->sign == '+')
-			f->s[0] = '+';
+	if (f->sign == '+' && f->flag[5] == 1)
+			ft_putchar('+');
 	if (f->sign == '-')
 	{
 		f->arg = ft_rotcstring(f->arg);
-		f->s[0] = '-';
+		ft_putchar('-');
 	}
 	if (f->flag[2] == 1)
 	{
@@ -53,8 +50,9 @@ static int	ft_flag_zero(t_flag *f)
 		free(f->Ox);
 	}
 	ft_putcstr(48, i);
+	if (f->c == 'X')
+		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
-	free(f->arg);
 	return (0);
 }
 
@@ -70,14 +68,15 @@ static int	ft_flag_moins(t_flag *f)
 	if ((f->c == 'd' || f->c == 'D' ||
 	     f->c == 'i') && f->flag[5] == 1)
 		if (f->sign == '+')
-			f->s[i] = '+';
+			ft_putchar('+');
 	if (f->flag[2] == 1)
 	{
 		ft_putstr(f->Ox);
 		free(f->Ox);
 	}
+	if (f->c == 'X')
+		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
-	free(f->arg);
 	ft_putcstr(' ', i);
 	return (0);
 }
@@ -92,15 +91,16 @@ static int	ft_flag_plus(t_flag *f)
 	if ((f->c == 'd' || f->c == 'D' ||
 	     f->c == 'i') && f->flag[5] == 1)
 		if (f->sign == '+')
-			f->s[i] = '+';
+			ft_putchar('+');
 	ft_putcstr(' ', i);
 	if (f->flag[2] == 1)
 	{
 		ft_putstr(f->Ox);
 		free(f->Ox);
 	}
+	if (f->c == 'X')
+		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
-	free(f->arg);
 	return (0);
 }
 
@@ -117,10 +117,11 @@ int	ft_flags_int(t_flag *f)
 		else if (f->flag[4] == 1)
 			return (ft_flag_moins(f));
 		else if (f->flag[5] == 1 || f->flag[6] == 1 ||
-			 f->flag[1] > ft_strlen(f->arg))
+				 f->flag[1] > ft_strlen(f->arg))
 			return (ft_flag_plus(f));
 	}
+	if (f->c == 'X')
+		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
-	free(f->arg);
 	return (0);
 }

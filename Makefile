@@ -32,7 +32,8 @@ OBJ_LFT	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_itoa.o ft_itoa_base.o ft_litoa_base.o ft_uitoa_base.o\
 		ft_ulitoa_base.o ft_max_itoa_base.o ft_umax_itoa_base.o\
 		ft_size_itoa_base.o ft_short_itoa_base.o ft_ushort_itoa_base.o\
-		ft_char_itoa_base.o ft_uchar_itoa_base.o\
+		ft_char_itoa_base.o ft_uchar_itoa_base.o ft_llitoa_base.o\
+		ft_ullitoa_base.o\
 		ft_putchar.o ft_putstr.o ft_putendl.o ft_putnbr.o\
 		ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o\
 		ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o\
@@ -41,7 +42,7 @@ OBJ_LFT	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_sqrt.o\
 		ft_putcstr.o ft_capitalizer.o ft_sign.o ft_rotcstring.o
 
-HDR_LFT	=	-I libft/include -I include
+HDR_LFT	=	-I include
 
 FLAGS	=	-Wall -Wextra -Werror
 

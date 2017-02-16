@@ -18,7 +18,6 @@ typedef struct	s_flag
 	int	flag[13];
 	int	size;
 	char	*Ox;
-	char	*s;
 }		t_flag;
 
 typedef struct	s_spec

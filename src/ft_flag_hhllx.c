@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 22:44:27 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/07 22:46:06 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/16 11:59:54 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		ft_handler_hhx(t_flag *f, va_list *ap)
 	if (f->flag[1] > ft_strlen(f->arg))
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
+	if (f->c == 'X')
+		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
 	return (0);
 }
@@ -28,16 +30,20 @@ int		ft_handler_hx(t_flag *f, va_list *ap)
 	if (f->flag[1] > ft_strlen(f->arg))
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
+	if (f->c == 'X')
+		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
 	return (0);
 }
 
 int		ft_handler_llx(t_flag *f, va_list *ap)
 {
-	f->arg = ft_ulitoa_base((unsigned long long int)va_arg(*ap, unsigned long long int), 16);
+	f->arg = ft_ullitoa_base((unsigned long long int)va_arg(*ap, unsigned long long int), 16);
 	if (f->flag[1] > ft_strlen(f->arg))
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
+	if (f->c == 'X')
+		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
 	return (0);
 }
@@ -48,6 +54,8 @@ int		ft_handler_lx(t_flag *f, va_list *ap)
 	if (f->flag[1] > ft_strlen(f->arg))
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
+	if (f->c == 'X')
+		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
 	return (0);
 }

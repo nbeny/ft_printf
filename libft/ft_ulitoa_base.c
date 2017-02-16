@@ -1,4 +1,16 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ulitoa_base.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/16 14:10:23 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/16 14:10:28 by nbeny            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static void	ft_init(char *s)
 {
@@ -20,7 +32,7 @@ static void	ft_init(char *s)
 	s[15] = 'f';
 }
 
-static int	ft_size_nbr(int *tab, char *s, unsigned long long int nb, int base)
+static int	ft_size_nbr(int *tab, char *s, unsigned long int nb, int base)
 {
 	int i;
 
@@ -35,15 +47,17 @@ static int	ft_size_nbr(int *tab, char *s, unsigned long long int nb, int base)
 	return (i);
 }
 
-char		*ft_ulitoa_base(unsigned long long int nb, int base)
+char		*ft_ulitoa_base(unsigned long int nb, int base)
 {
-	char			*itoa;
-	char			s[16];
-	int			tab[64];
-	int			i;
-	int			j;
-	unsigned long long int	n;
+	char				*itoa;
+	char				s[16];
+	int					tab[64];
+	int					i;
+	int					j;
+	unsigned long int	n;
 
+	if (nb == 0)
+		return (ft_strdup("0"));
 	n = nb;
 	ft_init(s);
 	i = ft_size_nbr(tab, s, nb, base);

@@ -1,4 +1,16 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_litoa_base.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/16 13:55:29 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/16 14:04:12 by nbeny            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static void	ft_init(char *s)
 {
@@ -21,7 +33,7 @@ static void	ft_init(char *s)
 }
 
 static int	ft_size_nbr(int *tab, char *s,
-			    long long int nb, int base)
+			    long int nb, int base)
 {
 	int i;
 
@@ -39,14 +51,14 @@ static int	ft_size_nbr(int *tab, char *s,
 
 }
 
-char		*ft_litoa_base(long long int nb, int base)
+char		*ft_litoa_base(long int nb, int base)
 {
 	char		*itoa;
 	char		s[16];
 	int		tab[64];
 	int		i;
 	int		j;
-	long long int	n;
+	long int	n;
 
 	n = nb;
 	ft_init(s);

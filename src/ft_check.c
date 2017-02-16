@@ -98,10 +98,10 @@ int	ft_check(t_flag *f)
 	       f->format[f->i] == 'z' || f->format[f->i] == '.' ||
 	       ft_isdigit(f->format[f->i]))
 	{
-		ft_check_flag(f);
-		ft_check_width(f);
-		ft_check_precision(f);
-		ft_check_modifier(f);
+			ft_check_flag(f);
+			ft_check_width(f);
+			ft_check_precision(f);
+			ft_check_modifier(f);
 	}
 	if (f->i == ft_strlen(f->format))
 		return (-1);

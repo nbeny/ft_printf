@@ -45,3 +45,4 @@ int	ft_handler_c(t_flag *f, va_list *ap)
 	ft_putstr(f->arg);
 	return (0);
 }
+

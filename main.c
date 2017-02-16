@@ -3,13 +3,13 @@
 
 int		main(int ac, char **av)
 {
-	int i;
+	unsigned long long int i;
 	int ret;
 
 	(void)ac;
 	(void)av;
-	i = 100;
-	ret = ft_printf("[%-50x]\n", i);
-	ft_printf("%d", ret);
+	i = 4294967296;
+	ret = ft_printf("%llx\n", i);
+	ft_printf("%d\n", ret);
 	return (0);
 }

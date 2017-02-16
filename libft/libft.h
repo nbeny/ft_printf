@@ -6,7 +6,7 @@
 /*   By: nbeny <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 20:28:14 by nbeny             #+#    #+#             */
-/*   Updated: 2016/11/19 17:49:02 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/16 12:13:25 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	s_list
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
+
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *s1, const void *s2, size_t n);
@@ -87,12 +88,14 @@ void			ft_sort_integer_tab(int *tab, int size);
 void			ft_sort_params(int argc, char **argv);
 int			ft_sqrt(int nb);
 void			ft_putcstr(int c, int size);
-char			*ft_capitalizer(char *s);
+void			ft_capitalizer(char *s);
 char			ft_sign(char *s);
 char			*ft_rotcstring(char *s);
-char			*ft_litoa_base(long long int nb, int size);
+char			*ft_litoa_base(long int nb, int size);
+char			*ft_llitoa_base(long long int nb, int size);
 char			*ft_uitoa_base(unsigned int n, int size);
-char			*ft_ulitoa_base(unsigned long long int n, int size);
+char			*ft_ulitoa_base(unsigned long int n, int size);
+char			*ft_ullitoa_base(unsigned long long int nb, int size);
 char			*ft_size_itoa_base(size_t n, int size);
 char			*ft_max_itoa_base(intmax_t n, int size);
 char			*ft_umax_itoa_base(uintmax_t n, int size);
@@ -101,3 +104,15 @@ char			*ft_ushort_itoa_base(unsigned short int n, int size);
 char			*ft_char_itoa_base(signed char n, int size);
 char			*ft_uchar_itoa_base(unsigned char n, int size);
 #endif
+
+
+
+
+
+
+
+
+
+
+
+

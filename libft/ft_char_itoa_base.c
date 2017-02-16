@@ -1,4 +1,16 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_char_itoa_base.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/16 13:56:13 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/16 13:56:23 by nbeny            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static void	ft_init(char *s)
 {
@@ -42,9 +54,9 @@ char		*ft_char_itoa_base(signed char nb, int base)
 {
 	char		*itoa;
 	char		s[16];
-	int		tab[64];
-	int		i;
-	int		j;
+	int			tab[64];
+	int			i;
+	int			j;
 	signed char	n;
 
 	n = nb;

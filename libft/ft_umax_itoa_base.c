@@ -1,4 +1,16 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_umax_itoa_base.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/16 14:12:09 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/16 14:12:12 by nbeny            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static void	ft_init(char *s)
 {
@@ -45,6 +57,8 @@ char		*ft_umax_itoa_base(uintmax_t nb, int base)
 	int		j;
 	uintmax_t	n;
 
+	if (nb == 0)
+		return (ft_strdup("0"));
 	n = nb;
 	ft_init(s);
 	i = ft_size_nbr(tab, s, nb, base);

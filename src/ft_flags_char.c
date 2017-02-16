@@ -41,6 +41,7 @@ static int	ft_flag_zero(t_flag *f)
 
 int		ft_flags_char(t_flag *f)
 {
+	f->size = ft_strlen(f->arg);
 	f->ret = f->flag[1];
 	if (f->flag[4] == 1)
 		return (ft_flag_moins(f));

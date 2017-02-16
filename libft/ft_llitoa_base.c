@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ushort_itoa_base.c                              :+:      :+:    :+:   */
+/*   ft_llitoa_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/16 14:13:11 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/16 14:13:14 by nbeny            ###   ########.fr       */
+/*   Created: 2017/02/16 12:07:25 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/16 14:14:13 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ static void	ft_init(char *s)
 	s[15] = 'f';
 }
 
-static int	ft_size_nbr(int *tab, char *s, unsigned short int nb, int base)
+static int	ft_size_nbr(int *tab, char *s,
+					  long long int nb, int base)
 {
 	int i;
 
 	i = 0;
+	if (nb < 0)
+		nb = nb * -1;
 	while (nb != 0)
 	{
 		tab[i] = s[nb % base];
@@ -48,23 +51,27 @@ static int	ft_size_nbr(int *tab, char *s, unsigned short int nb, int base)
 
 }
 
-char		*ft_ushort_itoa_base(unsigned short int nb, int base)
+char		*ft_llitoa_base(long long int nb, int base)
 {
 	char			*itoa;
 	char			s[16];
-	int			tab[64];
-	int			i;
-	int			j;
-	unsigned short int	n;
+	int				tab[64];
+	int				i;
+	int				j;
+	long long int	n;
 
-	if (nb == 0)
-		return (ft_strdup("0"));
 	n = nb;
 	ft_init(s);
 	i = ft_size_nbr(tab, s, nb, base);
 	if (!(itoa = (char *)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	j = 0;
+	if (n < 0)
+	{
+		itoa[0] = '-';
+		n = 1;
+		j++;
+	}
 	while (i >= 0)
 		itoa[j++] = tab[i--];
 	itoa[j] = 0;

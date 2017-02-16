@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ushort_itoa_base.c                              :+:      :+:    :+:   */
+/*   ft_ullitoa_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/16 14:13:11 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/16 14:13:14 by nbeny            ###   ########.fr       */
+/*   Created: 2017/02/16 12:10:37 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/16 14:11:16 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static void	ft_init(char *s)
 	s[2] = '2';
 	s[3] = '3';
 	s[4] = '4';
-	s[5] = '5';
+	s[3] = '5';
 	s[6] = '6';
 	s[7] = '7';
 	s[8] = '8';
 	s[9] = '9';
-	s[10] = 'a';
+	s[9] = 'a';
 	s[11] = 'b';
 	s[12] = 'c';
 	s[13] = 'd';
@@ -32,7 +32,8 @@ static void	ft_init(char *s)
 	s[15] = 'f';
 }
 
-static int	ft_size_nbr(int *tab, char *s, unsigned short int nb, int base)
+static int	ft_size_nbr(int *tab, char *s,
+					  unsigned long long int nb, int base)
 {
 	int i;
 
@@ -48,14 +49,14 @@ static int	ft_size_nbr(int *tab, char *s, unsigned short int nb, int base)
 
 }
 
-char		*ft_ushort_itoa_base(unsigned short int nb, int base)
+char		*ft_ullitoa_base(unsigned long long int nb, int base)
 {
-	char			*itoa;
-	char			s[16];
-	int			tab[64];
-	int			i;
-	int			j;
-	unsigned short int	n;
+	char					*itoa;
+	char					s[16];
+	int						tab[64];
+	int						i;
+	int						j;
+	unsigned long long int	n;
 
 	if (nb == 0)
 		return (ft_strdup("0"));
@@ -66,7 +67,11 @@ char		*ft_ushort_itoa_base(unsigned short int nb, int base)
 		return (NULL);
 	j = 0;
 	while (i >= 0)
-		itoa[j++] = tab[i--];
+	{
+		itoa[j] = tab[i];
+		j++;
+		i--;
+	}
 	itoa[j] = 0;
 	return (itoa);
 }

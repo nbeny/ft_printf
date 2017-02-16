@@ -6,11 +6,11 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 23:30:53 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/08 00:12:41 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/16 12:56:43 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static void	ft_init(char *s)
 {
@@ -46,7 +46,7 @@ static int	ft_size_nbr(int *tab, char *s, int nb, int base)
 		i++;
 	}
 	return (i);
-	
+
 }
 
 char		*ft_itoa_base(int nb, int base)

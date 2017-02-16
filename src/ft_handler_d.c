@@ -32,7 +32,7 @@ int		ft_handler_d(t_flag *f, va_list *ap)
 	if (f->flag[7] == 1 || f->flag[8] == 1 ||
 	    f->flag[9] == 1 || f->flag[10] == 1 ||
 	    f->flag[11] == 1 || f->flag[12] == 1)
-		ft_modifier_d(f, ap);
+		return (ft_modifier_d(f, ap));
 	if (f->flag[7] != 1 && f->flag[8] != 1 &&
 		f->flag[9] != 1 && f->flag[10] != 1 &&
 		f->flag[11] != 1 && f->flag[12] != 1)
