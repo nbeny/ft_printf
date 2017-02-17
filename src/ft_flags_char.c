@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:36 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/16 14:59:39 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 06:10:03 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	ft_flag_zero(t_flag *f)
 	return (0);
 }
 
-int		ft_flags_char(t_flag *f)
+int			ft_flags_char(t_flag *f)
 {
 	f->size = ft_strlen(f->arg);
 	f->ret = f->flag[1];

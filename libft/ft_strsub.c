@@ -6,7 +6,7 @@
 /*   By: nbeny <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 19:34:56 by nbeny             #+#    #+#             */
-/*   Updated: 2016/11/16 16:02:05 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 07:28:11 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strsub(char const *s, int start, int len)
 {
 	char	*strsub;
-	int	i;
+	int		i;
 
 	if (s)
 	{

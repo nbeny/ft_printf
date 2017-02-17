@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:01:02 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/16 15:01:04 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 06:19:25 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_handler_ws(t_flag *f, va_list *ap)
 	while (f->warg[i])
 	{
 		if (f->warg[i] < 0 && f->warg[i] > 55295 &&
-		    f->warg[0] < 57344 && f->warg[i] > 1114111)
+			f->warg[0] < 57344 && f->warg[i] > 1114111)
 		{
 			f->ret = -1;
 			return (-1);

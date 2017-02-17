@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 22:44:27 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/16 11:59:54 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 06:09:45 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int		ft_handler_hhx(t_flag *f, va_list *ap)
 {
-	f->arg = ft_uchar_itoa_base((unsigned char)va_arg(*ap, unsigned int), 16);
+	f->arg = ft_uchar_itoa_base(
+		(unsigned char)va_arg(*ap, unsigned int), 16);
 	if (f->flag[1] > ft_strlen(f->arg))
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
@@ -26,7 +27,8 @@ int		ft_handler_hhx(t_flag *f, va_list *ap)
 
 int		ft_handler_hx(t_flag *f, va_list *ap)
 {
-	f->arg = ft_ushort_itoa_base((unsigned short int)va_arg(*ap, unsigned int), 16);
+	f->arg = ft_ushort_itoa_base(
+		(unsigned short int)va_arg(*ap, unsigned int), 16);
 	if (f->flag[1] > ft_strlen(f->arg))
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
@@ -38,7 +40,8 @@ int		ft_handler_hx(t_flag *f, va_list *ap)
 
 int		ft_handler_llx(t_flag *f, va_list *ap)
 {
-	f->arg = ft_ullitoa_base((unsigned long long int)va_arg(*ap, unsigned long long int), 16);
+	f->arg = ft_ullitoa_base(
+		(unsigned long long int)va_arg(*ap, unsigned long long int), 16);
 	if (f->flag[1] > ft_strlen(f->arg))
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
@@ -50,7 +53,8 @@ int		ft_handler_llx(t_flag *f, va_list *ap)
 
 int		ft_handler_lx(t_flag *f, va_list *ap)
 {
-	f->arg = ft_ulitoa_base((unsigned long int)va_arg(*ap, unsigned long int), 16);
+	f->arg = ft_ulitoa_base(
+		(unsigned long int)va_arg(*ap, unsigned long int), 16);
 	if (f->flag[1] > ft_strlen(f->arg))
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);

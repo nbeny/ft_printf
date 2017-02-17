@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:00:23 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/16 15:00:27 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 06:11:54 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		ft_handler_wd(t_flag *f, va_list *ap)
 {
 	f->arg = ft_litoa_base((long int)va_arg(*ap, long int), 10);
 	if (f->flag[1] > ft_strlen(f->arg))
-		return(ft_flags_int(f));
+		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
 	ft_putstr(f->arg);
 	return (0);
@@ -42,8 +42,8 @@ int		ft_handler_wd(t_flag *f, va_list *ap)
 int		ft_handler_d(t_flag *f, va_list *ap)
 {
 	if (f->flag[7] == 1 || f->flag[8] == 1 ||
-	    f->flag[9] == 1 || f->flag[10] == 1 ||
-	    f->flag[11] == 1 || f->flag[12] == 1)
+		f->flag[9] == 1 || f->flag[10] == 1 ||
+		f->flag[11] == 1 || f->flag[12] == 1)
 		return (ft_modifier_d(f, ap));
 	if (f->flag[7] != 1 && f->flag[8] != 1 &&
 		f->flag[9] != 1 && f->flag[10] != 1 &&

@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:13:11 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/16 14:13:14 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 07:24:26 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,28 +45,26 @@ static int	ft_size_nbr(int *tab, char *s, unsigned short int nb, int base)
 	}
 	i--;
 	return (i);
-
 }
 
 char		*ft_ushort_itoa_base(unsigned short int nb, int base)
 {
-	char			*itoa;
-	char			s[16];
-	int			tab[64];
-	int			i;
-	int			j;
+	char				*itoa;
+	char				s[16];
+	int					tab[64];
 	unsigned short int	n;
+	int					i[2];
 
 	if (nb == 0)
 		return (ft_strdup("0"));
 	n = nb;
 	ft_init(s);
-	i = ft_size_nbr(tab, s, nb, base);
-	if (!(itoa = (char *)malloc(sizeof(char) * (i + 1))))
+	i[0] = ft_size_nbr(tab, s, nb, base);
+	if (!(itoa = (char *)malloc(sizeof(char) * (i[0] + 1))))
 		return (NULL);
-	j = 0;
-	while (i >= 0)
-		itoa[j++] = tab[i--];
-	itoa[j] = 0;
+	i[1] = 0;
+	while (i[0] >= 0)
+		itoa[i[1]++] = tab[i[0]--];
+	itoa[i[1]] = 0;
 	return (itoa);
 }

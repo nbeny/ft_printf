@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:58:13 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/16 14:58:27 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 08:00:21 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_init_specs2(t_spec *specs)
 	specs[15].ptr = NULL;
 }
 
-void    	ft_init_specs1(t_spec *specs)
+void	ft_init_specs1(t_spec *specs)
 {
 	specs[0].c = 's';
 	specs[0].ptr = &ft_handler_s;
@@ -56,7 +56,7 @@ void    	ft_init_specs1(t_spec *specs)
 int		ft_dispatcher(t_flag *f, va_list *ap)
 {
 	t_spec	specs[16];
-	int	j;
+	int		j;
 
 	f->arg = NULL;
 	f->warg = NULL;

@@ -6,7 +6,7 @@
 /*   By: nbeny <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 14:04:51 by nbeny             #+#    #+#             */
-/*   Updated: 2016/11/16 17:06:19 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 07:27:56 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char		*strjoin;
+	char			*strjoin;
 	unsigned int	i;
 	unsigned int	j;
 

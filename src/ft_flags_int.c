@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:46 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/16 14:59:49 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 07:38:52 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static int	ft_flag_Ox(t_flag *f)
 
 	i = 0;
 	if (!(f->Ox = (char *)malloc(sizeof(char) * 3)))
-		f->Ox = NULL;
+		return (0);
 	ft_bzero(f->Ox, 3);
 	if (f->c == 'o' || f->c == 'O' ||
-	    f->c == 'x' || f->c == 'X')
+		f->c == 'x' || f->c == 'X')
 	{
 		f->Ox[0] = '0';
 		i++;
@@ -36,7 +36,7 @@ static int	ft_flag_Ox(t_flag *f)
 		f->Ox[1] = 'X';
 		i++;
 	}
-	f->Ox[i] = 0;
+	f->Ox[2] = 0;
 	return (i);
 }
 
@@ -50,7 +50,7 @@ static int	ft_flag_zero(t_flag *f)
 	if (i < 0)
 		i = 0;
 	if (f->sign == '+' && f->flag[5] == 1)
-			ft_putchar('+');
+		ft_putchar('+');
 	if (f->sign == '-')
 	{
 		f->arg = ft_rotcstring(f->arg);
@@ -78,7 +78,7 @@ static int	ft_flag_moins(t_flag *f)
 	if (i < 0)
 		i = 0;
 	if ((f->c == 'd' || f->c == 'D' ||
-	     f->c == 'i') && f->flag[5] == 1)
+		f->c == 'i') && f->flag[5] == 1)
 		if (f->sign == '+')
 			ft_putchar('+');
 	if (f->flag[2] == 1)
@@ -101,7 +101,7 @@ static int	ft_flag_plus(t_flag *f)
 	if (f->flag[2] == 1)
 		i = i - ft_flag_Ox(f);
 	if ((f->c == 'd' || f->c == 'D' ||
-	     f->c == 'i') && f->flag[5] == 1)
+		f->c == 'i') && f->flag[5] == 1)
 		if (f->sign == '+')
 			ft_putchar('+');
 	ft_putcstr(' ', i);
@@ -116,7 +116,7 @@ static int	ft_flag_plus(t_flag *f)
 	return (0);
 }
 
-int	ft_flags_int(t_flag *f)
+int			ft_flags_int(t_flag *f)
 {
 	f->size = ft_strlen(f->arg);
 	f->ret = f->flag[1];
@@ -129,7 +129,7 @@ int	ft_flags_int(t_flag *f)
 		else if (f->flag[4] == 1)
 			return (ft_flag_moins(f));
 		else if (f->flag[5] == 1 || f->flag[6] == 1 ||
-				 f->flag[1] > ft_strlen(f->arg))
+			f->flag[1] > ft_strlen(f->arg))
 			return (ft_flag_plus(f));
 	}
 	if (f->c == 'X')

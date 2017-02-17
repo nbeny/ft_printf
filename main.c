@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:33 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/16 14:57:37 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 07:29:39 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int		main(int ac, char **av)
 {
 	unsigned long long int i;
-	int ret;
+	int						ret;
 
 	(void)ac;
 	(void)av;
