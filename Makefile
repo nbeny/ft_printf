@@ -6,7 +6,7 @@
 #    By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/16 14:57:18 by nbeny             #+#    #+#              #
-#    Updated: 2017/02/16 14:57:22 by nbeny            ###   ########.fr        #
+#    Updated: 2017/02/17 13:37:46 by nbeny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ SRC	=	src/ft_printf.c src/ft_check.c src/ft_dispatcher.c\
 		src/ft_handler_o.c src/ft_handler_u.c src/ft_handler_x.c src/ft_handler.c\
 		src/ft_flag_hhlld.c src/ft_flag_hhllo.c src/ft_flag_hhllu.c src/ft_flag_hhllx.c\
 		src/ft_flag_jzd.c src/ft_flag_jzo.c src/ft_flag_jzu.c src/ft_flag_jzx.c\
-		src/ft_flags_char.c src/ft_flags_int.c
+		src/ft_flags_char.c src/ft_flags_int.c src/ft_precision.c
 
 OBJ	=	ft_printf.o ft_check.o ft_dispatcher.o\
 		ft_handler_c.o ft_handler_s.o ft_handler_p.o ft_handler_d.o\
 		ft_handler_o.o ft_handler_u.o ft_handler_x.o ft_handler.o\
 		ft_flag_hhlld.o ft_flag_hhllo.o ft_flag_hhllu.o ft_flag_hhllx.o\
 		ft_flag_jzd.o ft_flag_jzo.o ft_flag_jzu.o ft_flag_jzx.o\
-		ft_flags_char.o ft_flags_int.o
+		ft_flags_char.o ft_flags_int.o ft_precision.o
 
 HDR	=	ft_printf.h
 
@@ -52,7 +52,8 @@ OBJ_LFT	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_lstiter.o ft_lstmap.o\
 		ft_max.o ft_min.o ft_sort_integer_tab.o ft_sort_params.o\
 		ft_sqrt.o\
-		ft_putcstr.o ft_capitalizer.o ft_sign.o ft_rotcstring.o
+		ft_putcstr.o ft_capitalizer.o ft_sign.o ft_rotcstring.o\
+		ft_putnstr.o
 
 HDR_LFT	=	-I include
 

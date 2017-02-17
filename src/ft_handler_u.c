@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 22:14:33 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 06:38:00 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 10:21:31 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ int	ft_handler_u(t_flag *f, va_list *ap)
 		f->flag[9] != 1 && f->flag[10] != 1 &&
 		f->flag[11] != 1 && f->flag[12] != 1)
 		f->arg = ft_uitoa_base((unsigned int)va_arg(*ap, unsigned int), 10);
-	if (f->flag[1] > ft_strlen(f->arg))
+	if (f->flag[2] == 1 || f->flag[3] == 1 ||
+		f->flag[4] == 1 || f->flag[5] == 1 ||
+		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
+		f->flag[13] == 1)
 		return (ft_flags_int(f));
 	f->ret += ft_strlen(f->arg);
 	ft_putstr(f->arg);

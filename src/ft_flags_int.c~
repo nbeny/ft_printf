@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:46 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 14:18:08 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 13:35:42 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,7 @@ static int	ft_flag_plus(t_flag *f)
 int			ft_flags_int(t_flag *f)
 {
 	f->size = ft_strlen(f->arg);
-	if (f->flag[1] > f->size)
-		f->ret = f->flag[1];
-	if (f->flag[0] > f->flag[1])
-		f->ret = f->flag[0];
+	f->ret = f->flag[1];
 	if (f->flag[5] == 1)
 		f->sign = ft_sign(f->arg);
 	if (f->flag[2] == 1)

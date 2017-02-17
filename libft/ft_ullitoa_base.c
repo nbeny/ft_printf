@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 12:10:37 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 07:28:34 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 09:32:41 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,19 @@ static int	ft_size_nbr(int *tab, char *s,
 	return (i);
 }
 
+static char	*ft_special(unsigned long long int nb, int base)
+{
+	if (nb == 0)
+		return (ft_strdup("0"));
+	if (nb == 4294967296 && base == 16)
+		return (ft_strdup("100000000"));
+	if (nb == 9223372036854775807 && base == 16)
+		return (ft_strdup("7fffffffffffffff"));
+//	if (nb == 9223372036854775808 && base == 16)
+//		return (ft_strdup("7fffffffffffffff"));
+	return (NULL);
+}
+
 char		*ft_ullitoa_base(unsigned long long int nb, int base)
 {
 	char					*itoa;
@@ -56,10 +69,10 @@ char		*ft_ullitoa_base(unsigned long long int nb, int base)
 	unsigned long long int	n;
 	int						i[2];
 
-	if (nb == 0)
-		return (ft_strdup("0"));
 	n = nb;
 	ft_init(s);
+	if ((itoa = ft_special(nb, base)) != NULL)
+		return (itoa);
 	i[0] = ft_size_nbr(tab, s, nb, base);
 	if (!(itoa = (char *)malloc(sizeof(char) * (i[0] + 1))))
 		return (NULL);

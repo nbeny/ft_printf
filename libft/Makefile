@@ -6,7 +6,7 @@
 #    By: nbeny <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 21:11:22 by nbeny             #+#    #+#              #
-#    Updated: 2017/02/16 12:15:09 by nbeny            ###   ########.fr        #
+#    Updated: 2017/02/17 11:12:11 by nbeny            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -36,7 +36,8 @@ SRCS	=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c\
 		ft_lstiter.c ft_lstmap.c\
 		ft_max.c ft_min.c ft_sort_integer_tab.c ft_sort_params.c\
 		ft_sqrt.c\
-		ft_putcstr.c ft_capitalizer.c ft_sign.c ft_rotcstring.c
+		ft_putcstr.c ft_capitalizer.c ft_sign.c ft_rotcstring.c\
+		ft_putnstr.c
 
 OBJS	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_memmove.o ft_memchr.o ft_memcmp.o\
@@ -62,7 +63,8 @@ OBJS	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_lstiter.o ft_lstmap.o\
 		ft_max.o ft_min.o ft_sort_integer_tab.o ft_sort_params.o\
 		ft_sqrt.o\
-		ft_putcstr.o ft_capitalizer.o ft_sign.o ft_rotcstring.o
+		ft_putcstr.o ft_capitalizer.o ft_sign.o ft_rotcstring.o\
+		ft_putnstr.o
 
 HDRS	=	libft.h
 

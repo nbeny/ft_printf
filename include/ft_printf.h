@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:47 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 08:43:41 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 13:36:38 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ typedef struct	s_flag
 	wchar_t	*warg;
 	char	sign;
 	va_list	ap;
-	int		flag[13];
+	int		flag[14];
 	int		size;
 	char	*Ox;
+	int		x;
+	int		p;
 }				t_flag;
 
 typedef struct	s_spec
@@ -113,4 +115,15 @@ int				ft_handler_zx(t_flag *f, va_list *ap);
 */
 int				ft_flags_char(t_flag *f);
 int				ft_flags_int(t_flag *f);
+int				ft_precision(t_flag *f);
 #endif
+
+
+
+
+
+
+
+
+
+

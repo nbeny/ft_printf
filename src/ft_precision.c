@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handler_p.c                                     :+:      :+:    :+:   */
+/*   ft_precision.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/16 15:00:49 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 10:21:20 by nbeny            ###   ########.fr       */
+/*   Created: 2017/02/17 12:30:16 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/17 13:35:46 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_handler_p(t_flag *f, va_list *ap)
+int		ft_precision(t_flag *f)
 {
-	f->arg = ft_ulitoa_base(
-		(unsigned long long int)va_arg(*ap, unsigned long long int), 16);
-	if (f->flag[2] == 1 || f->flag[3] == 1 ||
-		f->flag[4] == 1 || f->flag[5] == 1 ||
-		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
-		f->flag[13] == 1)
-		return (ft_flags_int(f));
-	ft_putstr(f->arg);
-	f->ret += ft_strlen(f->arg);
+	if (f->flag[0] <= f->size && f->flag[0] != -1)
+		f->flag[13] = 0;
+	if (f->flag[0] > f->size)
+	{
+		f->p = f->flag[0] - f->size;
+		f->size = f->flag[0];
+	}
 	return (0);
 }

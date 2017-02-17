@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:59 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 06:14:04 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 10:55:37 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_check_precision(t_flag *f)
 
 	if (f->format[f->i] == '.')
 	{
+		f->flag[13] = 1;
 		f->flag[0] = 0;
 		i = ++f->i;
 		while (ft_isdigit(f->format[f->i]))

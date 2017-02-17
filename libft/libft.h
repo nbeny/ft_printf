@@ -6,7 +6,7 @@
 /*   By: nbeny <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 20:28:14 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 07:24:04 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/17 11:12:52 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,15 @@ char			*ft_short_itoa_base(short int n, int size);
 char			*ft_ushort_itoa_base(unsigned short int n, int size);
 char			*ft_char_itoa_base(signed char n, int size);
 char			*ft_uchar_itoa_base(unsigned char n, int size);
+void			ft_putnstr(char *s, int n);
 #endif
+
+
+
+
+
+
+
+
+
+
