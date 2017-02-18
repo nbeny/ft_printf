@@ -92,6 +92,11 @@ static int	ft_flag_moins(t_flag *f)
 	}
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
+	if (f->sign == 45 && f->flag[13] == 1)
+	{
+		f->arg = ft_rotcstring(f->arg);
+		ft_putchar('-');
+	}
 	if (f->flag[13] == 1 && f->p > 0)
 		ft_putcstr('0', f->p);
 	if (f->flag[0] != -1)
@@ -119,6 +124,11 @@ static int	ft_flag_plus(t_flag *f)
 	}
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
+	if (f->sign == 45 && f->flag[13] == 1)
+	{
+		f->arg = ft_rotcstring(f->arg);
+		ft_putchar('-');
+	}
 	if (f->flag[13] == 1 && f->p > 0)
 		ft_putcstr('0', f->p);
 	if (f->flag[0] != -1)
