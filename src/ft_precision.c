@@ -17,9 +17,6 @@ int		ft_precision(t_flag *f)
 	if (f->flag[0] <= f->size && f->flag[0] != -1)
 		f->flag[13] = 0;
 	if (f->flag[0] > f->size)
-	{
 		f->p = f->flag[0] - f->size;
-		f->size = f->flag[0];
-	}
 	return (0);
 }

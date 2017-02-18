@@ -19,7 +19,11 @@ int	ft_handler(t_flag *f)
 	s[0] = '%';
 	s[1] = 0;
 	f->arg = s;
-	if (f->flag[1] > 1)
+	f->size = 1;
+	if (f->flag[2] == 1 || f->flag[3] == 1 ||
+		f->flag[4] == 1 || f->flag[5] == 1 ||
+		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
+		f->flag[13] == 1)
 		return (ft_flags_char(f));
 	f->ret = 1;
 	ft_putstr(f->arg);

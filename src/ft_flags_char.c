@@ -37,7 +37,7 @@ static int	ft_flag_plus(t_flag *f)
 
 	if (f->flag[13] == 1 && f->flag[0] < f->size)
 	{
-		if (f->flag[0] == -1)
+		if (f->flag[0] == -1 )
 			f->flag[0] = 0;
 		f->size = f->flag[0];
 	}
@@ -71,13 +71,10 @@ static int	ft_flag_zero(t_flag *f)
 
 int			ft_flags_char(t_flag *f)
 {
-	if (f->arg != NULL)
-		f->size = ft_strlen(f->arg);
-	else if (f->warg != NULL)
-		f->size = ft_strlen((char *)f->warg);
 	if (f->flag[1] > f->size)
 		f->ret = f->flag[1];
-	if (f->flag[0] > f->flag[1] && f->flag[13] == 1)
+	if (f->flag[0] > f->flag[1] && f->flag[0] > f->size &&
+		f->flag[13] == 1)
 		f->ret = f->flag[0];
 	if (f->flag[4] == 1)
 		return (ft_flag_moins(f));

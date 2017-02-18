@@ -44,24 +44,26 @@ static int	ft_flag_zero(t_flag *f)
 {
 	int i;
 
-	i = f->flag[1] - f->size;
-	if (f->flag[2] == 1)
+	i = f->flag[1] - f->size - f->p;
+	if (f->flag[2] == 1 && ft_atoi(f->arg) != 0)
 		i = i - f->x;
 	if (i < 0)
 		i = 0;
-	if (f->sign == '+' && f->flag[5] == 1)
+	if (f->sign == 43 && f->flag[5] == 1)
 		ft_putchar('+');
-	if (f->sign == '-')
+	if (f->sign == 45)
 	{
 		f->arg = ft_rotcstring(f->arg);
 		ft_putchar('-');
 	}
 	if (f->flag[2] == 1)
 	{
-		ft_putstr(f->Ox);
+		if (ft_atoi(f->arg) != 0 && f->flag[0] != -1)
+			ft_putstr(f->Ox);
 		free(f->Ox);
 	}
-	ft_putcstr('0', i);
+	if (f->flag[1] > f->size)
+		ft_putcstr('0', i);
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
 	if (f->flag[13] == 1 && f->p > 0)
@@ -75,18 +77,17 @@ static int	ft_flag_moins(t_flag *f)
 {
 	int i;
 
-	i = f->flag[1] - f->size;
-	if (f->flag[2] == 1)
+	i = f->flag[1] - f->size - f->p;
+	if (f->flag[2] == 1 && ft_atoi(f->arg) != 0)
 		i = i - f->x;
 	if (i < 0)
 		i = 0;
-	if ((f->c == 'd' || f->c == 'D' ||
-		f->c == 'i') && f->flag[5] == 1)
-		if (f->sign == '+')
-			ft_putchar('+');
+	if (f->sign == '+' && f->flag[5] == 1)
+		ft_putchar('+');
 	if (f->flag[2] == 1)
 	{
-		ft_putstr(f->Ox);
+		if (f->arg[0] != '0' && f->flag[0] != -1)
+			ft_putstr(f->Ox);
 		free(f->Ox);
 	}
 	if (f->c == 'X')
@@ -103,17 +104,17 @@ static int	ft_flag_plus(t_flag *f)
 {
 	int i;
 
-	i = f->flag[1] - f->size;
-	if (f->flag[2] == 1)
+	i = f->flag[1] - f->size - f->p;
+	if (f->flag[2] == 1 && ft_atoi(f->arg) != 0)
 		i = i - f->x;
-	if ((f->c == 'd' || f->c == 'D' ||
-		f->c == 'i') && f->flag[5] == 1)
-		if (f->sign == '+')
-			ft_putchar('+');
-	ft_putcstr(' ', i);
+	if (f->sign == 43 && f->flag[5] == 1)
+		ft_putchar('+');
+	if (f->flag[1] > f->size)
+		ft_putcstr(' ', i);
 	if (f->flag[2] == 1)
 	{
-		ft_putstr(f->Ox);
+		if (f->arg[0] != '0' && f->flag[0] != -1)
+			ft_putstr(f->Ox);
 		free(f->Ox);
 	}
 	if (f->c == 'X')
@@ -127,10 +128,10 @@ static int	ft_flag_plus(t_flag *f)
 
 int			ft_flags_int(t_flag *f)
 {
-	f->size = ft_strlen(f->arg);
 	if (f->flag[1] > f->size)
 		f->ret = f->flag[1];
-	if (f->flag[0] > f->flag[1])
+	if (f->flag[0] > f->flag[1] && f->flag[0] > f->size &&
+		f->flag[13] == 1)
 		f->ret = f->flag[0];
 	if (f->flag[5] == 1)
 		f->sign = ft_sign(f->arg);
@@ -150,7 +151,8 @@ int			ft_flags_int(t_flag *f)
 	}
 	if (f->flag[2] == 1)
 	{
-		ft_putstr(f->Ox);
+		if (f->arg[0] != '0' && f->flag[0] != -1)
+			ft_putstr(f->Ox);
 		free(f->Ox);
 	}
 	if (f->c == 'X')

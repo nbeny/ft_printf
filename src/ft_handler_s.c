@@ -31,9 +31,12 @@ int	ft_handler_ws(t_flag *f, va_list *ap)
 	f->size = i;
 	if (f->warg == NULL)
 		f->arg = ft_strdup("(null)");
-	if (f->flag[1] > ft_strlen(f->arg))
+	if (f->flag[2] == 1 || f->flag[3] == 1 ||
+		f->flag[4] == 1 || f->flag[5] == 1 ||
+		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
+		f->flag[13] == 1)
 		return (ft_flags_char(f));
-	f->ret += ft_strlen((char *)f->warg);
+	f->ret += f->size;
 	ft_putstr((char *)f->warg);
 	return (0);
 }
@@ -46,9 +49,12 @@ int	ft_handler_s(t_flag *f, va_list *ap)
 	f->size = ft_strlen(f->arg);
 	if (f->arg == NULL)
 		f->arg = ft_strdup("(null)");
-	if (f->flag[1] > f->size)
+	if (f->flag[2] == 1 || f->flag[3] == 1 ||
+		f->flag[4] == 1 || f->flag[5] == 1 ||
+		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
+		f->flag[13] == 1)
 		return (ft_flags_char(f));
-	f->ret += ft_strlen(f->arg);
+	f->ret += f->size;
 	ft_putstr(f->arg);
 	return (0);
 }

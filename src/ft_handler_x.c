@@ -32,11 +32,15 @@ int		ft_modifier_x(t_flag *f, va_list *ap)
 int		ft_handler_wx(t_flag *f, va_list *ap)
 {
 	f->arg = ft_uitoa_base((unsigned int)va_arg(*ap, unsigned int), 16);
-	if (f->flag[1] > ft_strlen(f->arg))
+	f->size = ft_strlen(f->arg);
+	if (f->flag[2] == 1 || f->flag[3] == 1 ||
+		f->flag[4] == 1 || f->flag[5] == 1 ||
+		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
+		f->flag[13] == 1)
 		return (ft_flags_int(f));
-	f->ret += ft_strlen(f->arg);
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
+	f->ret += f->size;
 	ft_putstr(f->arg);
 	return (0);
 }
@@ -47,18 +51,16 @@ int		ft_handler_x(t_flag *f, va_list *ap)
 		f->flag[9] == 1 || f->flag[10] == 1 ||
 		f->flag[11] == 1 || f->flag[12] == 1)
 		return (ft_modifier_x(f, ap));
-	if (f->flag[7] != 1 && f->flag[8] != 1 &&
-		f->flag[9] != 1 && f->flag[10] != 1 &&
-		f->flag[11] != 1 && f->flag[12] != 1)
-		f->arg = ft_uitoa_base((unsigned int)va_arg(*ap, unsigned int), 16);
+	f->arg = ft_uitoa_base((unsigned int)va_arg(*ap, unsigned int), 16);
+	f->size = ft_strlen(f->arg);
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||
 		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
 		f->flag[13] == 1)
 		return (ft_flags_int(f));
-	f->ret += ft_strlen(f->arg);
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
+	f->ret += f->size;
 	ft_putstr(f->arg);
 	return (0);
 }
