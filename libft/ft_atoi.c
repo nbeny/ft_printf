@@ -21,7 +21,10 @@ int		ft_atoi(const char *s)
 	i = 0;
 	negatif = 0;
 	n = 0;
-	while (s[i] < 33 && s[i] >= 0)
+	
+	while (s[i] == '\t' || s[i] == '\v' ||
+		s[i] == '\r' || s[i] == '\f' ||
+		s[i] == '\n' || s[i] == ' ')
 		i++;
 	if (s[i] == '-')
 		negatif = 1;
