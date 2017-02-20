@@ -14,7 +14,7 @@
 
 char	ft_sign(char *s)
 {
-	if (s[0] == '-')
+	if (ft_atoi(s) < 0)
 		return ('-');
 	else
 		return ('+');

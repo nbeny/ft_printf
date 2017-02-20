@@ -27,7 +27,9 @@ static int	ft_flag_moins(t_flag *f)
 		ft_putnstr(f->arg, f->size);
 	else if (f->warg != NULL)
 		ft_putnstr((char *)f->warg, f->size);
+	f->ret += f->size;
 	ft_putcstr(' ', i);
+	f->ret += i;
 	return (0);
 }
 
@@ -43,10 +45,12 @@ static int	ft_flag_plus(t_flag *f)
 	}
 	i = f->flag[1] - f->size;
 	ft_putcstr(' ', i);
+	f->ret += i;
 	if (f->arg != NULL)
 		ft_putnstr(f->arg, f->size);
 	else if (f->warg != NULL)
 		ft_putnstr((char *)f->warg, f->size);
+	f->ret += f->size;
 	return (0);
 }
 
@@ -62,20 +66,17 @@ static int	ft_flag_zero(t_flag *f)
 	}
 	i = f->flag[1] - f->size;
 	ft_putcstr('0', i);
+	f->ret += i;
 	if (f->arg != NULL)
 		ft_putnstr(f->arg, f->size);
 	else if (f->warg != NULL)
 		ft_putnstr((char *)f->warg, f->size);
+	f->ret += f->size;
 	return (0);
 }
 
 int			ft_flags_char(t_flag *f)
 {
-	if (f->flag[1] > f->size)
-		f->ret = f->flag[1];
-	if (f->flag[0] > f->flag[1] && f->flag[0] > f->size &&
-		f->flag[13] == 1)
-		f->ret = f->flag[0];
 	if (f->flag[4] == 1)
 		return (ft_flag_moins(f));
 	else if (f->flag[3] == 1)
@@ -93,5 +94,6 @@ int			ft_flags_char(t_flag *f)
 		ft_putnstr(f->arg, f->size);
 	else if (f->warg != NULL)
 		ft_putnstr((char *)f->warg, f->size);
+	f->ret += f->size;
 	return (f->ret);
 }

@@ -14,7 +14,7 @@
 
 void	ft_check_flag(t_flag *f)
 {
-	if (f->format[f->i] == '#' || f->format[f->i] == '0' ||
+	while (f->format[f->i] == '#' || f->format[f->i] == '0' ||
 		f->format[f->i] == '-' || f->format[f->i] == '+' ||
 		f->format[f->i] == ' ')
 	{
