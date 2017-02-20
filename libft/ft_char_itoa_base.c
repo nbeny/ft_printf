@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:13 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 07:07:54 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/20 15:41:20 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ char		*ft_char_itoa_base(signed char nb, int base)
 	signed char	n;
 	int			i[2];
 
+	if (nb == (signed char)-128 || nb == (signed char)128)
+		return (ft_strdup("-128"));
 	n = nb;
 	ft_init(s);
 	i[0] = ft_size_nbr(tab, s, nb, base);
@@ -74,3 +76,5 @@ char		*ft_char_itoa_base(signed char nb, int base)
 	itoa[i[1]] = 0;
 	return (itoa);
 }
+
+

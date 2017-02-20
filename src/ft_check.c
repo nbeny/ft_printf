@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:59 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/20 11:50:01 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/20 13:59:06 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	ft_check_width(t_flag *f)
 	char	*str;
 
 	i = f->i;
-	if (ft_isdigit(f->format[f->i]))
+	if ((ft_isdigit(f->format[f->i]) && f->format[f->i] != '0') ||
+		(ft_isdigit(f->format[f->i]) && ft_isdigit(f->format[f->i + 1])))
 	{
 		while (ft_isdigit(f->format[f->i]))
 			f->i++;

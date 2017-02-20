@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:55:29 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 07:21:48 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/20 15:25:53 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ char		*ft_litoa_base(long int nb, int base)
 	long int	n;
 	int			i[2];
 
+	if (nb == -2147483648 || nb == -2147483649)
+		return (ft_strdup("0"));
 	n = nb;
 	ft_init(s);
 	i[0] = ft_size_nbr(tab, s, nb, base);
