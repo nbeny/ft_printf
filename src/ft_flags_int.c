@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:46 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 14:18:08 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/20 10:17:17 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ static int	ft_flag_zero(t_flag *f)
 		i = i - f->x;
 	if (ft_atoi(f->arg) == 0)
 		i += 1;
-	if (f->sign == 43 && f->flag[5] == 1)
+	if (f->flag[5] == 1 && f->arg[0] != '-')
 	{
 		ft_putchar('+');
 		f->ret += 1;
 		i--;
 	}
-	if (f->sign == 45)
+	if (f->arg[0] == '-')
 	{
 		f->arg = ft_rotcstring(f->arg);
 		ft_putchar('-');
@@ -69,7 +69,7 @@ static int	ft_flag_zero(t_flag *f)
 		}
 		free(f->Ox);
 	}
-	if (f->flag[1] > f->size && i > 0)
+	if (i > 0)
 	{
 		ft_putcstr('0', i);
 		f->ret += i;
@@ -81,7 +81,7 @@ static int	ft_flag_zero(t_flag *f)
 		ft_putcstr('0', f->p);
 		f->ret += f->p;
 	}
-	if (f->flag[0] != -1)
+	if (f->flag[0] != -1 && f->arg[0] != 0)
 	{
 		ft_putstr(f->arg);
 		f->ret += f->size;
@@ -98,11 +98,16 @@ static int	ft_flag_moins(t_flag *f)
 		i = i - f->x;
 	if (ft_atoi(f->arg) == 0)
 		i += 1;
-	if (f->sign == 43 && f->flag[5] == 1)
+	if (f->flag[5] == 1 && f->arg[0] != '-')
 	{
 		ft_putchar('+');
 		f->ret += 1;
 		i--;
+	}
+	if (f->arg[0] == '-')
+	{
+		f->arg = ft_rotcstring(f->arg);
+		ft_putchar('-');
 	}
 	if (f->flag[2] == 1)
 	{
@@ -115,17 +120,12 @@ static int	ft_flag_moins(t_flag *f)
 	}
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
-	if (f->sign == 45 && f->flag[13] == 1)
-	{
-		f->arg = ft_rotcstring(f->arg);
-		ft_putchar('-');
-	}
 	if (f->flag[13] == 1 && f->p > 0)
 	{
 		ft_putcstr('0', f->p);
 		f->ret += f->p;
 	}
-	if (f->flag[0] != -1)
+	if (f->flag[0] != -1 && f->arg[0] != 0)
 	{
 		ft_putstr(f->arg);
 		f->ret += f->size;
@@ -147,16 +147,21 @@ static int	ft_flag_plus(t_flag *f)
 		i = i - f->x;
 	if (ft_atoi(f->arg) == 0)
 		i += 1;
-	if (f->flag[1] > f->size && i > 0)
+	if (i > 0)
 	{
 		ft_putcstr(' ', i);
 		f->ret += i;
 	}
-	if (f->sign == 43 && f->flag[5] == 1)
+	if (f->flag[5] == 1 && f->arg[0] != '-')
 	{
 		ft_putchar('+');
 		f->ret += 1;
 		i--;
+	}
+	if (ft_atoi(f->arg) < 0 && f->flag[13] == 1)
+	{
+		f->arg = ft_rotcstring(f->arg);
+		ft_putchar('-');
 	}
 	if (f->flag[2] == 1)
 	{
@@ -169,17 +174,12 @@ static int	ft_flag_plus(t_flag *f)
 	}
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
-	if (f->sign == 45 && f->flag[13] == 1)
-	{
-		f->arg = ft_rotcstring(f->arg);
-		ft_putchar('-');
-	}
 	if (f->flag[13] == 1 && f->p > 0)
 	{
 		ft_putcstr('0', f->p);
 		f->ret += f->p;
 	}
-	if (f->flag[0] != -1)
+	if (f->flag[0] != -1 && f->arg[0] != 0)
 	{
 		ft_putstr(f->arg);
 		f->ret += f->size;
@@ -223,20 +223,10 @@ int			ft_flags_int(t_flag *f)
 		ft_putcstr('0', f->p);
 		f->ret += f->p;
 	}
-	if (f->flag[0] != -1)
+	if (f->flag[0] != -1 && f->arg[0] != 0)
 	{
 		ft_putstr(f->arg);
-		f->ret += f->size;
+		f->ret += ft_strlen(f->arg);
 	}
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-

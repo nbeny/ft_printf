@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:59 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 10:55:37 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/20 09:39:19 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_check_flag(t_flag *f)
 {
-	while (f->format[f->i] == '#' || f->format[f->i] == '0' ||
+	if (f->format[f->i] == '#' || f->format[f->i] == '0' ||
 		f->format[f->i] == '-' || f->format[f->i] == '+' ||
 		f->format[f->i] == ' ')
 	{
