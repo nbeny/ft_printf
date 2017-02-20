@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:59 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/20 11:50:01 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/20 11:06:31 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_check_modifier(t_flag *f)
 			f->flag[8] = 1;
 		if (f->format[f->i] == 'l' && f->format[f->i + 1] == 'l')
 		{
-			f->flag[9] = 1;
+			f->flag[7] = 1;
 			f->i++;
 		}
 		else if (f->format[f->i] == 'l')
