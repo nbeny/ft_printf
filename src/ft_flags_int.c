@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:46 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/20 12:14:17 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/20 13:12:45 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,16 +193,13 @@ int			ft_flags_int(t_flag *f)
 		f->x = ft_flag_Ox(f);
 	if (f->flag[13] == 1)
 		ft_precision(f);
-	if (f->flag[1] > ft_strlen(f->arg))
-	{
-		if (f->flag[3] == 1)
-			return (ft_flag_zero(f));
-		else if (f->flag[4] == 1)
-			return (ft_flag_moins(f));
-		else if (f->flag[5] == 1 || f->flag[6] == 1 ||
-				f->flag[1] > ft_strlen(f->arg))
-			return (ft_flag_plus(f));
-	}
+	if (f->flag[3] == 1)
+		return (ft_flag_zero(f));
+	if (f->flag[4] == 1)
+		return (ft_flag_moins(f));
+	if (f->flag[5] == 1 || f->flag[6] == 1 ||
+		f->flag[1] > ft_strlen(f->arg))
+		return (ft_flag_plus(f));
 	if (f->flag[2] == 1)
 	{
 		if (f->arg[0] != '0' && f->flag[0] != -1)
