@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:46 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/20 16:19:21 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/21 14:55:17 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ static int	ft_flag_moins(t_flag *f)
 	{
 		f->arg = ft_rotcstring(f->arg);
 		ft_putchar('-');
+		f->p += 1;
 	}
 	if (f->flag[2] == 1)
 	{
@@ -148,6 +149,8 @@ static int	ft_flag_plus(t_flag *f)
 		i = i - f->x;
 	if (ft_atoi(f->arg) == 0)
 		i += 1;
+	if (f->flag[5] == 1 && f->arg[0] != '-')
+		i--;
 	if (i > 0)
 	{
 		ft_putcstr(' ', i);
@@ -157,7 +160,6 @@ static int	ft_flag_plus(t_flag *f)
 	{
 		ft_putchar('+');
 		f->ret += 1;
-		i--;
 	}
 	if (ft_atoi(f->arg) < 0 && f->flag[13] == 1)
 	{
@@ -182,6 +184,12 @@ static int	ft_flag_plus(t_flag *f)
 	}
 	if (f->flag[0] != -1)
 	{
+		if (f->c == 'd' && f->format[f->i - 1] == ' ' &&
+			f->format[f->i - 2] == '%' && f->arg[0] != '-')
+		{
+			ft_putchar(' ');
+			f->ret += 1;
+		}
 		ft_putstr(f->arg);
 		f->ret += f->size;
 	}
@@ -201,9 +209,17 @@ int			ft_flags_int(t_flag *f)
 	if (f->flag[5] == 1 || f->flag[6] == 1 ||
 		f->flag[1] > ft_strlen(f->arg))
 		return (ft_flag_plus(f));
+	if (ft_atoi(f->arg) < 0 && f->flag[13] == 1)
+	{
+		f->arg = ft_rotcstring(f->arg);
+		ft_putchar('-');
+		f->p += 1;
+		f->ret += 1;
+	}
 	if (f->flag[2] == 1)
 	{
-		if (f->arg[0] != '0' && f->flag[0] != -1)
+		if ((f->arg[0] != '0' && f->flag[0] != -1) ||
+			f->c == 'o')
 		{
 			ft_putstr(f->Ox);
 			f->ret += f->x;
@@ -219,7 +235,7 @@ int			ft_flags_int(t_flag *f)
 		ft_putcstr('0', f->p);
 		f->ret += f->p;
 	}
-	if (f->flag[0] != -1)
+	if (f->flag[0] != -1 || (f->c == 'd' && ft_atoi(f->arg) != 0))
 	{
 		ft_putstr(f->arg);
 		f->ret += ft_strlen(f->arg);

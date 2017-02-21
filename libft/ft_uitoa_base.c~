@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_litoa_base.c                                    :+:      :+:    :+:   */
+/*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/16 13:55:29 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/21 12:04:00 by nbeny            ###   ########.fr       */
+/*   Created: 2017/02/16 14:10:09 by nbeny             #+#    #+#             */
+/*   Updated: 2017/02/21 15:13:23 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,11 @@ static void	ft_init(char *s)
 	s[15] = 'f';
 }
 
-static int	ft_size_nbr(int *tab, char *s,
-						long int nb, int base)
+static int	ft_size_nbr(int *tab, char *s, unsigned int nb, int base)
 {
 	int i;
 
 	i = 0;
-	if (nb < 0)
-		nb = nb * -1;
 	while (nb != 0)
 	{
 		tab[i] = s[nb % base];
@@ -50,28 +47,27 @@ static int	ft_size_nbr(int *tab, char *s,
 	return (i);
 }
 
-char		*ft_litoa_base(long int nb, int base)
+char		*ft_uitoa_base(unsigned int nb, int base)
 {
-	char		*itoa;
-	char		s[16];
-	int			tab[64];
-	long int	n;
-	int			i[2];
+	char			*itoa;
+	char			s[16];
+	int				tab[64];
+	unsigned int	n;
+	int				i[2];
 
-	if (nb == -2147483648 || nb == -2147483648)
+	if (nb == 0)
 		return (ft_strdup("0"));
+	if (nb == (unsigned int)4294967296)
+	{
+		itoa = ft_strdup("100000000");
+		return (itoa);
+	}
 	n = nb;
 	ft_init(s);
 	i[0] = ft_size_nbr(tab, s, nb, base);
 	if (!(itoa = (char *)malloc(sizeof(char) * (i[0] + 1))))
 		return (NULL);
 	i[1] = 0;
-	if (n < 0)
-	{
-		itoa[0] = '-';
-		n = 1;
-		i[1]++;
-	}
 	while (i[0] >= 0)
 		itoa[i[1]++] = tab[i[0]--];
 	itoa[i[1]] = 0;

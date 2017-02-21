@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:59 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/20 13:59:06 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/21 14:07:45 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	ft_check_flag(t_flag *f)
 {
-	if (f->format[f->i] == '#' || f->format[f->i] == '0' ||
+	if (f->format[f->i] == '#' || f->format[f->i] == ' ' ||
+		(f->format[f->i] == '0' && f->c != 'd') ||
 		f->format[f->i] == '-' || f->format[f->i] == '+' ||
-		f->format[f->i] == ' ')
+		(f->format[f->i] == '0' && f->c == 'd' &&
+		 !ft_isdigit(f->format[f->i + 1])))
 	{
 		if (f->format[f->i] == '#')
 			f->flag[2] = 1;
@@ -39,7 +41,7 @@ void	ft_check_width(t_flag *f)
 
 	i = f->i;
 	if ((ft_isdigit(f->format[f->i]) && f->format[f->i] != '0') ||
-		(ft_isdigit(f->format[f->i]) && ft_isdigit(f->format[f->i + 1])))
+		(ft_isdigit(f->format[f->i]) && f->c == 'd'))
 	{
 		while (ft_isdigit(f->format[f->i]))
 			f->i++;

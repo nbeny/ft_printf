@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:10:09 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 07:25:15 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/21 15:30:18 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ char		*ft_uitoa_base(unsigned int nb, int base)
 	unsigned int	n;
 	int				i[2];
 
+	if (nb == 4294967296 && base == 16)
+		return (ft_strdup("100000000"));
 	if (nb == 0)
 		return (ft_strdup("0"));
 	n = nb;

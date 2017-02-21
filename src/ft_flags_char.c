@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:36 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/20 13:29:45 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/21 12:32:38 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,15 @@ static int	ft_flag_zero(t_flag *f)
 
 int			ft_flags_char(t_flag *f)
 {
-	if (f->flag[4] == 1)
+	if (f->flag[4] == 1 && f->flag[1] > f->size)
 		return (ft_flag_moins(f));
-	if (f->flag[3] == 1)
+	if (f->flag[3] == 1 && f->flag[1] > f->size)
 		return (ft_flag_zero(f));
-	if (f->flag[5] == 1 || f->flag[6] == 1 ||
-			f->flag[1] > f->size)
+	if ((f->flag[5] == 1 && f->flag[1] > f->size) ||
+		(f->flag[6] == 1 && f->flag[1] > f->size) ||
+		f->flag[1] > f->size)
 		return (ft_flag_plus(f));
-	if (f->flag[13] == 1 && f->flag[0] < f->size)
+	if (f->flag[13] == 1 && f->flag[0] < f->size && f->c != '%')
 	{
 		if (f->flag[0] == -1)
 			f->flag[0] = 0;
