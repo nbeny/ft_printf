@@ -104,14 +104,15 @@ char			*ft_ushort_itoa_base(unsigned short int n, int size);
 char			*ft_char_itoa_base(signed char n, int size);
 char			*ft_uchar_itoa_base(unsigned char n, int size);
 void			ft_putnstr(char *s, int n);
+void			ft_putnbr_base(int nb, char *base);
+void			ft_uputnbr_base(unsigned int nb, char *base);
+void			ft_char_putnbr_base(signed char nb, char *base);
+void			ft_uchar_putnbr_base(unsigned char nb, char *base);
+void			ft_lputnbr_base(long int nb, char *base);
+void			ft_ulputnbr_base(unsigned long int nb, char *base);
+void			ft_llputnbr_base(long long int nb, char *base);
+void			ft_ullputnbr_base(unsigned long long int nb, char *base);
+void			ft_max_putnbr_base(intmax_t nb, char *base);
+void			ft_umax_putnbr_base(uintmax_t nb, char *base);
+void			ft_size_putnbr_base(size_t nb, char *base);
 #endif
-
-
-
-
-
-
-
-
-
-

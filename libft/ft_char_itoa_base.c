@@ -49,6 +49,14 @@ static int	ft_size_nbr(int *tab, char *s, signed char nb, int base)
 	return (i);
 }
 
+static char	*ft_special(signed char nb, int base)
+{
+	if (nb == 0)
+		return (ft_strdup("0"));
+	if ((nb == (signed char)-128 || nb == (signed char)128) && base == 10)
+		return (ft_strdup("-128"));
+	return (NULL);
+}
 char		*ft_char_itoa_base(signed char nb, int base)
 {
 	char		*itoa;
@@ -57,10 +65,10 @@ char		*ft_char_itoa_base(signed char nb, int base)
 	signed char	n;
 	int			i[2];
 
-	if (nb == (signed char)-128 || nb == (signed char)128)
-		return (ft_strdup("-128"));
 	n = nb;
 	ft_init(s);
+	if ((itoa = ft_special(nb, base)) != NULL)
+		return (itoa);
 	i[0] = ft_size_nbr(tab, s, nb, base);
 	if (!(itoa = (char *)malloc(sizeof(char) * (i[0] + 1))))
 		return (NULL);

@@ -55,7 +55,7 @@ char		*ft_size_itoa_base(size_t nb, int base)
 	size_t	n;
 	int		i[2];
 
-	if (nb == (size_t)-0 || nb == (size_t)-1)
+	if (nb == 0 || nb == (size_t)-0 || nb == (size_t)-1)
 		return (ft_strdup("0"));
 	n = nb;
 	ft_init(s);

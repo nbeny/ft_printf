@@ -55,8 +55,6 @@ char		*ft_uitoa_base(unsigned int nb, int base)
 	unsigned int	n;
 	int				i[2];
 
-	if (nb == 4294967296 && base == 16)
-		return (ft_strdup("100000000"));
 	if (nb == 0)
 		return (ft_strdup("0"));
 	n = nb;

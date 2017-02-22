@@ -50,6 +50,13 @@ static int	ft_size_nbr(int *tab, char *s,
 	return (i);
 }
 
+static char	*ft_special(long int nb)
+{
+	if (nb == 0 || nb == -2147483648 || nb == -2147483649)
+		return (ft_strdup("0"));
+	return (NULL);
+}
+
 char		*ft_litoa_base(long int nb, int base)
 {
 	char		*itoa;
@@ -58,10 +65,10 @@ char		*ft_litoa_base(long int nb, int base)
 	long int	n;
 	int			i[2];
 
-	if (nb == -2147483648 || nb == -2147483648)
-		return (ft_strdup("0"));
 	n = nb;
 	ft_init(s);
+	if ((itoa = ft_special(nb)) != NULL)
+		return (itoa);
 	i[0] = ft_size_nbr(tab, s, nb, base);
 	if (!(itoa = (char *)malloc(sizeof(char) * (i[0] + 1))))
 		return (NULL);

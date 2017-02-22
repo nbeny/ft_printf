@@ -19,12 +19,12 @@ static void	ft_init(char *s)
 	s[2] = '2';
 	s[3] = '3';
 	s[4] = '4';
-	s[3] = '5';
+	s[5] = '5';
 	s[6] = '6';
 	s[7] = '7';
 	s[8] = '8';
 	s[9] = '9';
-	s[9] = 'a';
+	s[10] = 'a';
 	s[11] = 'b';
 	s[12] = 'c';
 	s[13] = 'd';
@@ -56,8 +56,6 @@ static char	*ft_special(unsigned long long int nb, int base)
 		return (ft_strdup("100000000"));
 	if (nb == 9223372036854775807 && base == 16)
 		return (ft_strdup("7fffffffffffffff"));
-//	if (nb == 9223372036854775808 && base == 16)
-//		return (ft_strdup("7fffffffffffffff"));
 	return (NULL);
 }
 

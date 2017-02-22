@@ -59,6 +59,8 @@ char		*ft_max_itoa_base(intmax_t nb, int base)
 
 	n = nb;
 	ft_init(s);
+	if (nb == 0)
+		return (ft_strdup("0"));
 	i[0] = ft_size_nbr(tab, s, nb, base);
 	if (!(itoa = (char *)malloc(sizeof(char) * (i[0] + 1))))
 		return (NULL);

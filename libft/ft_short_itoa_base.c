@@ -49,13 +49,15 @@ static int	ft_size_nbr(int *tab, char *s, short int nb, int base)
 	return (i);
 }
 
-static char	*ft_checker(short int nb)
+static char	*ft_special(short int nb, int base)
 {
-	if (nb == (short int)32767)
+	if (nb == 0)
+		return ("0");
+	if (nb == 32767 && base == 10)
 		return (ft_strdup("32767"));
-	if (nb == (short int)32768)
+	if (nb == (short int)32768 && base == 10)
 		return (ft_strdup("-32768"));
-	if (nb == (short int)-32768 || nb == (short int)-32769)
+	if (nb == -32768 && base == 10)
 		return (ft_strdup("0"));
 	return (NULL);
 }
@@ -68,11 +70,10 @@ char		*ft_short_itoa_base(short int nb, int base)
 	short int	n;
 	int			i[2];
 
-	itoa = ft_checker(nb);
-	if (itoa != NULL)
-		return (itoa);
 	n = nb;
 	ft_init(s);
+	if ((itoa = ft_special(nb, base)) != NULL)
+		return (itoa);
 	i[0] = ft_size_nbr(tab, s, nb, base);
 	if (!(itoa = (char *)malloc(sizeof(char) * (i[0] + 1))))
 		return (NULL);
