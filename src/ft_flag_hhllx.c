@@ -26,6 +26,7 @@ int		ft_handler_hhx(t_flag *f, va_list *ap)
 		ft_capitalizer(f->arg);
 	f->ret = f->size;
 	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }
 
@@ -43,6 +44,7 @@ int		ft_handler_hx(t_flag *f, va_list *ap)
 		ft_capitalizer(f->arg);
 	ft_putstr(f->arg);
 	f->ret += f->size;
+	free(f->arg);
 	return (0);
 }
 
@@ -60,6 +62,7 @@ int		ft_handler_llx(t_flag *f, va_list *ap)
 		ft_capitalizer(f->arg);
 	f->ret = f->size;
 	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }
 
@@ -77,5 +80,6 @@ int		ft_handler_lx(t_flag *f, va_list *ap)
 		ft_capitalizer(f->arg);
 	f->ret += f->size;
 	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }

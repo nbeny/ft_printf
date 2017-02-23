@@ -86,6 +86,7 @@ static int	ft_flag_zero(t_flag *f)
 	{
 		ft_putstr(f->arg);
 		f->ret += f->size;
+		free(f->arg);
 	}
 	return (0);
 }
@@ -131,6 +132,7 @@ static int	ft_flag_moins(t_flag *f)
 	{
 		ft_putstr(f->arg);
 		f->ret += f->size;
+		free(f->arg);
 	}
 	if (i > 0)
 	{
@@ -193,6 +195,7 @@ static int	ft_flag_plus(t_flag *f)
 		}
 		ft_putstr(f->arg);
 		f->ret += f->size;
+		free(f->arg);
 	}
 	return (0);
 }
@@ -258,6 +261,7 @@ int			ft_flags_int(t_flag *f)
 	{
 		ft_putstr(f->arg);
 		f->ret += ft_strlen(f->arg);
+		free(f->arg);
 	}
 	return (0);
 }

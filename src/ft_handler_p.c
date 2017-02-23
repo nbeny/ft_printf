@@ -24,5 +24,6 @@ int	ft_handler_p(t_flag *f, va_list *ap)
 		return (ft_flags_int(f));
 	ft_putstr(f->arg);
 	f->ret += f->size;
+	free(f->arg);
 	return (0);
 }

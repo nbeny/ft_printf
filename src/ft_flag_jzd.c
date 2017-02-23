@@ -23,6 +23,7 @@ int		ft_handler_jd(t_flag *f, va_list *ap)
 		return (ft_flags_int(f));
 	f->ret += f->size;
 	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }
 
@@ -37,5 +38,6 @@ int		ft_handler_zd(t_flag *f, va_list *ap)
 		return (ft_flags_int(f));
 	f->ret += f->size;
 	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }

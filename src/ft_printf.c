@@ -29,6 +29,7 @@ static t_flag	ft_init_f(t_flag f)
 	f.Ox = NULL;
 	f.x = 0;
 	f.p = 0;
+	f.free = 0;
 	return (f);
 }
 
@@ -47,6 +48,8 @@ int			ft_fill_stdout(const char *format, va_list *ap)
 			f = ft_init_f(f);
 			f.format = (char *)&format[++i];
 			ft_dispatcher(&f, ap);
+			if (f.free == 1)
+				free(f.arg);
 			ret += f.ret;
 			i += f.i;
 		}

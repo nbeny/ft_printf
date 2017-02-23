@@ -23,6 +23,7 @@ int		ft_handler_hho(t_flag *f, va_list *ap)
 		return (ft_flags_int(f));
 	f->ret += f->size;
 	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }
 
@@ -38,6 +39,7 @@ int		ft_handler_ho(t_flag *f, va_list *ap)
 		return (ft_flags_int(f));
 	f->ret += f->size;
 	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }
 
@@ -53,6 +55,7 @@ int		ft_handler_llo(t_flag *f, va_list *ap)
 		return (ft_flags_int(f));
 	f->ret += f->size;
 	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }
 
@@ -68,5 +71,6 @@ int		ft_handler_lo(t_flag *f, va_list *ap)
 		return (ft_flags_int(f));
 	f->ret += f->size;
 	ft_putstr(f->arg);
+	free(f->arg);
 	return (0);
 }

@@ -15,13 +15,11 @@
 
 int		main(int ac, char **av)
 {
-	unsigned long long int i;
-	int						ret;
+	int				ret;
 
 	(void)ac;
 	(void)av;
-	i = 4294967295;
-	ret = ft_printf("%+u", i);
-	printf("%+d", ret);
+	ret = ft_printf("%**rS\n", "ࠄࠄࠄ");
+	printf("%d", ret);
 	return (0);
 }

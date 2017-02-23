@@ -32,6 +32,7 @@ typedef struct	s_flag
 	char	*Ox;
 	int		x;
 	int		p;
+	int		free;
 }				t_flag;
 
 typedef struct	s_spec
