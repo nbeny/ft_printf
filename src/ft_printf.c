@@ -64,6 +64,8 @@ int				ft_printf(const char *format, ...)
 	va_list	ap;
 	int		ret;
 
+	if (format == NULL)
+		return (0);
 	va_start(ap, format);
 	ret = ft_fill_stdout(format, &ap);
 	va_end(ap);

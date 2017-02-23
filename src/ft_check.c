@@ -15,10 +15,8 @@
 void	ft_check_flag(t_flag *f)
 {
 	if (f->format[f->i] == '#' || f->format[f->i] == ' ' ||
-		(f->format[f->i] == '0' && f->c != 'd') ||
-		f->format[f->i] == '-' || f->format[f->i] == '+' ||
-		(f->format[f->i] == '0' && f->c == 'd' &&
-		 !ft_isdigit(f->format[f->i + 1])))
+		f->format[f->i] == '0' || f->format[f->i] == '-' ||
+		f->format[f->i] == '+')
 	{
 		if (f->format[f->i] == '#')
 			f->flag[2] = 1;
@@ -40,8 +38,7 @@ void	ft_check_width(t_flag *f)
 	char	*str;
 
 	i = f->i;
-	if ((ft_isdigit(f->format[f->i]) && f->format[f->i] != '0') ||
-		(ft_isdigit(f->format[f->i]) && f->c == 'd'))
+	if (ft_isdigit(f->format[f->i]) && f->format[i] != '0')
 	{
 		while (ft_isdigit(f->format[f->i]))
 			f->i++;
@@ -81,7 +78,7 @@ void	ft_check_precision(t_flag *f)
 void	ft_check_modifier(t_flag *f)
 {
 	while (f->format[f->i] == 'h' || f->format[f->i] == 'l' ||
-			f->format[f->i] == 'j' || f->format[f->i] == 'z')
+		f->format[f->i] == 'j' || f->format[f->i] == 'z')
 	{
 		if (f->format[f->i] == 'h' && f->format[f->i + 1] == 'h')
 		{
@@ -108,10 +105,10 @@ void	ft_check_modifier(t_flag *f)
 int		ft_check(t_flag *f)
 {
 	while (f->format[f->i] == '#' || f->format[f->i] == '0' ||
-			f->format[f->i] == '-' || f->format[f->i] == '+' ||
-			f->format[f->i] == ' ' || f->format[f->i] == 'h' ||
-			f->format[f->i] == 'l' || f->format[f->i] == 'j' ||
-			f->format[f->i] == 'z' || f->format[f->i] == '.' ||
+		f->format[f->i] == '-' || f->format[f->i] == '+' ||
+		f->format[f->i] == ' ' || f->format[f->i] == 'h' ||
+		f->format[f->i] == 'l' || f->format[f->i] == 'j' ||
+		f->format[f->i] == 'z' || f->format[f->i] == '.' ||
 			ft_isdigit(f->format[f->i]))
 	{
 		ft_check_flag(f);

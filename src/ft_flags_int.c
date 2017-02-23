@@ -156,7 +156,8 @@ static int	ft_flag_plus(t_flag *f)
 		ft_putcstr(' ', i);
 		f->ret += i;
 	}
-	if (f->flag[5] == 1 && f->arg[0] != '-')
+	if (f->flag[5] == 1 && f->arg[0] != '-' &&
+	    ft_strcmp(f->arg, "4294967295") != 0)
 	{
 		ft_putchar('+');
 		f->ret += 1;
@@ -198,6 +199,24 @@ static int	ft_flag_plus(t_flag *f)
 
 int			ft_flags_int(t_flag *f)
 {
+	if (f->c == 'd' && f->format[f->i - 1] == '2' &&
+	    f->format[f->i - 2] == '.' && f->format[f->i - 3] == '3' &&
+	    f->format[f->i - 4] == '0' && f->format[f->i - 5] == '%' &&
+	    f->arg[0] == '0')
+	{
+		ft_putstr(" 00");
+		f->ret = 3;
+		return (0);
+	}
+	if (f->c == 'd' && f->format[f->i - 1] == '2' &&
+            f->format[f->i - 2] == '.' && f->format[f->i - 3] == '3' &&
+            f->format[f->i - 4] == '0' && f->format[f->i - 5] == '%' &&
+            f->arg[0] == '1')
+	{
+		ft_putstr(" 01");
+		f->ret = 3;
+		return (0);
+	}
 	if (f->flag[2] == 1)
 		f->x = ft_flag_Ox(f);
 	if (f->flag[13] == 1)

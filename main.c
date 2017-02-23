@@ -20,8 +20,8 @@ int		main(int ac, char **av)
 
 	(void)ac;
 	(void)av;
-	i = 429;
-	ret = ft_printf("%++++++d\n", i);
-	printf("%+d\n", ret);
+	i = 4294967295;
+	ret = ft_printf("%+u", i);
+	printf("%+d", ret);
 	return (0);
 }
