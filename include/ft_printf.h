@@ -33,6 +33,7 @@ typedef struct	s_flag
 	int		x;
 	int		p;
 	int		free;
+	int		wc[2];
 }				t_flag;
 
 typedef struct	s_spec

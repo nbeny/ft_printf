@@ -69,6 +69,19 @@ int		ft_dispatcher(t_flag *f, va_list *ap)
 		j++;
 	if (specs[j].c == 0)
 		return (0);
+	if (f->wc[0] == 1)
+	{
+		f->flag[1] = (int)va_arg(*ap, int);
+		if (f->flag[1] < 0)
+			f->flag[1] = 0;
+	}
+	if (f->wc[1] == 1)
+	{
+		f->flag[0] = (int)va_arg(*ap, int);
+		f->flag[13] = 1;
+		if (f->flag[0] <= 0)
+			f->flag[0] = -1;
+	}
 	if (j == 14)
 		return (specs[14].ptr(f));
 	return (specs[j].ptr(f, ap));

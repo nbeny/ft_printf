@@ -30,6 +30,8 @@ static t_flag	ft_init_f(t_flag f)
 	f.x = 0;
 	f.p = 0;
 	f.free = 0;
+	f.wc[0] = 0;
+	f.wc[1] = 0;
 	return (f);
 }
 

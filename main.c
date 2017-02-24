@@ -19,7 +19,7 @@ int		main(int ac, char **av)
 
 	(void)ac;
 	(void)av;
-	ret = ft_printf("%**rS\n", "ࠄࠄࠄ");
-	printf("%d", ret);
+	ret = ft_printf("[%*s]\n", 10, "sdfljg");
+	ft_printf("[%*.*d]\n", 10, 5, ret);
 	return (0);
 }
