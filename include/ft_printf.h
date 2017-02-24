@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:47 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 13:36:38 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/24 17:46:31 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct	s_flag
 	va_list	ap;
 	int		flag[14];
 	int		size;
-	char	*Ox;
+	char	*ox;
 	int		x;
 	int		p;
 	int		free;
@@ -118,14 +118,13 @@ int				ft_handler_zx(t_flag *f, va_list *ap);
 int				ft_flags_char(t_flag *f);
 int				ft_flags_int(t_flag *f);
 int				ft_precision(t_flag *f);
+int				ft_flags_zero2(t_flag *f, int i);
+int				ft_flags_zero3(t_flag *f);
+int				ft_flags_moins2(t_flag *f);
+int				ft_flags_moins3(t_flag *f, int i);
+int				ft_flags_plus2(t_flag *f);
+int				ft_flags_plus3(t_flag *f);
+int				ft_flags_int1(t_flag *f);
+int				ft_flags_int2(t_flag *f);
+int				ft_flags_int3(t_flag *f);
 #endif
-
-
-
-
-
-
-
-
-
-

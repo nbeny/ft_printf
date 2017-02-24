@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:36 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/21 12:32:38 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/24 16:53:02 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	ft_flag_plus(t_flag *f)
 
 	if (f->flag[13] == 1 && f->flag[0] < f->size)
 	{
-		if (f->flag[0] == -1 )
+		if (f->flag[0] == -1)
 			f->flag[0] = 0;
 		f->size = f->flag[0];
 	}

@@ -6,13 +6,13 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:58:13 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 08:00:21 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/24 16:52:42 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_init_specs2(t_spec *specs)
+void		ft_init_specs2(t_spec *specs)
 {
 	specs[10].c = 'x';
 	specs[10].ptr = &ft_handler_x;
@@ -28,7 +28,7 @@ void	ft_init_specs2(t_spec *specs)
 	specs[15].ptr = NULL;
 }
 
-void	ft_init_specs1(t_spec *specs)
+void		ft_init_specs1(t_spec *specs)
 {
 	specs[0].c = 's';
 	specs[0].ptr = &ft_handler_s;
@@ -53,7 +53,25 @@ void	ft_init_specs1(t_spec *specs)
 	ft_init_specs2(specs);
 }
 
-int		ft_dispatcher(t_flag *f, va_list *ap)
+static int	ft_wildcard(t_flag *f, va_list *ap)
+{
+	if (f->wc[0] == 1)
+	{
+		f->flag[1] = (int)va_arg(*ap, int);
+		if (f->flag[1] < 0)
+			f->flag[1] = 0;
+	}
+	if (f->wc[1] == 1)
+	{
+		f->flag[0] = (int)va_arg(*ap, int);
+		f->flag[13] = 1;
+		if (f->flag[0] <= 0)
+			f->flag[0] = -1;
+	}
+	return (0);
+}
+
+int			ft_dispatcher(t_flag *f, va_list *ap)
 {
 	t_spec	specs[16];
 	int		j;
@@ -69,19 +87,7 @@ int		ft_dispatcher(t_flag *f, va_list *ap)
 		j++;
 	if (specs[j].c == 0)
 		return (0);
-	if (f->wc[0] == 1)
-	{
-		f->flag[1] = (int)va_arg(*ap, int);
-		if (f->flag[1] < 0)
-			f->flag[1] = 0;
-	}
-	if (f->wc[1] == 1)
-	{
-		f->flag[0] = (int)va_arg(*ap, int);
-		f->flag[13] = 1;
-		if (f->flag[0] <= 0)
-			f->flag[0] = -1;
-	}
+	ft_wildcard(f, ap);
 	if (j == 14)
 		return (specs[14].ptr(f));
 	return (specs[j].ptr(f, ap));

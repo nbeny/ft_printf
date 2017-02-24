@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:08:46 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/20 15:56:07 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/24 17:56:12 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,3 @@ char		*ft_short_itoa_base(short int nb, int base)
 	itoa[i[1]] = 0;
 	return (itoa);
 }
-
-
