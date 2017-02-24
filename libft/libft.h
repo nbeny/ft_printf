@@ -89,7 +89,6 @@ void			ft_sort_params(int argc, char **argv);
 int				ft_sqrt(int nb);
 void			ft_putcstr(int c, int size);
 void			ft_capitalizer(char *s);
-char			ft_sign(char *s);
 char			*ft_rotcstring(char *s);
 char			*ft_litoa_base(long int nb, int size);
 char			*ft_llitoa_base(long long int nb, int size);
