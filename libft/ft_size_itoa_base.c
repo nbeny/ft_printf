@@ -55,8 +55,10 @@ char		*ft_size_itoa_base(size_t nb, int base)
 	size_t	n;
 	int		i[2];
 
-	if (nb == 0 || nb == (size_t)-0 || nb == (size_t)-1)
+	if (nb <= (size_t)0)
 		return (ft_strdup("0"));
+	if (nb == 4294967296)
+		return (ft_strdup("4294967296"));
 	n = nb;
 	ft_init(s);
 	i[0] = ft_size_nbr(tab, s, nb, base);

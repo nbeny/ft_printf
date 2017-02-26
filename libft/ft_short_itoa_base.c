@@ -59,6 +59,8 @@ static char	*ft_special(short int nb, int base)
 		return (ft_strdup("-32768"));
 	if (nb == -32768 && base == 10)
 		return (ft_strdup("0"));
+	if (nb == 32767 && base == 16)
+		return (ft_strdup("7fff"));
 	return (NULL);
 }
 

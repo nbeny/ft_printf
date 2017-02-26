@@ -18,8 +18,7 @@ int		main(int ac, char **av)
 	int				ret;
 
 	(void)ac;
-	(void)av;
-	ret = ft_printf("[%*s]\n", 10, "sdfljg");
-	ft_printf("[%*.*d]\n", 10, 5, ret);
+	ret = ft_printf("{%p}\n", 0);
+	printf("{%15.5d}\n", ft_atoi(av[1]));
 	return (0);
 }

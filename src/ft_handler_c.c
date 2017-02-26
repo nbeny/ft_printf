@@ -33,7 +33,7 @@ int	ft_handler_wc(t_flag *f, va_list *ap)
 		f->flag[13] == 1)
 		return (ft_flags_char(f));
 	f->ret += 1;
-	ft_putstr(f->arg);
+	ft_putstr((char *)f->warg);
 	return (0);
 }
 

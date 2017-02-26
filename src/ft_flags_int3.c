@@ -58,12 +58,17 @@ int				ft_flags_int3(t_flag *f)
 		ft_putcstr('0', f->p);
 		f->ret += f->p;
 	}
-	if (f->flag[0] != -1 || (f->c == 'd' && ft_atoi(f->arg) != 0))
+	if (((f->c == 'd' && f->arg[0] == '0') ||
+	     (f->c == 'o' && f->arg[0] == '0' && f->flag[2] == 0) ||
+	     (f->flag[0] == -1 && f->c != 'd' && f->c != 'o')) &&
+	     f->flag[13] == 1)
 	{
-		ft_putstr(f->arg);
-		f->ret += ft_strlen(f->arg);
 		free(f->arg);
+		return (0);
 	}
+	ft_putstr(f->arg);
+	f->ret += ft_strlen(f->arg);
+	free(f->arg);
 	return (0);
 }
 

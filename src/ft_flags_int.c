@@ -20,18 +20,18 @@ static int	ft_flag_ox(t_flag *f)
 	if (!(f->ox = (char *)malloc(sizeof(char) * 3)))
 		return (0);
 	ft_bzero(f->ox, 3);
-	if (f->c == 'o' || f->c == 'O' ||
-		f->c == 'x' || f->c == 'X')
+	if ((f->c == 'o' || f->c == 'O' || f->c == 'p' ||
+	     f->c == 'x' || f->c == 'X') && f->arg[0] != '0')
 	{
 		f->ox[0] = '0';
 		i++;
 	}
-	if (f->c == 'x')
+	if ((f->c == 'x' || f->c == 'p')  && f->arg[0] != '0')
 	{
 		f->ox[1] = 'x';
 		i++;
 	}
-	if (f->c == 'X')
+	if (f->c == 'X'  && f->arg[0] != '0')
 	{
 		f->ox[1] = 'X';
 		i++;
@@ -102,6 +102,9 @@ static int	ft_flag_plus(t_flag *f)
 	if (ft_atoi(f->arg) == 0)
 		i += 1;
 	if (f->flag[5] == 1 && f->arg[0] != '-')
+		i--;
+	if (f->flag[0] >= f->size && f->flag[13] == 1 &&
+		f->arg[0] == '-')
 		i--;
 	if (i > 0)
 	{

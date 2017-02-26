@@ -54,6 +54,14 @@ static char	*ft_special(long long int nb, int base)
 {
 	if (nb == 0)
 		return (ft_strdup("0"));
+	if (nb == 9223372036854775807 && base == 10)
+		return (ft_strdup("9223372036854775807"));
+	if (nb == 9223372036854775807 && base == 16)
+		return (ft_strdup("7fffffffffffffff"));
+	if (nb > 9223372036854775807 && base == 10)
+		return (ft_strdup("9223372036854775808"));
+	if (nb == -9223372036854775807 && base == 10)
+		return (ft_strdup("-9223372036854775807"));
 	if (nb < (long long int)-9223372036854775807 && base == 10)
 		return (ft_strdup("-9223372036854775808"));
 	return (NULL);

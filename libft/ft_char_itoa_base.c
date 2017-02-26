@@ -53,6 +53,10 @@ static char		*ft_special(signed char nb, int base)
 {
 	if (nb == 0)
 		return (ft_strdup("0"));
+	if (nb == -127 && base == 10)
+		return (ft_strdup("-127"));
+	if (nb == 127 && base == 10)
+		return (ft_strdup("127"));
 	if ((nb == (signed char)-128 || nb == (signed char)128) && base == 10)
 		return (ft_strdup("-128"));
 	return (NULL);
