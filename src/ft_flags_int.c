@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:46 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/24 17:47:28 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/27 21:08:30 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ static int	ft_flag_ox(t_flag *f)
 		return (0);
 	ft_bzero(f->ox, 3);
 	if ((f->c == 'o' || f->c == 'O' || f->c == 'p' ||
-	     f->c == 'x' || f->c == 'X') && f->arg[0] != '0')
+		f->c == 'x' || f->c == 'X') && f->arg[0] != '0')
 	{
 		f->ox[0] = '0';
 		i++;
 	}
-	if ((f->c == 'x' || f->c == 'p')  && f->arg[0] != '0')
+	if ((f->c == 'x' || f->c == 'p') && f->arg[0] != '0')
 	{
 		f->ox[1] = 'x';
 		i++;
 	}
-	if (f->c == 'X'  && f->arg[0] != '0')
+	if (f->c == 'X' && f->arg[0] != '0')
 	{
 		f->ox[1] = 'X';
 		i++;
@@ -52,15 +52,15 @@ static int	ft_flag_zero(t_flag *f)
 	if (f->flag[5] == 1 && f->arg[0] != '-' &&
 		(f->c == 'd' || f->c == 'D' || f->c == 'i'))
 	{
-		ft_putchar('+');
-		f->ret += 1;
+		ft_cpynchar(&g_buf[g_i], '+', 1);
+		g_i += 1;
 		i--;
 	}
 	ft_flags_zero2(f, i);
 	if (f->flag[0] != -1)
 	{
-		ft_putstr(f->arg);
-		f->ret += f->size;
+		ft_strncpy(&g_buf[g_i], f->arg, f->size);
+		g_i += f->size;
 		free(f->arg);
 	}
 	return (0);
@@ -77,18 +77,20 @@ static int	ft_flag_moins(t_flag *f)
 		i += 1;
 	if (f->flag[5] == 1 && f->arg[0] != '-')
 	{
-		ft_putchar('+');
-		f->ret += 1;
+		ft_cpynchar(&g_buf[g_i], '+', 1);
+		g_i += 1;
 		i--;
 	}
 	if (f->arg[0] == '-')
 	{
 		f->arg = ft_rotcstring(f->arg);
-		ft_putchar('-');
+		ft_cpynchar(&g_buf[g_i], '-', 1);
+		g_i += 1;
+		f->size -= 1;
 		f->p += 1;
 	}
 	ft_flags_moins2(f);
-	ft_flags_moins3(f, i);
+	ft_flags_moins3(i);
 	return (0);
 }
 
@@ -108,14 +110,14 @@ static int	ft_flag_plus(t_flag *f)
 		i--;
 	if (i > 0)
 	{
-		ft_putcstr(' ', i);
-		f->ret += i;
+		ft_cpynchar(&g_buf[g_i], ' ', i);
+		g_i += i;
 	}
 	if (f->flag[5] == 1 && f->arg[0] != '-' &&
 		ft_strcmp(f->arg, "4294967295") != 0)
 	{
-		ft_putchar('+');
-		f->ret += 1;
+		ft_cpynchar(&g_buf[g_i], '+', 1);
+		g_i += 1;
 	}
 	return (ft_flags_int2(f));
 }

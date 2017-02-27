@@ -6,7 +6,7 @@
 #    By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/16 14:57:18 by nbeny             #+#    #+#              #
-#    Updated: 2017/02/24 15:23:53 by nbeny            ###   ########.fr        #
+#    Updated: 2017/02/27 19:43:45 by nbeny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC	=	src/ft_printf.c src/ft_check.c src/ft_dispatcher.c\
 		src/ft_flag_hhlld.c src/ft_flag_hhllo.c src/ft_flag_hhllu.c src/ft_flag_hhllx.c\
 		src/ft_flag_jzd.c src/ft_flag_jzo.c src/ft_flag_jzu.c src/ft_flag_jzx.c\
 		src/ft_flags_char.c src/ft_flags_int.c src/ft_precision.c src/ft_flags_int2.c\
-		src/ft_flags_int3.c
+		src/ft_flags_int3.c src/ft_usefull.c
 
 OBJ	=	ft_printf.o ft_check.o ft_dispatcher.o\
 		ft_handler_c.o ft_handler_s.o ft_handler_p.o ft_handler_d.o\
@@ -26,7 +26,7 @@ OBJ	=	ft_printf.o ft_check.o ft_dispatcher.o\
 		ft_flag_hhlld.o ft_flag_hhllo.o ft_flag_hhllu.o ft_flag_hhllx.o\
 		ft_flag_jzd.o ft_flag_jzo.o ft_flag_jzu.o ft_flag_jzx.o\
 		ft_flags_char.o ft_flags_int.o ft_precision.o ft_flags_int2.o\
-		ft_flags_int3.o
+		ft_flags_int3.o ft_usefull.o
 
 HDR	=	ft_printf.h
 

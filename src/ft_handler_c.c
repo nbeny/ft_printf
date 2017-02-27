@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:00:13 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/17 06:14:49 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/27 19:51:16 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,15 @@ int	ft_handler_wc(t_flag *f, va_list *ap)
 	ws[0] = wc;
 	ws[1] = 0;
 	if (ws[0] < 0 && ws[0] > 55295 && ws[0] < 57344 && ws[0] > 1114111)
-	{
-		f->ret = -1;
 		return (-1);
-	}
 	f->warg = ws;
 	f->size = 1;
 	if (f->flag[2] == 1 || f->flag[4] == 1 || f->flag[5] == 1 ||
 		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
 		f->flag[13] == 1)
 		return (ft_flags_char(f));
-	f->ret += 1;
-	ft_putstr((char *)f->warg);
+	ft_strncpy(&g_buf[g_i], (char *)f->warg, f->size);
+	g_i += f->size;
 	return (0);
 }
 
@@ -59,7 +56,7 @@ int	ft_handler_c(t_flag *f, va_list *ap)
 		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
 		f->flag[13] == 1)
 		return (ft_flags_char(f));
-	f->ret += 1;
-	ft_putstr(f->arg);
+	ft_strncpy(&g_buf[g_i], f->arg, f->size);
+	g_i += f->size;
 	return (0);
 }

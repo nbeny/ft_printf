@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 22:35:26 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/24 17:29:16 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/27 18:28:20 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int		ft_handler_wx(t_flag *f, va_list *ap)
 		return (ft_flags_int(f));
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
-	f->ret += f->size;
-	ft_putstr(f->arg);
+	ft_strncpy(&g_buf[g_i], f->arg, f->size);
+	g_i += f->size;
 	free(f->arg);
 	return (0);
 }
@@ -63,8 +63,8 @@ int		ft_handler_x(t_flag *f, va_list *ap)
 		return (ft_flags_int(f));
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
-	f->ret += f->size;
-	ft_putstr(f->arg);
+	ft_strncpy(&g_buf[g_i], f->arg, f->size);
+	g_i += f->size;
 	free(f->arg);
 	return (0);
 }

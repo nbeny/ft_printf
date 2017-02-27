@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:47 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/24 17:46:31 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/27 20:17:10 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
+char		g_buf[4096];
+int			g_i;
+
 typedef struct	s_flag
 {
-	int		ret;
 	char	*format;
 	int		i;
 	char	c;
@@ -41,7 +43,14 @@ typedef struct	s_spec
 	int		(*ptr)();
 	char	c;
 }				t_spec;
+/*
+**usefull
+*/
+char			*ft_cpynchar(char *dest, int c, size_t n);
 
+/*
+**printf
+*/
 int				ft_printf(const char *format, ...);
 void			ft_check_init(t_flag *f);
 void			ft_init_specs1(t_spec *specs);
@@ -121,7 +130,7 @@ int				ft_precision(t_flag *f);
 int				ft_flags_zero2(t_flag *f, int i);
 int				ft_flags_zero3(t_flag *f);
 int				ft_flags_moins2(t_flag *f);
-int				ft_flags_moins3(t_flag *f, int i);
+int				ft_flags_moins3(int i);
 int				ft_flags_plus2(t_flag *f);
 int				ft_flags_plus3(t_flag *f);
 int				ft_flags_int1(t_flag *f);

@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:36 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/24 16:53:02 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/27 20:13:27 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ static int	ft_flag_moins(t_flag *f)
 	}
 	i = f->flag[1] - f->size;
 	if (f->arg != NULL)
-		ft_putnstr(f->arg, f->size);
+		ft_strncpy(&g_buf[g_i], f->arg, f->size);
 	else if (f->warg != NULL)
-		ft_putnstr((char *)f->warg, f->size);
-	f->ret += f->size;
-	ft_putcstr(' ', i);
-	f->ret += i;
-	return (0);
+		ft_strncpy(&g_buf[g_i], (char *)f->warg, f->size);
+	g_i += f->size;
+	ft_cpynchar(&g_buf[g_i], ' ', i);
+	g_i += i;
+	return (g_i);
 }
 
 static int	ft_flag_plus(t_flag *f)
@@ -44,14 +44,14 @@ static int	ft_flag_plus(t_flag *f)
 		f->size = f->flag[0];
 	}
 	i = f->flag[1] - f->size;
-	ft_putcstr(' ', i);
-	f->ret += i;
+	ft_cpynchar(&g_buf[g_i], ' ', i);
+	g_i += i;
 	if (f->arg != NULL)
-		ft_putnstr(f->arg, f->size);
+		ft_strncpy(&g_buf[g_i], f->arg, f->size);
 	else if (f->warg != NULL)
-		ft_putnstr((char *)f->warg, f->size);
-	f->ret += f->size;
-	return (0);
+		ft_strncpy(&g_buf[g_i], (char *)f->warg, f->size);
+	g_i += f->size;
+	return (g_i);
 }
 
 static int	ft_flag_zero(t_flag *f)
@@ -65,14 +65,14 @@ static int	ft_flag_zero(t_flag *f)
 		f->size = f->flag[0];
 	}
 	i = f->flag[1] - f->size;
-	ft_putcstr('0', i);
-	f->ret += i;
+	ft_cpynchar(&g_buf[g_i], '0', i);
+	g_i += i;
 	if (f->arg != NULL)
-		ft_putnstr(f->arg, f->size);
+		ft_strncpy(&g_buf[g_i], f->arg, f->size);
 	else if (f->warg != NULL)
-		ft_putnstr((char *)f->warg, f->size);
-	f->ret += f->size;
-	return (0);
+		ft_strncpy(&g_buf[g_i], (char *)f->warg, f->size);
+	g_i += f->size;
+	return (g_i);
 }
 
 int			ft_flags_char(t_flag *f)
@@ -92,9 +92,9 @@ int			ft_flags_char(t_flag *f)
 		f->size = f->flag[0];
 	}
 	if (f->arg != NULL)
-		ft_putnstr(f->arg, f->size);
+		ft_strncpy(&g_buf[g_i], f->arg, f->size);
 	else if (f->warg != NULL)
-		ft_putnstr((char *)f->warg, f->size);
-	f->ret += f->size;
-	return (f->ret);
+		ft_strncpy(&g_buf[g_i], (char *)f->warg, f->size);
+	g_i += f->size;
+	return (g_i);
 }

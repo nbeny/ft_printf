@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:01:25 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/24 17:49:39 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/27 21:12:27 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static t_flag	ft_init_f(t_flag f)
 	int i;
 
 	i = -1;
-	f.ret = 0;
 	f.i = 0;
 	f.c = 0;
 	f.arg = NULL;
@@ -39,10 +38,10 @@ int				ft_fill_stdout(const char *format, va_list *ap)
 {
 	t_flag	f;
 	int		i;
-	int		ret;
 
 	i = -1;
-	ret = 0;
+	g_i = 0;
+	ft_bzero(g_buf, 4096);
 	while (format[++i] != '\0')
 	{
 		if (format[i] == '%')
@@ -52,16 +51,16 @@ int				ft_fill_stdout(const char *format, va_list *ap)
 			ft_dispatcher(&f, ap);
 			if (f.free == 1)
 				free(f.arg);
-			ret += f.ret;
 			i += f.i;
 		}
 		else
 		{
-			ft_putchar(format[i]);
-			ret++;
+			g_buf[g_i] = format[i];
+			g_i++;
 		}
 	}
-	return (ret);
+	ft_putnstr(g_buf, g_i);
+	return (g_i);
 }
 
 int				ft_printf(const char *format, ...)

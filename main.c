@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:33 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/20 11:46:13 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/27 17:33:24 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int		main(int ac, char **av)
 {
 	int				ret;
 
-	(void)ac;
+	ac = 4;
 	(void)av;
-	ret = ft_printf("{%03c}\n", 0);
-	printf("{%3c}", 0);
+	ret = ft_printf("%");
+	printf("%");
 	return (0);
 }

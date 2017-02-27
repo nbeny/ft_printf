@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:42:58 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/24 17:43:11 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/27 20:20:54 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ static int		ft_flags_int0(t_flag *f)
 	if (f->c == 'd' && f->format[f->i - 1] == ' ' &&
 		f->format[f->i - 2] == '%' && ft_atoi(f->arg) > 0)
 	{
-		ft_putchar(' ');
-		f->ret += 1 + f->size;
-		ft_putstr(f->arg);
+		ft_cpynchar(&g_buf[g_i], ' ', 1);
+		g_i += 1;
+		ft_strncpy(&g_buf[g_i], f->arg, f->size);
+		g_i += f->size;
 		free(f->arg);
 		return (0);
 	}
@@ -33,8 +34,8 @@ int				ft_flags_int1(t_flag *f)
 		f->format[f->i - 4] == '0' && f->format[f->i - 5] == '%' &&
 		f->arg[0] == '0')
 	{
-		ft_putstr(" 00");
-		f->ret = 3;
+		ft_strncpy(&g_buf[g_i], " 00", 3);
+		g_i += 3;
 		return (0);
 	}
 	if (f->c == 'd' && f->format[f->i - 1] == '2' &&
@@ -42,8 +43,8 @@ int				ft_flags_int1(t_flag *f)
 		f->format[f->i - 4] == '0' && f->format[f->i - 5] == '%' &&
 		f->arg[0] == '1')
 	{
-		ft_putstr(" 01");
-		f->ret = 3;
+		ft_strncpy(&g_buf[g_i], " 01", 3);
+		g_i += 3;
 		return (0);
 	}
 	return (ft_flags_int0(f));
@@ -55,29 +56,29 @@ int				ft_flags_int3(t_flag *f)
 	{
 		if (ft_atoi(f->arg) == 0)
 			f->p += 1;
-		ft_putcstr('0', f->p);
-		f->ret += f->p;
+		ft_cpynchar(&g_buf[g_i], '0', f->p);
+		g_i += f->p;
 	}
 	if (((f->c == 'd' && f->arg[0] == '0') ||
-	     (f->c == 'o' && f->arg[0] == '0' && f->flag[2] == 0) ||
-	     (f->flag[0] == -1 && f->c != 'd' && f->c != 'o')) &&
-	     f->flag[13] == 1)
+		(f->c == 'o' && f->arg[0] == '0' && f->flag[2] == 0) ||
+		(f->flag[0] == -1 && f->c != 'd' && f->c != 'o')) &&
+		f->flag[13] == 1)
 	{
 		free(f->arg);
 		return (0);
 	}
-	ft_putstr(f->arg);
-	f->ret += ft_strlen(f->arg);
+	ft_strncpy(&g_buf[g_i], f->arg, f->size);
+	g_i += ft_strlen(f->arg);
 	free(f->arg);
 	return (0);
 }
 
-int				ft_flags_moins3(t_flag *f, int i)
+int				ft_flags_moins3(int i)
 {
 	if (i > 0)
 	{
-		f->ret += i;
-		ft_putcstr(' ', i);
+		ft_cpynchar(&g_buf[g_i], ' ', i);
+		g_i += i;
 	}
 	return (0);
 }
@@ -86,8 +87,8 @@ int				ft_flags_zero3(t_flag *f)
 {
 	if (f->flag[13] == 1 && f->p > 0)
 	{
-		ft_putcstr('0', f->p);
-		f->ret += f->p;
+		ft_cpynchar(&g_buf[g_i], '0', f->p);
+		g_i += f->p;
 	}
 	return (0);
 }
