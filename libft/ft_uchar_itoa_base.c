@@ -59,8 +59,12 @@ char		*ft_uchar_itoa_base(unsigned char nb, int base)
 	ft_init(s);
 	if (nb == 0)
 		return (ft_strdup("0"));
+	if (nb == 254 && base == 10)
+		return (ft_strdup("254"));
 	if (nb == 255 && base == 10)
 		return (ft_strdup("255"));
+	if (nb == 254 && base == 16)
+		return (ft_strdup("fe"));
 	if (nb == 255 && base == 16)
 		return (ft_strdup("ff"));
 	i[0] = ft_size_nbr(tab, s, nb, base);

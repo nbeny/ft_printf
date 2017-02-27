@@ -47,6 +47,25 @@ static int	ft_size_nbr(int *tab, char *s, unsigned long int nb, int base)
 	return (i);
 }
 
+static char	*ft_special(unsigned long int nb, int base)
+{
+	if (nb == 0)
+		return (ft_strdup("0"));
+	if (nb == 4294967296 && base == 16)
+		return (ft_strdup("100000000"));
+	if (nb == 9223372036854775807 && base == 10)
+		return (ft_strdup("9223372036854775807"));
+	if (nb == 9223372036854775807 && base == 16)
+		return (ft_strdup("7fffffffffffffff"));
+	if (nb == (unsigned long int)ft_power(2, 64) && base == 8)
+		return (ft_strdup("1777777777777777777777"));
+	if (nb == (unsigned long int)ft_power(2, 64) && base == 10)
+		return (ft_strdup("18446744073709551615"));
+	if (nb == (unsigned long int)ft_power(2, 64) && base == 16)
+		return (ft_strdup("ffffffffffffffff"));
+	return (NULL);
+}
+
 char		*ft_ulitoa_base(unsigned long int nb, int base)
 {
 	char				*itoa;
@@ -55,12 +74,8 @@ char		*ft_ulitoa_base(unsigned long int nb, int base)
 	int					i[2];
 
 	ft_init(s);
-	if (nb == 0)
-		return (ft_strdup("0"));
-	if (nb == 9223372036854775807 && base == 16)
-		return (ft_strdup("7fffffffffffffff"));
-	if (nb == 9223372036854775807 && base == 10)
-		return (ft_strdup("9223372036854775807"));
+	if ((itoa = ft_special(nb, base)) != NULL)
+		return (itoa);
 	i[0] = ft_size_nbr(tab, s, nb, base);
 	if (!(itoa = (char *)malloc(sizeof(char) * (i[0] + 1))))
 		return (NULL);

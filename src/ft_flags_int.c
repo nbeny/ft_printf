@@ -45,9 +45,9 @@ static int	ft_flag_zero(t_flag *f)
 	int i;
 
 	i = f->flag[1] - f->size - f->p;
-	if (f->flag[2] == 1 && ft_atoi(f->arg) != 0)
+	if (f->flag[2] == 1 && f->arg[0] != '0')
 		i = i - f->x;
-	if (ft_atoi(f->arg) == 0)
+	if (f->arg[0] == '0')
 		i += 1;
 	if (f->flag[5] == 1 && f->arg[0] != '-' &&
 		(f->c == 'd' || f->c == 'D' || f->c == 'i'))
@@ -71,9 +71,9 @@ static int	ft_flag_moins(t_flag *f)
 	int i;
 
 	i = f->flag[1] - f->size - f->p;
-	if (f->flag[2] == 1 && ft_atoi(f->arg) != 0)
+	if (f->flag[2] == 1 && f->arg[0] != '0')
 		i = i - f->x;
-	if (ft_atoi(f->arg) == 0)
+	if (f->arg[0] == '0')
 		i += 1;
 	if (f->flag[5] == 1 && f->arg[0] != '-')
 	{
@@ -97,9 +97,9 @@ static int	ft_flag_plus(t_flag *f)
 	int i;
 
 	i = f->flag[1] - f->size - f->p;
-	if (f->flag[2] == 1 && ft_atoi(f->arg) != 0)
+	if (f->flag[2] == 1 && f->arg[0] != '0')
 		i = i - f->x;
-	if (ft_atoi(f->arg) == 0)
+	if (f->arg[0] == '0')
 		i += 1;
 	if (f->flag[5] == 1 && f->arg[0] != '-')
 		i--;

@@ -17,6 +17,8 @@ int	ft_handler_p(t_flag *f, va_list *ap)
 	f->flag[2] = 1;
 	f->arg = ft_ulitoa_base(
 		(unsigned long long int)va_arg(*ap, unsigned long long int), 16);
+	if (f->arg[0] == '0')
+		return (0);
 	f->size = ft_strlen(f->arg);
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||

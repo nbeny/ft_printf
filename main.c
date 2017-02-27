@@ -18,7 +18,8 @@ int		main(int ac, char **av)
 	int				ret;
 
 	(void)ac;
-	ret = ft_printf("{%p}\n", 0);
-	printf("{%15.5d}\n", ft_atoi(av[1]));
+	(void)av;
+	ret = ft_printf("{%03c}\n", 0);
+	printf("{%3c}", 0);
 	return (0);
 }

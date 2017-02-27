@@ -53,7 +53,7 @@ OBJ_LFT	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o\
 		ft_lstiter.o ft_lstmap.o\
 		ft_max.o ft_min.o ft_sort_integer_tab.o ft_sort_params.o\
-		ft_sqrt.o\
+		ft_sqrt.o ft_power.o\
 		ft_putcstr.o ft_capitalizer.o ft_rotcstring.o ft_putnstr.o
 
 HDR_LFT	=	-I include

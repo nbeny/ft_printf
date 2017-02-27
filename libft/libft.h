@@ -24,6 +24,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+uintmax_t		ft_power(int n, int p);
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *s1, const void *s2, size_t n);

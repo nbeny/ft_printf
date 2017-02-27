@@ -41,7 +41,7 @@ SRCS	=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c\
 		ft_uchar_putnbr_base.c ft_putnbr_base.c ft_uputnbr_base.c\
 		ft_lputnbr_base.c ft_ulputnbr_base.c ft_llputnbr_base.c\
 		ft_ullputnbr_base.c ft_max_putnbr_base.c ft_umax_putnbr_base.c\
-		ft_size_putnbr_base.c
+		ft_size_putnbr_base.c ft_power.c
 
 OBJS	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_memmove.o ft_memchr.o ft_memcmp.o\
@@ -72,7 +72,7 @@ OBJS	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_uchar_putnbr_base.o ft_putnbr_base.o ft_uputnbr_base.o\
 		ft_lputnbr_base.o ft_ulputnbr_base.o ft_llputnbr_base.o\
 		ft_ullputnbr_base.o ft_max_putnbr_base.o ft_umax_putnbr_base.o\
-		ft_size_putnbr_base.o
+		ft_size_putnbr_base.o ft_power.o
 
 HDRS	=	libft.h
 
