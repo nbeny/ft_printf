@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:58:13 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/27 18:29:19 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/27 22:10:06 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int			ft_dispatcher(t_flag *f, va_list *ap)
 	while (specs[j].c != f->c && specs[j].c != 0)
 		j++;
 	if (specs[j].c == 0)
-		return (0);
+		return (-1);
 	ft_wildcard(f, ap);
 	if (j == 14)
 		return (specs[14].ptr(f));

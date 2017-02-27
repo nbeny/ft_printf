@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:00:49 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/27 19:46:25 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/02/27 22:09:44 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_handler_p(t_flag *f, va_list *ap)
 	f->flag[2] = 1;
 	f->arg = ft_ulitoa_base(
 		(unsigned long long int)va_arg(*ap, void *), 16);
+	if (f->arg[0] == '0')
+		return (-1);
 	f->size = ft_strlen(f->arg);
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||
