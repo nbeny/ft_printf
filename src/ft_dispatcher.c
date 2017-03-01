@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:58:13 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/27 22:10:06 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/01 16:39:32 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int			ft_dispatcher(t_flag *f, va_list *ap)
 	return (specs[j].ptr(f, ap));
 }
 
-int		ft_special_int(t_flag *f)
+int			ft_special_int(t_flag *f)
 {
 	if (f->arg[0] != '-')
 	{

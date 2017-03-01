@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:00:13 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/27 19:51:16 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/01 16:38:32 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_handler_wc(t_flag *f, va_list *ap)
 {
-	wint_t wc;
-	wchar_t ws[2];
+	wint_t	wc;
+	wchar_t	ws[2];
 
 	wc = va_arg(*ap, wint_t);
 	ws[0] = wc;
@@ -24,6 +24,7 @@ int		ft_handler_wc(t_flag *f, va_list *ap)
 		return (0);
 	ft_wint_to_char(ws[0], f);
 	f->size = 1;
+	f->free = 1;
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||
 		f->flag[6] == 1 || f->flag[1] > f->size ||
@@ -41,7 +42,6 @@ int		ft_handler_c(t_flag *f, va_list *ap)
 
 	if (f->flag[10] == 1)
 		return (ft_handler_wc(f, ap));
-
 	c = (char)va_arg(*ap, int);
 	s[0] = c;
 	s[1] = 0;

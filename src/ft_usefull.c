@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:33:41 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/27 20:18:33 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/01 16:43:30 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_cpynchar(char *dest, int c, size_t n)
 	return (dest);
 }
 
-int	ft_putwchar_in_char(wchar_t wchar, char *fresh, int i)
+int		ft_putwchar_in_char(wchar_t wchar, char *fresh, int i)
 {
 	int		size;
 
@@ -56,7 +56,7 @@ int	ft_putwchar_in_char(wchar_t wchar, char *fresh, int i)
 	return (i);
 }
 
-void		ft_wint_to_char(wint_t wchar, t_flag *f)
+void	ft_wint_to_char(wint_t wchar, t_flag *f)
 {
 	if (!wchar)
 	{
@@ -93,7 +93,7 @@ char	*ft_transform_wchar_in_char(wchar_t *ws)
 	return (fresh);
 }
 
-int	ft_special(t_flag *f)
+int		ft_special(t_flag *f)
 {
 	ft_cpynchar(&g_buf[g_i], ' ', 1);
 	g_i += 1;

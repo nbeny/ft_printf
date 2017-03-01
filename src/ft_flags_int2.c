@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 14:51:13 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/27 21:04:57 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/01 16:38:57 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_flags_zero2(t_flag *f, int i)
 	if (f->arg[0] == '-')
 	{
 		f->arg = ft_rotcstring(f->arg);
-		ft_cpynchar(&g_buf[g_i] , '-', 1);
+		ft_cpynchar(&g_buf[g_i], '-', 1);
 		g_i += 1;
 		f->size -= 1;
 	}
@@ -28,7 +28,6 @@ int		ft_flags_zero2(t_flag *f, int i)
 			ft_strncpy(&g_buf[g_i], f->ox, f->x);
 			g_i += f->x;
 		}
-		free(f->ox);
 	}
 	if (i > 0)
 	{
@@ -49,7 +48,6 @@ int		ft_flags_moins2(t_flag *f)
 			ft_strncpy(&g_buf[g_i], f->ox, f->x);
 			g_i += f->x;
 		}
-		free(f->ox);
 	}
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
@@ -76,7 +74,6 @@ int		ft_flags_plus2(t_flag *f)
 			ft_strncpy(&g_buf[g_i], f->ox, f->x);
 			g_i += f->x;
 		}
-		free(f->ox);
 	}
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);
@@ -123,7 +120,6 @@ int		ft_flags_int2(t_flag *f)
 			ft_strncpy(&g_buf[g_i], f->ox, f->x);
 			g_i += f->x;
 		}
-		free(f->ox);
 	}
 	if (f->c == 'X')
 		ft_capitalizer(f->arg);

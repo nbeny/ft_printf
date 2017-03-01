@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:09:27 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/20 15:39:27 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/01 15:57:10 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static char	*ft_special(size_t nb, int base)
 		return (ft_strdup("18446744073709551615"));
 	if (nb == (size_t)ft_power(2, 64) && base == 16)
 		return (ft_strdup("ffffffffffffffff"));
+	if (nb == (size_t)(ft_power(-2, 63) + 1) && base == 10)
+		return (ft_strdup("-9223372036854775808"));
 	return (NULL);
 }
 

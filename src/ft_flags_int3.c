@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 17:42:58 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/27 20:20:54 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/01 16:31:19 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,8 @@ int				ft_flags_int1(t_flag *f)
 		g_i += 3;
 		return (0);
 	}
-	if (f->c == 'd' && f->format[f->i - 1] == '3' &&
-		f->format[f->i - 2] == '0' && f->format[f->i - 3] == ' ' &&
-		f->format[f->i - 4] == '%' && f->arg[0] == '0')
-	{
-		ft_strncpy(&g_buf[g_i], " 00", 3);
-		g_i += 3;
+	if (ft_flags_int4(f) == 0)
 		return (0);
-	}
-	if (f->c == 'O' && f->format[f->i - 1] == '.' && f->arg[0] == '0' &&
-		f->format[f->i - 2] == '#' && f->format[f->i - 3] == '%')
-	{
-		ft_cpynchar(&g_buf[g_i], '0', 1);
-		g_i += 1;
-		return (0);
-	}
 	return (ft_flags_int0(f));
 }
 

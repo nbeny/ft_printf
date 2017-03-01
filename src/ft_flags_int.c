@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:46 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/27 21:08:30 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/01 16:05:58 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static int	ft_flag_ox(t_flag *f)
 	int i;
 
 	i = 0;
-	if (!(f->ox = (char *)malloc(sizeof(char) * 3)))
-		return (0);
 	ft_bzero(f->ox, 3);
 	if (((f->c == 'o' || f->c == 'O' || f->c == 'x' ||
 		f->c == 'X') && f->arg[0] != '0') || f->c == 'p')
@@ -119,8 +117,6 @@ static int	ft_flag_plus(t_flag *f)
 
 int			ft_flags_int(t_flag *f)
 {
-	//	if (f->format[f->i - 1] == ' ' && f->format[f->i - 2] == '%')
-	//	return (ft_special_int(f));
 	if (ft_flags_int1(f) == 0)
 		return (0);
 	if (f->flag[2] == 1)

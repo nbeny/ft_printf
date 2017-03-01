@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:47 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/27 20:17:10 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/01 16:56:40 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ typedef struct	s_flag
 	va_list	ap;
 	int		flag[14];
 	int		size;
-	char	*ox;
+	char	ox[3];
 	int		x;
 	int		p;
 	int		free;
 	int		wc[2];
+	int		what;
 }				t_flag;
 
 typedef struct	s_spec
@@ -47,10 +48,10 @@ typedef struct	s_spec
 **usefull
 */
 char			*ft_cpynchar(char *dest, int c, size_t n);
-int			ft_putwchar_in_char(wchar_t wchar, char *fresh, int i);
+int				ft_putwchar_in_char(wchar_t wchar, char *fresh, int i);
 char			*ft_transform_wchar_in_char(wchar_t *ws);
 void			ft_wint_to_char(wint_t wchar, t_flag *f);
-int			ft_special(t_flag *f);
+int				ft_special(t_flag *f);
 /*
 **printf
 */
@@ -59,7 +60,7 @@ void			ft_check_init(t_flag *f);
 void			ft_init_specs1(t_spec *specs);
 void			ft_init_specs2(t_spec *specs);
 int				ft_dispatcher(t_flag *f, va_list *ap);
-int			ft_special_int(t_flag *f);
+int				ft_special_int(t_flag *f);
 /*
 **check
 */
@@ -141,4 +142,6 @@ int				ft_flags_plus3(t_flag *f);
 int				ft_flags_int1(t_flag *f);
 int				ft_flags_int2(t_flag *f);
 int				ft_flags_int3(t_flag *f);
+int				ft_flags_int4(t_flag *f);
+int				ft_flags_int5(t_flag *f);
 #endif
