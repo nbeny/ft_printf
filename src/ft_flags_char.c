@@ -16,7 +16,8 @@ static int	ft_flag_moins(t_flag *f)
 {
 	int	i;
 
-	if (f->flag[13] == 1 && f->flag[0] < f->size)
+	if (f->flag[13] == 1 && f->flag[0] < f->size &&
+		f->c != '%' && f->c != 'c' && f->c != 'C')
 	{
 		if (f->flag[0] == -1)
 			f->flag[0] = 0;
@@ -40,7 +41,8 @@ static int	ft_flag_plus(t_flag *f)
 {
 	int	i;
 
-	if (f->flag[13] == 1 && f->flag[0] < f->size)
+	if (f->flag[13] == 1 && f->flag[0] < f->size &&
+		f->c != '%' && f->c != 'c' && f->c != 'C')
 	{
 		if (f->flag[0] == -1)
 			f->flag[0] = 0;
@@ -64,7 +66,8 @@ static int	ft_flag_zero(t_flag *f)
 {
 	int	i;
 
-	if (f->flag[13] == 1 && f->flag[0] < f->size)
+	if (f->flag[13] == 1 && f->flag[0] < f->size &&
+		f->c != '%' && f->c != 'c' && f->c != 'C')
 	{
 		if (f->flag[0] == -1)
 			f->flag[0] = 0;
@@ -94,7 +97,8 @@ int			ft_flags_char(t_flag *f)
 		(f->flag[1] > f->flag[0] && f->flag[13] == 1 &&
 		f->flag[0] < f->size))
 		return (ft_flag_plus(f));
-	if (f->flag[13] == 1 && f->flag[0] < f->size && f->c != '%')
+	if (f->flag[13] == 1 && f->flag[0] < f->size &&
+		f->c != '%' && f->c != 'c' && f->c != 'C')
 	{
 		if (f->flag[0] == -1)
 			f->flag[0] = 0;

@@ -117,8 +117,8 @@ int		ft_flags_int2(t_flag *f)
 	}
 	if (f->flag[2] == 1)
 	{
-		if (((f->arg[0] != '0' || f->c == 'p') && f->flag[0] != -1) ||
-			f->c == 'o')
+		if ((f->arg[0] != '0' && f->flag[0] != -1) ||
+			f->c == 'p' || f->c == 'o')
 		{
 			ft_strncpy(&g_buf[g_i], f->ox, f->x);
 			g_i += f->x;

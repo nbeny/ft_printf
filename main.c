@@ -21,6 +21,6 @@ int		main(int ac, char **av)
 	ac = 4;
 	(void)av;
         setlocale(LC_ALL, "");
-	ret = ft_printf("% c", 0);
+	ret = ft_printf("[%.c]", 0);
 	return (0);
 }

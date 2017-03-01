@@ -78,8 +78,6 @@ int				ft_flags_int3(t_flag *f)
 {
 	if (f->flag[13] == 1 && f->p > 0)
 	{
-		if (ft_atoi(f->arg) == 0)
-			f->p += 1;
 		ft_cpynchar(&g_buf[g_i], '0', f->p);
 		g_i += f->p;
 	}

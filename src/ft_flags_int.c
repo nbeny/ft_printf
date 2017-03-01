@@ -20,8 +20,8 @@ static int	ft_flag_ox(t_flag *f)
 	if (!(f->ox = (char *)malloc(sizeof(char) * 3)))
 		return (0);
 	ft_bzero(f->ox, 3);
-	if ((f->c == 'o' || f->c == 'O' || f->c == 'p' || f->c == 'x' ||
-		f->c == 'X') && (f->arg[0] != '0' || f->c == 'p'))
+	if (((f->c == 'o' || f->c == 'O' || f->c == 'x' ||
+		f->c == 'X') && f->arg[0] != '0') || f->c == 'p')
 	{
 		f->ox[0] = '0';
 		i++;
