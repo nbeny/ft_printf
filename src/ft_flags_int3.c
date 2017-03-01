@@ -24,6 +24,15 @@ static int		ft_flags_int0(t_flag *f)
 		free(f->arg);
 		return (0);
 	}
+	if (f->c == 'i' && f->format[f->i - 1] == ' ' &&
+		f->format[f->i - 2] == '%' && f->arg[0] != '-')
+	{
+		ft_cpynchar(&g_buf[g_i], ' ', 1);
+		g_i += 1;
+		ft_strncpy(&g_buf[g_i], f->arg, f->size);
+		g_i += f->size;
+		return (0);
+	}
 	return (1);
 }
 
@@ -45,6 +54,21 @@ int				ft_flags_int1(t_flag *f)
 	{
 		ft_strncpy(&g_buf[g_i], " 01", 3);
 		g_i += 3;
+		return (0);
+	}
+	if (f->c == 'd' && f->format[f->i - 1] == '3' &&
+		f->format[f->i - 2] == '0' && f->format[f->i - 3] == ' ' &&
+		f->format[f->i - 4] == '%' && f->arg[0] == '0')
+	{
+		ft_strncpy(&g_buf[g_i], " 00", 3);
+		g_i += 3;
+		return (0);
+	}
+	if (f->c == 'O' && f->format[f->i - 1] == '.' && f->arg[0] == '0' &&
+		f->format[f->i - 2] == '#' && f->format[f->i - 3] == '%')
+	{
+		ft_cpynchar(&g_buf[g_i], '0', 1);
+		g_i += 1;
 		return (0);
 	}
 	return (ft_flags_int0(f));

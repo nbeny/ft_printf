@@ -124,7 +124,5 @@ int		ft_check(t_flag *f)
 		ft_check_precision(f);
 		ft_check_modifier(f);
 	}
-	if (f->i == ft_strlen(f->format))
-		return (-1);
 	return (0);
 }

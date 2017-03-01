@@ -44,15 +44,14 @@ int				ft_fill_stdout(const char *format, va_list *ap)
 	ft_bzero(g_buf, 4096);
 	while (format[++i] != '\0')
 	{
+		if (format[i] == '%' && format[i + 1] == '\0')
+			break;
 		if (format[i] == '%')
 		{
 			f = ft_init_f(f);
 			f.format = (char *)&format[++i];
 			if (ft_dispatcher(&f, ap) == -1)
-			{
-				g_i = -1;
-				break;
-			}
+				i--;
 			if (f.free == 1)
 				free(f.arg);
 			i += f.i;
@@ -76,7 +75,6 @@ int				ft_printf(const char *format, ...)
 	va_start(ap, format);
 	ret = ft_fill_stdout(format, &ap);
 	va_end(ap);
-	if (ret != -1)
-		ft_putnstr(g_buf, g_i);
+	ft_putnstr(g_buf, g_i);
 	return (ret);
 }

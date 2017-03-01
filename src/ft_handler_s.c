@@ -19,7 +19,7 @@ static int	ft_norme_ws(t_flag *f)
 		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
 		f->flag[13] == 1)
 		return (ft_flags_char(f));
-	ft_strncpy(&g_buf[g_i], (char *)f->warg, f->size);
+	ft_strncpy(&g_buf[g_i], f->arg, f->size);
 	g_i += f->size;
 	return (0);
 }
@@ -47,14 +47,9 @@ int			ft_handler_ws(t_flag *f, va_list *ap)
 	f->warg = va_arg(*ap, wchar_t *);
 	if (f->warg == NULL)
 		return (ft_handler_ws_null(f));
-	while (f->warg[i])
-	{
-		if (f->warg[i] < 0 && f->warg[i] > 55295 &&
-			f->warg[0] < 57344 && f->warg[i] > 1114111)
-			return (-1);
-		i++;
-	}
-	f->size = i;
+	f->arg = ft_transform_wchar_in_char(f->warg);
+	f->free = 1;
+	f->size = ft_strlen(f->arg);
 	ft_norme_ws(f);
 	return (0);
 }

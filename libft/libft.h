@@ -24,6 +24,9 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+size_t			ft_wstrlen(wchar_t *ws);
+int			ft_wcharlen(wchar_t wchar);
+size_t			ft_wbytelen(wchar_t *ws);
 uintmax_t		ft_power(int n, int p);
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_bzero(void *s, size_t n);

@@ -78,17 +78,28 @@ int			ft_dispatcher(t_flag *f, va_list *ap)
 
 	f->arg = NULL;
 	f->warg = NULL;
-	if (ft_check(f) == -1)
-		return (-1);
+	ft_check(f);
 	ft_init_specs1(specs);
 	f->c = f->format[f->i];
 	j = 0;
 	while (specs[j].c != f->c && specs[j].c != 0)
 		j++;
-	if (specs[j].c == 0)
-		return (-1);
 	ft_wildcard(f, ap);
+	if (specs[j].c == 0)
+		return (ft_handler_undefined(f));
 	if (j == 14)
 		return (specs[14].ptr(f));
 	return (specs[j].ptr(f, ap));
+}
+
+int		ft_special_int(t_flag *f)
+{
+	if (f->arg[0] != '-')
+	{
+		ft_cpynchar(&g_buf[g_i], ' ', 1);
+		g_i++;
+	}
+	ft_strncpy(&g_buf[g_i], f->arg, f->size);
+	g_i += f->size;
+	return (g_i);
 }

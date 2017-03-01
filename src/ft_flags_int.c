@@ -20,13 +20,13 @@ static int	ft_flag_ox(t_flag *f)
 	if (!(f->ox = (char *)malloc(sizeof(char) * 3)))
 		return (0);
 	ft_bzero(f->ox, 3);
-	if ((f->c == 'o' || f->c == 'O' || f->c == 'p' ||
-		f->c == 'x' || f->c == 'X') && f->arg[0] != '0')
+	if ((f->c == 'o' || f->c == 'O' || f->c == 'p' || f->c == 'x' ||
+		f->c == 'X') && (f->arg[0] != '0' || f->c == 'p'))
 	{
 		f->ox[0] = '0';
 		i++;
 	}
-	if ((f->c == 'x' || f->c == 'p') && f->arg[0] != '0')
+	if ((f->c == 'x' && f->arg[0] != '0') || f->c == 'p')
 	{
 		f->ox[1] = 'x';
 		i++;
@@ -45,10 +45,8 @@ static int	ft_flag_zero(t_flag *f)
 	int i;
 
 	i = f->flag[1] - f->size - f->p;
-	if (f->flag[2] == 1 && f->arg[0] != '0')
+	if (f->flag[2] == 1 && (f->arg[0] != '0' || f->c == 'p'))
 		i = i - f->x;
-	if (f->arg[0] == '0')
-		i += 1;
 	if (f->flag[5] == 1 && f->arg[0] != '-' &&
 		(f->c == 'd' || f->c == 'D' || f->c == 'i'))
 	{
@@ -71,11 +69,10 @@ static int	ft_flag_moins(t_flag *f)
 	int i;
 
 	i = f->flag[1] - f->size - f->p;
-	if (f->flag[2] == 1 && f->arg[0] != '0')
+	if (f->flag[2] == 1 && (f->arg[0] != '0' || f->c == 'p'))
 		i = i - f->x;
-	if (f->arg[0] == '0')
-		i += 1;
-	if (f->flag[5] == 1 && f->arg[0] != '-')
+	if (f->flag[5] == 1 && f->arg[0] != '-' &&
+		(f->c == 'd' || f->c == 'D' || f->c == 'i'))
 	{
 		ft_cpynchar(&g_buf[g_i], '+', 1);
 		g_i += 1;
@@ -99,10 +96,8 @@ static int	ft_flag_plus(t_flag *f)
 	int i;
 
 	i = f->flag[1] - f->size - f->p;
-	if (f->flag[2] == 1 && f->arg[0] != '0')
+	if (f->flag[2] == 1 && (f->arg[0] != '0' || f->c == 'p'))
 		i = i - f->x;
-	if (f->arg[0] == '0')
-		i += 1;
 	if (f->flag[5] == 1 && f->arg[0] != '-')
 		i--;
 	if (f->flag[0] >= f->size && f->flag[13] == 1 &&
@@ -114,7 +109,7 @@ static int	ft_flag_plus(t_flag *f)
 		g_i += i;
 	}
 	if (f->flag[5] == 1 && f->arg[0] != '-' &&
-		ft_strcmp(f->arg, "4294967295") != 0)
+		(f->c == 'd' || f->c == 'D' || f->c == 'i'))
 	{
 		ft_cpynchar(&g_buf[g_i], '+', 1);
 		g_i += 1;
@@ -124,6 +119,8 @@ static int	ft_flag_plus(t_flag *f)
 
 int			ft_flags_int(t_flag *f)
 {
+	//	if (f->format[f->i - 1] == ' ' && f->format[f->i - 2] == '%')
+	//	return (ft_special_int(f));
 	if (ft_flags_int1(f) == 0)
 		return (0);
 	if (f->flag[2] == 1)

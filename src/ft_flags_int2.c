@@ -23,7 +23,7 @@ int		ft_flags_zero2(t_flag *f, int i)
 	}
 	if (f->flag[2] == 1)
 	{
-		if (ft_atoi(f->arg) != 0 && f->flag[0] != -1)
+		if ((f->arg[0] != '0' || f->c == 'p') && f->flag[0] != -1)
 		{
 			ft_strncpy(&g_buf[g_i], f->ox, f->x);
 			g_i += f->x;
@@ -44,7 +44,7 @@ int		ft_flags_moins2(t_flag *f)
 {
 	if (f->flag[2] == 1)
 	{
-		if (f->arg[0] != '0' && f->flag[0] != -1)
+		if ((f->arg[0] != '0' || f->c == 'p') && f->flag[0] != -1)
 		{
 			ft_strncpy(&g_buf[g_i], f->ox, f->x);
 			g_i += f->x;
@@ -71,7 +71,7 @@ int		ft_flags_plus2(t_flag *f)
 {
 	if (f->flag[2] == 1)
 	{
-		if (f->arg[0] != '0' && f->flag[0] != -1)
+		if ((f->arg[0] != '0' || f->c == 'p') && f->flag[0] != -1)
 		{
 			ft_strncpy(&g_buf[g_i], f->ox, f->x);
 			g_i += f->x;
@@ -108,7 +108,7 @@ int		ft_flags_plus3(t_flag *f)
 
 int		ft_flags_int2(t_flag *f)
 {
-	if (ft_atoi(f->arg) < 0 && f->flag[13] == 1)
+	if (f->arg[0] == '-' && f->flag[13] == 1)
 	{
 		f->arg = ft_rotcstring(f->arg);
 		ft_cpynchar(&g_buf[g_i], '-', 1);
@@ -117,7 +117,7 @@ int		ft_flags_int2(t_flag *f)
 	}
 	if (f->flag[2] == 1)
 	{
-		if ((f->arg[0] != '0' && f->flag[0] != -1) ||
+		if (((f->arg[0] != '0' || f->c == 'p') && f->flag[0] != -1) ||
 			f->c == 'o')
 		{
 			ft_strncpy(&g_buf[g_i], f->ox, f->x);

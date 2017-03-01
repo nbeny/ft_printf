@@ -12,14 +12,15 @@
 
 #include "include/ft_printf.h"
 #include <stdio.h>
-
+#include <limits.h>
+#include <locale.h>
 int		main(int ac, char **av)
 {
 	int				ret;
 
 	ac = 4;
 	(void)av;
-	ret = ft_printf("%p", 0);
-	printf("%p", 0);
+        setlocale(LC_ALL, "");
+	ret = ft_printf("% c", 0);
 	return (0);
 }

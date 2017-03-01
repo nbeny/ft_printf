@@ -31,7 +31,9 @@ int		ft_modifier_x(t_flag *f, va_list *ap)
 
 int		ft_handler_wx(t_flag *f, va_list *ap)
 {
-	if (f->flag[9] == 1)
+	if (f->flag[7] == 1 || f->flag[8] == 1 ||
+		f->flag[9] == 1 || f->flag[10] == 1 ||
+		f->flag[11] == 1 || f->flag[12] == 1)
 		return (ft_modifier_x(f, ap));
 	f->arg = ft_uitoa_base((unsigned int)va_arg(*ap, unsigned int), 16);
 	f->size = ft_strlen(f->arg);
