@@ -18,8 +18,7 @@ SRC	=	src/ft_printf.c src/ft_check.c src/ft_dispatcher.c\
 		src/ft_flag_hhlld.c src/ft_flag_hhllo.c src/ft_flag_hhllu.c src/ft_flag_hhllx.c\
 		src/ft_flag_jzd.c src/ft_flag_jzo.c src/ft_flag_jzu.c src/ft_flag_jzx.c\
 		src/ft_flags_char.c src/ft_flags_int.c src/ft_precision.c src/ft_flags_int2.c\
-		src/ft_flags_int3.c src/ft_usefull.c src/ft_handler_z.c src/ft_handler_r.c\
-		src/ft_handler_undefined.c
+		src/ft_flags_int3.c src/ft_usefull.c src/ft_handler_undefined.c
 
 OBJ	=	ft_printf.o ft_check.o ft_dispatcher.o\
 		ft_handler_c.o ft_handler_s.o ft_handler_p.o ft_handler_d.o\
