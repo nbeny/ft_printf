@@ -15,10 +15,17 @@
 #include <limits.h>
 #include <locale.h>
 
-int		main(int ac, char **av)
+int		main()
 {
 	int		ret;
 
-	ft_printf("%zi", LLONG_MIN);
+	ret = ft_printf("%*b\n", 50, 6546);
+	ret = ft_printf("%*t\n", -5, 6546);
+	ret = ft_printf("%*.*d\n", 0, 3, 1);
+	ret = ft_printf("%o\n", 6546);
+	ret = ft_printf("%n\n", 6546);
+	ret = ft_printf("%u\n", 6546);
+	ret = ft_printf("%x\n", 6546);
+	ret = ft_printf("%v\n", 6546);
 	return (0);
 }

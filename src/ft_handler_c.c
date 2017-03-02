@@ -14,7 +14,7 @@
 
 int		ft_handler_wc(t_flag *f, va_list *ap)
 {
-	wint_t	wc;
+	wchar_t	wc;
 	wchar_t	ws[2];
 
 	wc = va_arg(*ap, wint_t);
@@ -22,8 +22,8 @@ int		ft_handler_wc(t_flag *f, va_list *ap)
 	ws[1] = 0;
 	if (ws[0] < 0 && ws[0] > 55295 && ws[0] < 57344 && ws[0] > 1114111)
 		return (0);
-	ft_wint_to_char(ws[0], f);
-	f->size = 1;
+	f->size = ft_wcharlen(wc);
+	f->arg = ft_transform_wchar_in_char(ws);
 	f->free = 1;
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||

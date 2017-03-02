@@ -24,8 +24,18 @@ void		ft_init_specs2(t_spec *specs)
 	specs[13].ptr = &ft_handler_wc;
 	specs[14].c = '%';
 	specs[14].ptr = &ft_handler;
-	specs[15].c = 0;
-	specs[15].ptr = NULL;
+	specs[15].c = 'b';
+	specs[15].ptr = &ft_handler_b;
+	specs[16].c = 't';
+	specs[16].ptr = &ft_handler_t;
+	specs[17].c = 'q';
+	specs[17].ptr = &ft_handler_q;
+	specs[18].c = 'n';
+	specs[18].ptr = &ft_handler_n;
+	specs[19].c = 'v';
+	specs[19].ptr = &ft_handler_v;
+	specs[20].c = 0;
+	specs[20].ptr = NULL;
 }
 
 void		ft_init_specs1(t_spec *specs)
@@ -73,7 +83,7 @@ static int	ft_wildcard(t_flag *f, va_list *ap)
 
 int			ft_dispatcher(t_flag *f, va_list *ap)
 {
-	t_spec	specs[16];
+	t_spec	specs[21];
 	int		j;
 
 	f->arg = NULL;

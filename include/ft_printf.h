@@ -80,6 +80,14 @@ int				ft_handler_p(t_flag *f, va_list *ap);
 int				ft_handler(t_flag *f);
 int				ft_handler_undefined(t_flag *f);
 /*
+**bonus
+*/
+int				ft_handler_b(t_flag *f, va_list *ap);
+int				ft_handler_t(t_flag *f, va_list *ap);
+int				ft_handler_q(t_flag *f, va_list *ap);
+int				ft_handler_n(t_flag *f, va_list *ap);
+int				ft_handler_v(t_flag *f, va_list *ap);
+/*
 **handler d
 */
 int				ft_modifier_d(t_flag *f, va_list *ap);
