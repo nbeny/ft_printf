@@ -63,7 +63,7 @@ OBJ_LFT	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 
 HDR_LFT	=	-I include
 
-FLAGS	=	-Wall -Wextra -Werror
+FLAGS	=	-g -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 

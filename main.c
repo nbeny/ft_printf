@@ -19,13 +19,13 @@ int		main()
 {
 	int		ret;
 
-	ret = ft_printf("%*b\n", 50, 6546);
-	ret = ft_printf("%*t\n", -5, 6546);
-	ret = ft_printf("%*.*d\n", 0, 3, 1);
-	ret = ft_printf("%o\n", 6546);
-	ret = ft_printf("%n\n", 6546);
-	ret = ft_printf("%u\n", 6546);
-	ret = ft_printf("%x\n", 6546);
-	ret = ft_printf("%v\n", 6546);
+	ret = ft_printf("%%*b : %b\n", 3543442);
+	ret = ft_printf("%%*t : %*t\n", 10, 6546);
+	ret = ft_printf("%%*d : %6.8d\n", 10, 20, 6546);
+	ret = ft_printf("*o : %*.*o\n", 20, 10, 6546);
+	ret = ft_printf("%%n : %n\n", 6546);
+	ret = ft_printf("%%u : %u\n", 6546);
+	ret = ft_printf("%%x : %x\n", 6546);
+	ret = ft_printf("%%v : %v\n", 6546);
 	return (0);
 }

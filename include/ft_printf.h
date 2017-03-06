@@ -22,6 +22,7 @@ int			g_i;
 
 typedef struct	s_flag
 {
+	int		ret;
 	char	*format;
 	int		i;
 	char	c;
@@ -56,6 +57,7 @@ int				ft_special(t_flag *f);
 **printf
 */
 int				ft_printf(const char *format, ...);
+int				ft_for_handred(t_flag *f, va_list *ap);
 void			ft_check_init(t_flag *f);
 void			ft_init_specs1(t_spec *specs);
 void			ft_init_specs2(t_spec *specs);

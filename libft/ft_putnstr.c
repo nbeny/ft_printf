@@ -19,7 +19,7 @@ void	ft_putnstr(char *s, int n)
 	i = 0;
 	if (s)
 	{
-		while (i < n)
+		while (s[i] && i < n)
 		{
 			ft_putchar(s[i]);
 			i++;
