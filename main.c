@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:33 by nbeny             #+#    #+#             */
-/*   Updated: 2017/03/07 17:15:03 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/07 17:17:21 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int		main(int ac, char **av)
 
 	(void)ac;
 	(void)av;
-
+	setlocale(LC_ALL, "");
+	ft_printf("%C\n", L'☀');
 	ret = ft_printf("%%*b : %b\n", 3543442);
 	ret = ft_printf("%%*t : %*t\n", 10, 6546);
 	ret = ft_printf("%%*d : %6.8d\n", 10, 20, 6546);
