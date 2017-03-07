@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:01:25 by nbeny             #+#    #+#             */
-/*   Updated: 2017/03/01 16:37:32 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/07 11:07:28 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int				ft_for_handred(t_flag *f, va_list *ap)
 
 int				ft_fill_stdout(const char *format, va_list *ap)
 {
-	int		i;
-	int		ret;
+	int			i;
+	int			ret;
 	t_flag		f;
 
 	i = -1;

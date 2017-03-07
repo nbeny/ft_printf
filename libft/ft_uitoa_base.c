@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:10:09 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/21 15:30:18 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/07 11:08:46 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	ft_size_nbr(int *tab, char *s, unsigned int nb, int base)
 	return (i);
 }
 
-static char   	*ft_special(unsigned int nb, int base)
+static char	*ft_special(unsigned int nb, int base)
 {
 	if (nb == 0)
 		return (ft_strdup("0"));
