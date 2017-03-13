@@ -81,7 +81,7 @@ static int	ft_wildcard(t_flag *f, va_list *ap)
 	return (0);
 }
 
-int			ft_dispatcher(t_flag *f, va_list *ap)
+int			ft_dispatcher(t_flag *f, va_list *ap, t_list **begin_lst)
 {
 	t_spec	specs[21];
 	int		j;
@@ -96,20 +96,8 @@ int			ft_dispatcher(t_flag *f, va_list *ap)
 		j++;
 	ft_wildcard(f, ap);
 	if (specs[j].c == 0)
-		return (ft_handler_undefined(f));
+		return (ft_handler_undefined(f, begin_lst));
 	if (j == 14)
-		return (specs[14].ptr(f));
-	return (specs[j].ptr(f, ap));
-}
-
-int			ft_special_int(t_flag *f)
-{
-	if (f->arg[0] != '-')
-	{
-		ft_cpynchar(&g_buf[g_i], ' ', 1);
-		g_i++;
-	}
-	ft_strncpy(&g_buf[g_i], f->arg, f->size);
-	g_i += f->size;
-	return (g_i);
+		return (specs[14].ptr(f, begin_lst));
+	return (specs[j].ptr(f, ap, begin_lst));
 }

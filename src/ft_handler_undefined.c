@@ -12,7 +12,7 @@
 
 #include "../include/ft_printf.h"
 
-int		ft_handler_undefined(t_flag *f)
+int		ft_handler_undefined(t_flag *f, t_list **begin_lst)
 {
 	char s[2];
 
@@ -25,8 +25,8 @@ int		ft_handler_undefined(t_flag *f)
 		f->flag[4] == 1 || f->flag[5] == 1 ||
 		f->flag[6] == 1 || f->flag[1] > f->size ||
 		f->flag[13] == 1)
-		return (ft_flags_char(f));
-	ft_strncpy(&g_buf[g_i], f->arg, f->size);
-	g_i += f->size;
+		return (ft_flags_char(f, begin_lst));
+	ft_multibuf_arg(f, begin_lst, f->size);
+	f->ret += f->size;
 	return (0);
 }

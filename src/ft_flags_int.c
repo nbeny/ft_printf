@@ -38,7 +38,7 @@ static int	ft_flag_ox(t_flag *f)
 	return (i);
 }
 
-static int	ft_flag_zero(t_flag *f)
+static int	ft_flag_zero(t_flag *f, t_list **begin_lst)
 {
 	int i;
 
@@ -48,21 +48,21 @@ static int	ft_flag_zero(t_flag *f)
 	if (f->flag[5] == 1 && f->arg[0] != '-' &&
 		(f->c == 'd' || f->c == 'D' || f->c == 'i'))
 	{
-		ft_cpynchar(&g_buf[g_i], '+', 1);
-		g_i += 1;
+		ft_multibuf_nchar(f, begin_lst, '+', 1);
+		f->ret += 1;
 		i--;
 	}
-	ft_flags_zero2(f, i);
+	ft_flags_zero2(f, i, begin_lst);
 	if (f->flag[0] != -1)
 	{
-		ft_strncpy(&g_buf[g_i], f->arg, f->size);
-		g_i += f->size;
+		ft_multibuf_arg(f, begin_lst, f->size);
+		f->ret += f->size;
 		free(f->arg);
 	}
 	return (0);
 }
 
-static int	ft_flag_moins(t_flag *f)
+static int	ft_flag_moins(t_flag *f, t_list **begin_lst)
 {
 	int i;
 
@@ -72,24 +72,24 @@ static int	ft_flag_moins(t_flag *f)
 	if (f->flag[5] == 1 && f->arg[0] != '-' &&
 		(f->c == 'd' || f->c == 'D' || f->c == 'i'))
 	{
-		ft_cpynchar(&g_buf[g_i], '+', 1);
-		g_i += 1;
+		ft_multibuf_nchar(f, begin_lst, '+', 1);
+		f->ret += 1;
 		i--;
 	}
 	if (f->arg[0] == '-')
 	{
 		f->arg = ft_rotcstring(f->arg);
-		ft_cpynchar(&g_buf[g_i], '-', 1);
-		g_i += 1;
+		ft_multibuf_nchar(f, begin_lst, '-', 1);
+		f->ret += 1;
 		f->size -= 1;
 		f->p += 1;
 	}
-	ft_flags_moins2(f);
-	ft_flags_moins3(i);
+	ft_flags_moins2(f, begin_lst);
+	ft_flags_moins3(i, begin_lst);
 	return (0);
 }
 
-static int	ft_flag_plus(t_flag *f)
+static int	ft_flag_plus(t_flag *f, t_list **begin_lst)
 {
 	int i;
 
@@ -103,19 +103,19 @@ static int	ft_flag_plus(t_flag *f)
 		i--;
 	if (i > 0)
 	{
-		ft_cpynchar(&g_buf[g_i], ' ', i);
-		g_i += i;
+		ft_multibuf_nchar(f, begin_lst, ' ', i);
+		f->ret += i;
 	}
 	if (f->flag[5] == 1 && f->arg[0] != '-' &&
 		(f->c == 'd' || f->c == 'D' || f->c == 'i'))
 	{
-		ft_cpynchar(&g_buf[g_i], '+', 1);
-		g_i += 1;
+		ft_multibuf_nchar(f, begin_lst, '+', 1);
+		f->ret += 1;
 	}
-	return (ft_flags_int2(f));
+	return (ft_flags_int2(f, begin_lst));
 }
 
-int			ft_flags_int(t_flag *f)
+int			ft_flags_int(t_flag *f, t_list **begin_lst)
 {
 	if (ft_flags_int1(f) == 0)
 		return (0);
@@ -124,12 +124,12 @@ int			ft_flags_int(t_flag *f)
 	if (f->flag[13] == 1)
 		ft_precision(f);
 	if (f->flag[4] == 1)
-		return (ft_flag_moins(f));
+		return (ft_flag_moins(f, begin_lst));
 	if (f->flag[3] == 1)
-		return (ft_flag_zero(f));
+		return (ft_flag_zero(f, begin_lst));
 	if (f->flag[5] == 1 || f->flag[6] == 1 ||
 		f->flag[1] > ft_strlen(f->arg))
-		return (ft_flag_plus(f));
-	ft_flags_int2(f);
+		return (ft_flag_plus(f, begin_lst));
+	ft_flags_int2(f, begin_lst);
 	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "../include/ft_printf.h"
 
-int		ft_handler_wc(t_flag *f, va_list *ap)
+int		ft_handler_wc(t_flag *f, va_list *ap, t_list **begin_lst)
 {
 	wchar_t	wc;
 	wchar_t	ws[2];
@@ -29,19 +29,19 @@ int		ft_handler_wc(t_flag *f, va_list *ap)
 		f->flag[4] == 1 || f->flag[5] == 1 ||
 		f->flag[6] == 1 || f->flag[1] > f->size ||
 		f->flag[13] == 1)
-		return (ft_flags_char(f));
-	ft_strncpy(&g_buf[g_i], f->arg, f->size);
-	g_i += f->size;
+		return (ft_flags_char(f, begin_lst));
+	ft_multibuf_arg(f, begin_lst, f->size);
+	f->ret += f->size;
 	return (0);
 }
 
-int		ft_handler_c(t_flag *f, va_list *ap)
+int		ft_handler_c(t_flag *f, va_list *ap, t_list **begin_lst)
 {
 	char c;
 	char s[2];
 
 	if (f->flag[10] == 1)
-		return (ft_handler_wc(f, ap));
+		return (ft_handler_wc(f, ap, begin_lst));
 	c = (char)va_arg(*ap, int);
 	s[0] = c;
 	s[1] = 0;
@@ -51,8 +51,8 @@ int		ft_handler_c(t_flag *f, va_list *ap)
 		f->flag[4] == 1 || f->flag[5] == 1 ||
 		f->flag[6] == 1 || f->flag[1] > f->size ||
 		f->flag[13] == 1)
-		return (ft_flags_char(f));
-	ft_strncpy(&g_buf[g_i], f->arg, f->size);
-	g_i += f->size;
+		return (ft_flags_char(f, begin_lst));
+	ft_multibuf_arg(f, begin_lst, f->size);
+	f->ret += f->size;
 	return (0);
 }

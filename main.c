@@ -19,17 +19,9 @@ int		main(int ac, char **av)
 {
 	int		ret;
 
+	ret = 0;
 	(void)ac;
-	(void)av;
 	setlocale(LC_ALL, "");
-	ft_printf("%C\n", L'☀');
-	ret = ft_printf("%%*b : %b\n", 3543442);
-	ret = ft_printf("%%*t : %*t\n", 10, 6546);
-	ret = ft_printf("%%*d : %6.8d\n", 10, 20, 6546);
-	ret = ft_printf("*o : %*.*o\n", 20, 10, 6546);
-	ret = ft_printf("%%n : %n\n", 6546);
-	ret = ft_printf("%%u : %u\n", 6546);
-	ret = ft_printf("%%x : %x\n", 6546);
-	ret = ft_printf("%%v : %v\n", 6546);
+	ret = ft_printf("%s\n", av[1]);
 	return (0);
 }

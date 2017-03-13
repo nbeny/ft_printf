@@ -12,65 +12,74 @@
 
 #include "../include/ft_printf.h"
 
-static t_flag	*ft_init_f(t_flag *f)
+static t_flag	ft_init_f(t_flag f)
 {
 	int i;
 
 	i = -1;
-	f->ret = 0;
-	f->i = 0;
-	f->c = 0;
-	f->arg = NULL;
-	f->warg = NULL;
-	f->sign = 0;
+	f.ret = 0;
+	f.i = 0;
+	f.c = 0;
+	f.arg = NULL;
+	f.warg = NULL;
+	f.sign = 0;
 	while (++i < 14)
-		f->flag[i] = 0;
-	f->size = 0;
-	f->x = 0;
-	f->p = 0;
-	f->free = 0;
-	f->wc[0] = 0;
-	f->wc[1] = 0;
-	f->what = 0;
+		f.flag[i] = 0;
+	f.size = 0;
+	f.x = 0;
+	f.p = 0;
+	f.free = 0;
+	f.wc[0] = 0;
+	f.wc[1] = 0;
+	f.what = 0;
 	return (f);
 }
 
-int				ft_for_handred(t_flag *f, va_list *ap)
+int				ft_fill_stdout(const char *format,
+					       va_list *ap)
 {
-	ft_bzero(g_buf, 4096);
-	g_i = 0;
-	f = ft_init_f(f);
-	ft_dispatcher(f, ap);
-	if (f->free == 1)
-		free(f->arg);
-	ft_putnstr(g_buf, g_i);
-	return (0);
-}
-
-int				ft_fill_stdout(const char *format, va_list *ap)
-{
-	int			i;
-	int			ret;
+	size_t		i;
+	size_t		ret;
 	t_flag		f;
+	t_lst		**begin_lst;
+	t_lst		*lst;
+	int			a;
 
 	i = -1;
 	ret = 0;
+	if (!(lst = (t_lst *)malloc(t_lst)))
+		return (-1);
+	*begin_lst = lst;
+	ft_bzero(lst->buf, 4096);
 	while (format[++i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] == '\0')
 			break ;
 		if (format[i] == '%')
 		{
+			f = ft_init_f(f);
 			f.format = (char *)&format[++i];
-			ft_for_handred(&f, ap);
+			if ((a = ft_dispatcher(&f, ap, begin_lst)) == -1)
+			{
+				if (f.free == 1)
+					free(f.arg);
+				break ;
+			}
+			if (f.free == 1)
+				free(f.arg);
+			ret += f.ret;
 			i += f.i;
-			ret += g_i;
 		}
 		else
 		{
-			ft_putchar(format[i]);
-			ret += 1;
+			i = ft_booster(format, i, begin_lst);
+			ret += i;
 		}
+	}
+	while (a == 0 && lst)
+	{
+		ft_putstr(lst->buf);
+		lst = lst->next;
 	}
 	return (ret);
 }
