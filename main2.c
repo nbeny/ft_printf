@@ -15,8 +15,8 @@ int		main(int ac, char **av)
 	ret = ft_printf("%%6.8o : [%6.8o]\n", 6546);
 	ret = ft_printf("%%*.*s : [%*.*s]\n", 20, 10, "qwertqwertasdfg");
 	ret = ft_printf("%%.4s : [%.4s]\n", "Bonjour !");
-	ret = ft_printf("%%06u : %06u\n", 6546);
-	ret = ft_printf("%%06x : %06x\n", 6546);
-	ret = ft_printf("%%06v : %06v\n", 6546);
+	ret = ft_printf("%%06u %%c %%d : [%06u] [%3c] [%4d]\n", 6546, 0, 1);
+	ret = ft_printf("%%06d : %06d\n", 6546);
+	ret = ft_printf("%%06x : %06x\n", 6547);
 	return (0);
 }

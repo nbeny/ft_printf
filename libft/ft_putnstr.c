@@ -12,17 +12,8 @@
 
 #include "libft.h"
 
-void	ft_putnstr(char *s, int n)
+void	ft_putnstr(char *s, size_t n)
 {
-	int i;
-
-	i = 0;
 	if (s)
-	{
-		while (s[i] && i < n)
-		{
-			ft_putchar(s[i]);
-			i++;
-		}
-	}
+		write(1, s, n);
 }

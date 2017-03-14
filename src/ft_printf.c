@@ -69,7 +69,6 @@ int				ft_fill_stdout(const char *format,
 			}
 			if (f.free == 1)
 				free(f.arg);
-			ret += f.ret;
 			i += f.i;
 		}
 		else
@@ -77,7 +76,8 @@ int				ft_fill_stdout(const char *format,
 	}
 	while (begin_lst && a != -1)
 	{
-		ft_putstr(begin_lst->buf);
+		ft_putnstr(begin_lst->buf, begin_lst->i);
+		ret += begin_lst->i;
 		begin_lst = begin_lst->next;
 	}
 	return (ret);

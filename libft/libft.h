@@ -93,7 +93,7 @@ char			*ft_short_itoa_base(short int n, int size);
 char			*ft_ushort_itoa_base(unsigned short int n, int size);
 char			*ft_char_itoa_base(signed char n, int size);
 char			*ft_uchar_itoa_base(unsigned char n, int size);
-void			ft_putnstr(char *s, int n);
+void			ft_putnstr(char *s, size_t n);
 void			ft_putnbr_base(int nb, char *base);
 void			ft_uputnbr_base(unsigned int nb, char *base);
 void			ft_char_putnbr_base(signed char nb, char *base);
