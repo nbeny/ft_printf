@@ -32,8 +32,6 @@ SRCS	=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c\
 		ft_ullitoa_base.c\
 		ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c\
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c\
-		ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c\
-		ft_lstiter.c ft_lstmap.c\
 		ft_max.c ft_min.c ft_sort_integer_tab.c ft_sort_params.c\
 		ft_sqrt.c\
 		ft_putcstr.c ft_capitalizer.c ft_rotcstring.c ft_putnstr.c\
@@ -64,8 +62,6 @@ OBJS	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_ullitoa_base.o\
 		ft_putchar.o ft_putstr.o ft_putendl.o ft_putnbr.o\
 		ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o\
-		ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o\
-		ft_lstiter.o ft_lstmap.o\
 		ft_max.o ft_min.o ft_sort_integer_tab.o ft_sort_params.o\
 		ft_sqrt.o\
 		ft_putcstr.o ft_capitalizer.o ft_rotcstring.o ft_putnstr.o\
@@ -78,7 +74,7 @@ OBJS	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 
 HDRS	=	libft.h
 
-FLAGS	=	-g -Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror
 
 all: $(NAME)
 

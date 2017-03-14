@@ -17,13 +17,6 @@
 # include <stdlib.h>
 # include <wchar.h>
 
-typedef struct	s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}				t_list;
-
 size_t			ft_wstrlen(wchar_t *ws);
 int				ft_wcharlen(wchar_t wchar);
 size_t			ft_wbytelen(wchar_t *ws);
@@ -35,7 +28,7 @@ void			*ft_memccpy(void *s1, const void *s2, int c, size_t n);
 void			*ft_memmove(void *s1, const void *s2, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
-int				ft_strlen(const char *s);
+size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *s1);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t n);
@@ -80,12 +73,6 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
-t_list			*ft_lstnew(void const *content, size_t content_size);
-void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
-void			ft_lstdel(t_list **alst);
-void			ft_lstadd(t_list **alst, t_list *new);
-void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				ft_max(int *tab, size_t n);
 int				ft_min(int *tab, size_t n);
 void			ft_sort_integer_tab(int *tab, int size);

@@ -67,7 +67,8 @@ char	*ft_transform_wchar_in_char(wchar_t *ws)
 	i = 0;
 	k = 0;
 	len = ft_wbytelen(ws);
-	fresh = (char*)malloc(sizeof(char) * len);
+	if (!(fresh = (char*)malloc(sizeof(char) * len)))
+		return (NULL);
 	fresh[len] = '\0';
 	while (ws[k])
 	{

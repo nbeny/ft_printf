@@ -41,25 +41,27 @@ int				ft_fill_stdout(const char *format,
 	size_t		i;
 	size_t		ret;
 	t_flag		f;
-	t_lst		**begin_lst;
-	t_lst		*lst;
+	t_list		*begin_lst;
 	int			a;
 
 	i = -1;
 	ret = 0;
-	if (!(lst = (t_lst *)malloc(t_lst)))
+	if (!(begin_lst = (t_list *)malloc(sizeof(t_list))))
 		return (-1);
-	*begin_lst = lst;
-	ft_bzero(lst->buf, 4096);
+	begin_lst->next = NULL;
+	ft_bzero(begin_lst->buf, 4096);
 	while (format[++i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] == '\0')
+		{
+			a = -1;
 			break ;
+		}
 		if (format[i] == '%')
 		{
 			f = ft_init_f(f);
 			f.format = (char *)&format[++i];
-			if ((a = ft_dispatcher(&f, ap, begin_lst)) == -1)
+			if ((a = ft_dispatcher(&f, ap, &begin_lst)) == -1)
 			{
 				if (f.free == 1)
 					free(f.arg);
@@ -71,15 +73,12 @@ int				ft_fill_stdout(const char *format,
 			i += f.i;
 		}
 		else
-		{
-			i = ft_booster(format, i, begin_lst);
-			ret += i;
-		}
+			i = ft_booster(format, i, &begin_lst) - 1;
 	}
-	while (a == 0 && lst)
+	while (begin_lst && a != -1)
 	{
-		ft_putstr(lst->buf);
-		lst = lst->next;
+		ft_putstr(begin_lst->buf);
+		begin_lst = begin_lst->next;
 	}
 	return (ret);
 }

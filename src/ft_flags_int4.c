@@ -18,15 +18,15 @@ int		ft_flags_int4(t_flag *f, t_list **begin_lst)
 		f->format[f->i - 2] == '0' && f->format[f->i - 3] == ' ' &&
 		f->format[f->i - 4] == '%' && f->arg[0] == '0')
 	{
-		ft_multibuf_nchar(f, begin_lst, ' ', 1);
-		ft_multibuf_nchar(f, begin_lst, '0', 2);
+		ft_multibuf_nchar(begin_lst, ' ', 1);
+		ft_multibuf_nchar(begin_lst, '0', 2);
 		f->ret += 3;
 		return (0);
 	}
 	if (f->c == 'O' && f->format[f->i - 1] == '.' && f->arg[0] == '0' &&
 		f->format[f->i - 2] == '#' && f->format[f->i - 3] == '%')
 	{
-		ft_multibuf_nchar(f, begin_lst, '0', 1);
+		ft_multibuf_nchar(begin_lst, '0', 1);
 		f->ret += 1;
 		return (0);
 	}
@@ -41,7 +41,7 @@ int		ft_flags_int5(t_flag *f, t_list **begin_lst)
 		f->format[f->i - 1] == '.' && f->format[f->i - 2] == '5' &&
 		f->format[f->i - 3] == '%')
 	{
-		ft_multibuf_nchar(f, begin_lst, ' ', 5);
+		ft_multibuf_nchar(begin_lst, ' ', 5);
 		f->ret += 5;
 		return (0);
 	}
@@ -49,7 +49,7 @@ int		ft_flags_int5(t_flag *f, t_list **begin_lst)
 		f->format[f->i - 2] == '.' && f->format[f->i - 3] == '5' &&
 		f->format[f->i - 4] == '%' && f->format[f->i - 1] == '0')
 	{
-		ft_multibuf_nchar(f, begin_lst, ' ', 5);
+		ft_multibuf_nchar(begin_lst, ' ', 5);
 		f->ret += 5;
 		return (0);
 	}

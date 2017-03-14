@@ -18,7 +18,7 @@ int		ft_handler_jx(t_flag *f, va_list *ap, t_list **begin_lst)
 	f->size = ft_strlen(f->arg);
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||
-		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
+	    f->flag[6] == 1 || f->flag[1] > (int)f->size ||
 		f->flag[13] == 1)
 		return (ft_flags_int(f, begin_lst));
 	if (f->c == 'X')
@@ -35,7 +35,7 @@ int		ft_handler_zx(t_flag *f, va_list *ap, t_list **begin_lst)
 	f->size = ft_strlen(f->arg);
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||
-		f->flag[6] == 1 || f->flag[1] > ft_strlen(f->arg) ||
+	    f->flag[6] == 1 || f->flag[1] > (int)f->size ||
 		f->flag[13] == 1)
 		return (ft_flags_int(f, begin_lst));
 	if (f->c == 'X')
