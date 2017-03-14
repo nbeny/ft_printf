@@ -18,5 +18,7 @@ int		main(int ac, char **av)
 	ret = ft_printf("%%06u %%c %%d : [%06u] [%3c] [%4d]\n", 6546, 0, 1);
 	ret = ft_printf("%%06000d : %06000d\n", 6546);
 	ret = ft_printf("%%06x : %06x\n", 6547);
+	ret = ft_printf("[%s]", "abc");
+	ft_printf("[%d]", ret);
 	return (0);
 }

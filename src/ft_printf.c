@@ -43,6 +43,7 @@ int				ft_fill_stdout(const char *format,
 	t_flag		f;
 	t_list		*begin_lst;
 	int			a;
+	t_list		*tmp;
 
 	i = -1;
 	ret = 0;
@@ -72,10 +73,20 @@ int				ft_fill_stdout(const char *format,
 			i += f.i;
 		}
 		else
-			i = ft_booster(format, i, &begin_lst) - 1;
+		{
+			a = (int)ft_booster(format, i, &begin_lst) - 1;
+			if (a == -2)
+			{
+				a = -1;
+				break ;
+			}
+			else
+				i = (size_t)a;
+		}
 	}
 	while (begin_lst && a != -1)
 	{
+		tmp = begin_lst;
 		ft_putnstr(begin_lst->buf, begin_lst->i);
 		ret += begin_lst->i;
 		begin_lst = begin_lst->next;
