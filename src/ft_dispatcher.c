@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:58:13 by nbeny             #+#    #+#             */
-/*   Updated: 2017/03/07 15:23:01 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/14 23:26:38 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ int			ft_dispatcher(t_flag *f, va_list *ap, t_list **begin_lst)
 
 	f->arg = NULL;
 	f->warg = NULL;
-	ft_check(f);
+	if (ft_check(f) == -1)
+		return (-1);
 	ft_init_specs1(specs);
 	f->c = f->format[f->i];
 	j = 0;

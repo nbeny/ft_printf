@@ -6,14 +6,15 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/17 11:09:40 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/27 21:14:37 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/15 01:00:03 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnstr(char *s, size_t n)
+int		ft_putnstr(char *s, size_t n)
 {
 	if (s)
 		write(1, s, n);
+	return (1);
 }

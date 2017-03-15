@@ -6,7 +6,7 @@
 #    By: nbeny <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 21:11:22 by nbeny             #+#    #+#              #
-#    Updated: 2017/02/17 11:12:11 by nbeny            ###   ########.fr        #
+#    Updated: 2017/03/15 02:22:22 by nbeny            ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -74,7 +74,7 @@ OBJS	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 
 HDRS	=	libft.h
 
-FLAGS	=	-Wall -Wextra -Werror
+FLAGS	=	-g -Wall -Wextra -Werror
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 #    By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/16 14:57:18 by nbeny             #+#    #+#              #
-#    Updated: 2017/03/01 16:30:47 by nbeny            ###   ########.fr        #
+#    Updated: 2017/03/15 02:22:09 by nbeny            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ OBJ_LFT	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_putcstr.o ft_capitalizer.o ft_rotcstring.o ft_putnstr.o\
 		ft_wbytelen.o ft_wcharlen.o ft_wstrlen.o
 
-FLAGS	=	-Wall -Wextra -Werror
+FLAGS	=	-g -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 

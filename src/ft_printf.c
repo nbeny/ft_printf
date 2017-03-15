@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:01:25 by nbeny             #+#    #+#             */
-/*   Updated: 2017/03/07 11:07:28 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/15 02:19:38 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,65 @@ static t_flag	ft_init_f(t_flag f)
 	return (f);
 }
 
+void		ft_free(t_list *begin_lst)
+{
+	t_list *lst_nxt;
+
+	while (begin_lst)
+	{
+		lst_nxt = begin_lst->next;
+		free(begin_lst);
+		begin_lst = NULL;
+		begin_lst = lst_nxt;
+	}
+}
+int		ft_print_and_free(t_list *begin_lst, int a)
+{
+	size_t	ret;
+	t_list	*tmp;
+
+	ret = 0;
+	tmp = begin_lst;
+	if (a != -1)
+	{
+		while (begin_lst)
+		{
+			ret += begin_lst->i;
+			ft_putnstr(begin_lst->buf, begin_lst->i);
+			begin_lst = begin_lst->next;
+		}
+	}
+	else
+	{
+		begin_lst = tmp;
+		ft_free(begin_lst);
+		return(-1);
+	}
+	begin_lst = tmp;
+	ft_free(begin_lst);
+	return ((int)ret);
+}
+
 int				ft_fill_stdout(const char *format,
 					       va_list *ap)
 {
 	size_t		i;
-	size_t		ret;
 	t_flag		f;
 	t_list		*begin_lst;
 	int			a;
-	t_list		*tmp;
 
 	i = -1;
-	ret = 0;
 	if (!(begin_lst = (t_list *)malloc(sizeof(t_list))))
 		return (-1);
 	begin_lst->next = NULL;
+	begin_lst->i = 0;
 	ft_bzero(begin_lst->buf, 4096);
 	while (format[++i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] == '\0')
-		{
-			a = -1;
-			break ;
-		}
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+				break ;
 			f = ft_init_f(f);
 			f.format = (char *)&format[++i];
 			if ((a = ft_dispatcher(&f, ap, &begin_lst)) == -1)
@@ -84,14 +118,7 @@ int				ft_fill_stdout(const char *format,
 				i = (size_t)a;
 		}
 	}
-	while (begin_lst && a != -1)
-	{
-		tmp = begin_lst;
-		ft_putnstr(begin_lst->buf, begin_lst->i);
-		ret += begin_lst->i;
-		begin_lst = begin_lst->next;
-	}
-	return (ret);
+	return (ft_print_and_free(begin_lst, a));
 }
 
 int				ft_printf(const char *format, ...)
@@ -100,7 +127,7 @@ int				ft_printf(const char *format, ...)
 	int		ret;
 
 	if (format == NULL)
-		return (0);
+		return (-1);
 	va_start(ap, format);
 	ret = ft_fill_stdout(format, &ap);
 	va_end(ap);

@@ -19,6 +19,10 @@ int		main(int ac, char **av)
 	ret = ft_printf("%%06000d : %06000d\n", 6546);
 	ret = ft_printf("%%06x : %06x\n", 6547);
 	ret = ft_printf("[%s]", "abc");
-	ft_printf("[%d]", ret);
+	ft_printf("[%d]\n", ret);
+	ret = ft_printf("%15.4d", -42);
+	ft_printf("[%d]\n", ret);
+	ret = printf("%15.4d", -42);
+	printf("[%d]", ret);
 	return (0);
 }

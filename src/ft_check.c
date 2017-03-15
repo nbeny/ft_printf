@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:59 by nbeny             #+#    #+#             */
-/*   Updated: 2017/02/21 14:07:45 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/15 03:28:01 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,7 @@ int		ft_check(t_flag *f)
 		ft_check_precision(f);
 		ft_check_modifier(f);
 	}
+	if (f->format[f->i] == '\0')
+		return (-1);
 	return (0);
 }

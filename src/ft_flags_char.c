@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:59:36 by nbeny             #+#    #+#             */
-/*   Updated: 2017/03/07 15:50:19 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/15 02:01:26 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static int	ft_flag_zero(t_flag *f, t_list **begin_lst)
 	i = f->flag[1] - (int)f->size;
 	if (i > 0)
 	{
-		ft_multibuf_nchar(begin_lst, ' ', (size_t)i);
+		ft_multibuf_nchar(begin_lst, '0', (size_t)i);
 		f->ret += (size_t)i;
 	}
 	if (f->size > 0)
