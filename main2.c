@@ -20,9 +20,7 @@ int		main(int ac, char **av)
 	ret = ft_printf("%%06x : %06x\n", 6547);
 	ret = ft_printf("[%s]", "abc");
 	ft_printf("[%d]\n", ret);
-	ret = ft_printf("%15.4d", -42);
+	ret = ft_printf("%.4S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
 	ft_printf("[%d]\n", ret);
-	ret = printf("%15.4d", -42);
-	printf("[%d]", ret);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 15:01:25 by nbeny             #+#    #+#             */
-/*   Updated: 2017/03/15 02:19:38 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/15 21:25:41 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int				ft_fill_stdout(const char *format,
 		return (-1);
 	begin_lst->next = NULL;
 	begin_lst->i = 0;
-	ft_bzero(begin_lst->buf, 4096);
 	while (format[++i] != '\0')
 	{
 		if (format[i] == '%')
