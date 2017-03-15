@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/24 14:51:13 by nbeny             #+#    #+#             */
-/*   Updated: 2017/03/01 16:38:57 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/15 04:03:21 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ int		ft_flags_int2(t_flag *f, t_list **begin_lst)
 		f->arg = ft_rotcstring(f->arg);
 		ft_multibuf_nchar(begin_lst, '-', 1);
 		f->p += 1;
+		f->size -= 1;
 		f->ret += 1;
 	}
 	if (f->flag[2] == 1)
