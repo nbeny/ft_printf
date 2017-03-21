@@ -20,7 +20,7 @@ SRC	=	src/ft_printf.c src/ft_check.c src/ft_dispatcher.c\
 		src/ft_flags_char.c src/ft_flags_int.c src/ft_precision.c src/ft_flags_int2.c\
 		src/ft_flags_int3.c src/ft_gestion_wchar.c src/ft_handler_undefined.c\
 		src/ft_flags_int4.c src/ft_handler_b.c src/ft_handler_t.c src/ft_handler_q.c\
-		src/ft_handler_n.c src/ft_handler_v.c src/ft_buffer.c
+		src/ft_handler_n.c src/ft_handler_v.c src/ft_buffer.c src/ft_buffer2.c
 
 OBJ	=	ft_printf.o ft_check.o ft_dispatcher.o\
 		ft_handler_c.o ft_handler_s.o ft_handler_p.o ft_handler_d.o\
@@ -30,7 +30,7 @@ OBJ	=	ft_printf.o ft_check.o ft_dispatcher.o\
 		ft_flags_char.o ft_flags_int.o ft_precision.o ft_flags_int2.o\
 		ft_flags_int3.o ft_gestion_wchar.o ft_handler_undefined.o\
 		ft_flags_int4.o ft_handler_b.o ft_handler_t.o ft_handler_q.o\
-		ft_handler_n.o ft_handler_v.o ft_buffer.o
+		ft_handler_n.o ft_handler_v.o ft_buffer.o ft_buffer2.o
 
 HDR	=	ft_printf.h
 

@@ -26,7 +26,6 @@ typedef struct	s_list
 
 typedef struct	s_flag
 {
-	size_t    	ret;
 	char	*format;
 	size_t	i;
 	char	c;
@@ -58,6 +57,10 @@ size_t		ft_booster(const char *format, size_t i, t_list **begin_lst);
 int			ft_multibuf_nchar(t_list **begin_lst, int c, size_t size);
 int			ft_multibuf_arg(t_flag *f, t_list **begin_lst, size_t size);
 int			ft_multibuf_ox(t_flag *f, t_list **begin_lst, size_t size);
+int			ft_booster2(const char *format, size_t size, t_list *lst, size_t n);
+int			ft_multibuf_nchar2(t_flag *f, t_list *lst, size_t size, size_t i[2]);
+int			ft_multibuf_arg2(t_flag *f, t_list *lst, size_t size, size_t i[2]);
+int			ft_multibuf_ox2(t_flag *f, t_list *lst, size_t size, size_t i[2]);
 /*
 **wchar
 */
@@ -156,7 +159,7 @@ int				ft_precision(t_flag *f);
 int				ft_flags_zero2(t_flag *f, int i, t_list **begin_lst);
 int				ft_flags_zero3(t_flag *f, t_list **begin_lst);
 int				ft_flags_moins2(t_flag *f, t_list **begin_lst);
-int				ft_flags_moins3(t_flag *f, int i, t_list **begin_lst);
+int				ft_flags_moins3(int i, t_list **begin_lst);
 int				ft_flags_plus2(t_flag *f, t_list **begin_lst);
 int				ft_flags_plus3(t_flag *f, t_list **begin_lst);
 int				ft_flags_int1(t_flag *f, t_list **begin_lst);
