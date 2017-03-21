@@ -32,6 +32,7 @@ static t_flag	ft_init_f(t_flag f)
 	f.wc[0] = 0;
 	f.wc[1] = 0;
 	f.what = 0;
+	f.pre = 0;
 	return (f);
 }
 

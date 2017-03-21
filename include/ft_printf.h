@@ -42,6 +42,7 @@ typedef struct	s_flag
 	int		free;
 	int		wc[2];
 	int		what;
+	int		pre;
 }				t_flag;
 
 typedef struct	s_spec
@@ -60,8 +61,8 @@ int			ft_multibuf_ox(t_flag *f, t_list **begin_lst, size_t size);
 /*
 **wchar
 */
-int				ft_putwchar_in_char(wchar_t wchar, char *fresh, int i);
-char			*ft_transform_wchar_in_char(wchar_t *ws);
+int				ft_putwchar_in_char(wchar_t wchar, char *fresh, int i, t_flag *f);
+char			*ft_transform_wchar_in_char(wchar_t *ws, t_flag *f);
 void			ft_wint_to_char(wint_t wchar, t_flag *f);
 /*
 **printf

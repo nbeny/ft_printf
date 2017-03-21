@@ -23,7 +23,7 @@ int		ft_handler_wc(t_flag *f, va_list *ap, t_list **begin_lst)
 	if (ws[0] < 0 && ws[0] > 55295 && ws[0] < 57344 && ws[0] > 1114111)
 		return (0);
 	f->size = (size_t)ft_wcharlen(wc);
-	f->arg = ft_transform_wchar_in_char(ws);
+	f->arg = ft_transform_wchar_in_char(ws, f);
 	f->free = 1;
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||

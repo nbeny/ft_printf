@@ -22,5 +22,21 @@ int		main(int ac, char **av)
 	ft_printf("[%d]\n", ret);
 	ret = ft_printf("%.4S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
 	ft_printf("[%d]\n", ret);
+	ret = printf("%.4S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+	printf("[%d]\n", ret);
+	ret = ft_printf("my %4.15S", L"我是一只猫。");
+	ft_printf("[%d]\n", ret);
+	ret = printf("%4.15S", L"我是一只猫。");
+	printf("[%d]\n", ret);
+	ret = ft_printf("my %15.4S", L"我是一只猫。");
+	ft_printf("[%d]\n", ret);
+	ret = printf("%15.4S", L"我是一只猫。");
+	printf("[%d]\n", ret);
+	ret = ft_printf("my %.4S", L"我是一只猫。");
+	ft_printf("[%d]\n", ret);
+	ret = printf("%.4S", L"我是一只猫。");
+	printf("[%d]\n", ret);
+	printf("\%#.o/\n", -42);
+	ret = ft_printf("%#.0o", -42);
 	return (0);
 }

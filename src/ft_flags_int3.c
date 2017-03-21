@@ -66,7 +66,7 @@ int				ft_flags_int1(t_flag *f, t_list **begin_lst)
 
 int				ft_flags_int3(t_flag *f, t_list **begin_lst)
 {
-	if (f->flag[13] == 1 && f->p > 0)
+	if (f->flag[13] == 1 && f->p > 0 && f->flag[0] != -1)
 	{
 		ft_multibuf_nchar(begin_lst, '0', f->p);
 		f->ret += f->p;

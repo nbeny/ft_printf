@@ -6,6 +6,7 @@ int		ft_multibuf_ox(t_flag *f, t_list **begin_lst, size_t size)
 	t_list	*new;
 	size_t	i[2];
 
+	i[0] = 0;
 	lst = *begin_lst;
 	while (lst->next)
 		lst = lst->next;
@@ -48,6 +49,7 @@ int		ft_multibuf_arg(t_flag *f, t_list **begin_lst, size_t size)
 	t_list	*new;
 	size_t	i[2];
 
+	i[0] = 0;
 	lst = *begin_lst;
 	while (lst->next)
 		lst = lst->next;

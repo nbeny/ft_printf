@@ -105,7 +105,7 @@ int		ft_flags_plus3(t_flag *f, t_list **begin_lst)
 
 int		ft_flags_int2(t_flag *f, t_list **begin_lst)
 {
-	if (f->arg[0] == '-' && f->flag[13] == 1)
+	if (f->arg[0] == '-' && f->flag[13] == 1 && f->flag[0] != -1)
 	{
 		f->arg = ft_rotcstring(f->arg);
 		ft_multibuf_nchar(begin_lst, '-', 1);

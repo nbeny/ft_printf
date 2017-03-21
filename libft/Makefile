@@ -74,7 +74,7 @@ OBJS	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 
 HDRS	=	libft.h
 
-FLAGS	=	-g -Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror
 
 all: $(NAME)
 

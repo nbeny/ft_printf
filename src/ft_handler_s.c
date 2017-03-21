@@ -16,7 +16,7 @@ static int	ft_norme_ws(t_flag *f, t_list **begin_lst)
 {
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||
-	    f->flag[6] == 1 || f->flag[1] > (int)f->size ||
+		f->flag[6] == 1 || f->flag[1] > (int)f->size ||
 		f->flag[13] == 1)
 		return (ft_flags_char(f, begin_lst));
 	ft_multibuf_arg(f, begin_lst, f->size);
@@ -31,7 +31,7 @@ static int	ft_handler_ws_null(t_flag *f, t_list **begin_lst)
 	f->size = ft_strlen(f->arg);
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||
-	    f->flag[6] == 1 || f->flag[1] > (int)f->size ||
+		f->flag[6] == 1 || f->flag[1] > (int)f->size ||
 		f->flag[13] == 1)
 		return (ft_flags_char(f, begin_lst));
 	ft_multibuf_arg(f, begin_lst, f->size);
@@ -39,7 +39,7 @@ static int	ft_handler_ws_null(t_flag *f, t_list **begin_lst)
 	return (0);
 }
 
-int			ft_handler_ws(t_flag *f, va_list *ap, t_list **begin_lst)
+int		ft_handler_ws(t_flag *f, va_list *ap, t_list **begin_lst)
 {
 	int i;
 
@@ -47,14 +47,14 @@ int			ft_handler_ws(t_flag *f, va_list *ap, t_list **begin_lst)
 	f->warg = va_arg(*ap, wchar_t *);
 	if (f->warg == NULL)
 		return (ft_handler_ws_null(f, begin_lst));
-	f->arg = ft_transform_wchar_in_char(f->warg);
+	f->arg = ft_transform_wchar_in_char(f->warg, f);
 	f->free = 1;
 	f->size = ft_strlen(f->arg);
 	ft_norme_ws(f, begin_lst);
 	return (0);
 }
 
-int			ft_handler_s(t_flag *f, va_list *ap, t_list **begin_lst)
+int		ft_handler_s(t_flag *f, va_list *ap, t_list **begin_lst)
 {
 	if (f->flag[10] == 1)
 		return (ft_handler_ws(f, ap, begin_lst));
@@ -67,7 +67,7 @@ int			ft_handler_s(t_flag *f, va_list *ap, t_list **begin_lst)
 	f->size = ft_strlen(f->arg);
 	if (f->flag[2] == 1 || f->flag[3] == 1 ||
 		f->flag[4] == 1 || f->flag[5] == 1 ||
-	    f->flag[6] == 1 || f->flag[1] > (int)f->size ||
+		f->flag[6] == 1 || f->flag[1] > (int)f->size ||
 		f->flag[13] == 1)
 		return (ft_flags_char(f, begin_lst));
 	ft_multibuf_arg(f, begin_lst, f->size);
