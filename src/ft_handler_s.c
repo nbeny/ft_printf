@@ -37,7 +37,7 @@ static int	ft_handler_ws_null(t_flag *f, t_list **begin_lst)
 	return (0);
 }
 
-int		ft_handler_ws(t_flag *f, va_list *ap, t_list **begin_lst)
+int			ft_handler_ws(t_flag *f, va_list *ap, t_list **begin_lst)
 {
 	int i;
 
@@ -52,7 +52,7 @@ int		ft_handler_ws(t_flag *f, va_list *ap, t_list **begin_lst)
 	return (0);
 }
 
-int		ft_handler_s(t_flag *f, va_list *ap, t_list **begin_lst)
+int			ft_handler_s(t_flag *f, va_list *ap, t_list **begin_lst)
 {
 	if (f->flag[10] == 1)
 		return (ft_handler_ws(f, ap, begin_lst));

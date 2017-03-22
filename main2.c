@@ -6,9 +6,11 @@
 int		main(int ac, char **av)
 {
 	int	ret;
+	char	c;
 
 	(void)ac;
 	(void)av;
+	setlocale(LC_ALL, "");
 	ret = ft_printf("%%500%% : [%500%]\n");
 	ret = ft_printf("%%10.5d : [%10.5d]\n", 3543);
 	ret = ft_printf("%%*5x : [%*5x]\n", 10, 6546);
@@ -37,6 +39,8 @@ int		main(int ac, char **av)
 	ret = printf("%.4S", L"我是一只猫。");
 	printf("[%d]\n", ret);
 	printf("\%#.o/\n", -42);
+	ret = ft_printf("%s%d%p%%%S%D%i%o%O%u%U%x%X%c%C\n","bonjour", 42, &c, L"暖炉", LONG_MAX, 42, 42, 42, 100000, ULONG_MAX, 42, 42, 'c', L'플');
+	printf("%s%d%p%%%S%D%i%o%O%u%U%x%X%c%C\n","bonjour", 42, &c, L"暖炉", LONG_MAX, 42, 42, 42, 100000, ULONG_MAX, 42, 42, 'c', L'플');
 	ret = ft_printf("%#.0o", -42);
 	return (0);
 }

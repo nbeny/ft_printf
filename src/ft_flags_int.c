@@ -118,7 +118,7 @@ int			ft_flags_int(t_flag *f, t_list **begin_lst)
 	if (f->flag[3] == 1)
 		return (ft_flag_zero(f, begin_lst));
 	if (f->flag[5] == 1 || f->flag[6] == 1 ||
-	    f->flag[1] > (int)f->size)
+		f->flag[1] > (int)f->size)
 		return (ft_flag_plus(f, begin_lst));
 	ft_flags_int2(f, begin_lst);
 	return (0);

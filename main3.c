@@ -21,7 +21,7 @@ int		main(int ac, char **av)
 
 	(void)ac;
 	(void)av;
-	ret = ft_printf("%s\n", "a plus haute de toutes les folies, disait-elle, est de rougir des penchants que nous \
+	ret = printf("%s\n", "a plus haute de toutes les folies, disait-elle, est de rougir des penchants que nous \
 avons reçus de la nature; et se moquer d'un individu quelconque qui a des goûts singuliers, est absolument aussi barbar\
 e qu'il le serait de persifler un homme ou une femme sorti borgne ou boiteux du sein de sa mère, mais persuader ces pri\
 ncipes raisonnables à des sots, c'est entreprendre d'arrêter le cours des astres. Il y a une sorte de plaisir pour l'or\

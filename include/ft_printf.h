@@ -19,13 +19,20 @@
 
 typedef struct	s_list
 {
-	char		buf[4096];
-	size_t		i;
+	char			buf[4096];
+	size_t			i;
 	struct s_list	*next;
-}		t_list;
+}				t_list;
+
+typedef struct	s_err
+{
+	size_t	i;
+	int		a;
+}				t_err;
 
 typedef struct	s_flag
 {
+	int		ret;
 	char	*format;
 	size_t	i;
 	char	c;
@@ -36,8 +43,8 @@ typedef struct	s_flag
 	int		flag[14];
 	size_t	size;
 	char	ox[3];
-	size_t		x;
-	size_t		p;
+	size_t	x;
+	size_t	p;
 	int		free;
 	int		wc[2];
 	int		what;
@@ -48,7 +55,7 @@ typedef struct	s_spec
 {
 	int		(*ptr)();
 	char	c;
-}		t_spec;
+}				t_spec;
 /*
 **multibuf
 */
@@ -64,7 +71,8 @@ int			ft_multibuf_ox2(t_flag *f, t_list *lst, size_t size);
 /*
 **wchar
 */
-int				ft_putwchar_in_char(wchar_t wchar, char *fresh, int i, t_flag *f);
+int				ft_putwchar_in_char(wchar_t wchar, char *fresh,
+							int i, t_flag *f);
 int				ft_mask_wchar(int size, wchar_t wchar, char *fresh, int i);
 char			*ft_transform_wchar_in_char(wchar_t *ws, t_flag *f);
 void			ft_wint_to_char(wint_t wchar, t_flag *f);
@@ -73,11 +81,14 @@ void			ft_wint_to_char(wint_t wchar, t_flag *f);
 */
 int				ft_printf(const char *format, ...);
 int				ft_fill_stdout(const char *format, va_list *ap);
-int				ft_print_and_free(t_list *begin_lst, int a);
+int				ft_print_and_free(t_err *e, t_list *begin_lst);
 void			ft_check_init(t_flag *f);
 void			ft_init_specs1(t_spec *specs);
 void			ft_init_specs2(t_spec *specs);
 int				ft_dispatcher(t_flag *f, va_list *ap, t_list **begin_lst);
+int				ft_pourcent_gestion(t_err *e, t_list **begin_lst,
+							t_flag *f, va_list *ap);
+int				ft_error_copy(t_err *e, const char *format, t_list **begin_lst);
 /*
 **check
 */

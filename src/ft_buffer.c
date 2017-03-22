@@ -63,7 +63,7 @@ int		ft_multibuf_nchar(t_list **begin_lst, int c, size_t size)
 	return (0);
 }
 
-size_t		ft_booster(const char *format, size_t i, t_list **begin_lst)
+size_t	ft_booster(const char *format, size_t i, t_list **begin_lst)
 {
 	size_t	n;
 	t_list	*lst;
@@ -85,7 +85,7 @@ size_t		ft_booster(const char *format, size_t i, t_list **begin_lst)
 	return (i);
 }
 
-char    *ft_cpynchar(char *dest, int c, size_t n)
+char	*ft_cpynchar(char *dest, int c, size_t n)
 {
 	size_t i;
 

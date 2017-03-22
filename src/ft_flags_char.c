@@ -80,7 +80,7 @@ int			ft_flags_char(t_flag *f, t_list **begin_lst)
 		return (ft_flag_zero(f, begin_lst));
 	if (f->flag[5] == 1 || f->flag[6] == 1 || f->flag[1] > (int)f->size ||
 		(f->flag[1] > f->flag[0] && f->flag[13] == 1 &&
-		 f->flag[0] < (int)f->size))
+		f->flag[0] < (int)f->size))
 		return (ft_flag_plus(f, begin_lst));
 	if (f->flag[13] == 1 && f->flag[0] < (int)f->size &&
 		f->c != '%' && f->c != 'c' && f->c != 'C' &&
