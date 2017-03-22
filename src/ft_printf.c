@@ -17,7 +17,6 @@ static t_flag	ft_init_f(t_flag f)
 	int i;
 
 	i = -1;
-	f.ret = 0;
 	f.i = 0;
 	f.c = 0;
 	f.arg = NULL;

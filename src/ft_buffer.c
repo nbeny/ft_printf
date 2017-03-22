@@ -15,14 +15,12 @@
 int		ft_multibuf_ox(t_flag *f, t_list **begin_lst, size_t size)
 {
 	t_list	*lst;
-	size_t	i[2];
 
-	i[0] = 0;
 	lst = *begin_lst;
 	while (lst->next)
 		lst = lst->next;
 	if (size > (4095 - lst->i))
-		ft_multibuf_ox2(f, begin_lst, size, i);
+		ft_multibuf_ox2(f, lst, size);
 	else
 	{
 		ft_strncpy(&lst->buf[lst->i], f->ox, size);
@@ -34,14 +32,12 @@ int		ft_multibuf_ox(t_flag *f, t_list **begin_lst, size_t size)
 int		ft_multibuf_arg(t_flag *f, t_list **begin_lst, size_t size)
 {
 	t_list	*lst;
-	size_t	i[2];
 
-	i[0] = 0;
 	lst = *begin_lst;
 	while (lst->next)
 		lst = lst->next;
 	if (size > (4095 - lst->i))
-		ft_multibuf_arg2(f, lst, size, i);
+		ft_multibuf_arg2(f, lst, size);
 	else
 	{
 		ft_strncpy(&lst->buf[lst->i], f->arg, size);
@@ -53,13 +49,12 @@ int		ft_multibuf_arg(t_flag *f, t_list **begin_lst, size_t size)
 int		ft_multibuf_nchar(t_list **begin_lst, int c, size_t size)
 {
 	t_list	*lst;
-	size_t	i;
 
 	lst = *begin_lst;
 	while (lst->next)
 		lst = lst->next;
 	if (size > (4095 - lst->i))
-		ft_multibuf_nchar2(f, lst, size, i);
+		ft_multibuf_nchar2(lst, c, size);
 	else
 	{
 		ft_cpynchar(&lst->buf[lst->i], c, size);
@@ -70,10 +65,8 @@ int		ft_multibuf_nchar(t_list **begin_lst, int c, size_t size)
 
 size_t		ft_booster(const char *format, size_t i, t_list **begin_lst)
 {
-	size_t	size;
 	size_t	n;
 	t_list	*lst;
-
 
 	lst = *begin_lst;
 	n = 0;
@@ -88,7 +81,7 @@ size_t		ft_booster(const char *format, size_t i, t_list **begin_lst)
 		i += n;
 	}
 	else
-		ft_booster2(format, size, lst, n);
+		i = ft_booster2(format, i, lst, n);
 	return (i);
 }
 

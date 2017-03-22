@@ -59,7 +59,7 @@ OBJ_LFT	=	ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o\
 		ft_putcstr.o ft_capitalizer.o ft_rotcstring.o ft_putnstr.o\
 		ft_wbytelen.o ft_wcharlen.o ft_wstrlen.o
 
-FLAGS	=	-g -Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 
