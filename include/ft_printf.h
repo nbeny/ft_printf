@@ -65,6 +65,7 @@ int			ft_multibuf_ox2(t_flag *f, t_list *lst, size_t size);
 **wchar
 */
 int				ft_putwchar_in_char(wchar_t wchar, char *fresh, int i, t_flag *f);
+int				ft_mask_wchar(int size, wchar_t wchar, char *fresh, int i);
 char			*ft_transform_wchar_in_char(wchar_t *ws, t_flag *f);
 void			ft_wint_to_char(wint_t wchar, t_flag *f);
 /*
