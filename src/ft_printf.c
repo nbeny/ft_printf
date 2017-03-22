@@ -47,6 +47,7 @@ void		ft_free(t_list *begin_lst)
 		begin_lst = lst_nxt;
 	}
 }
+
 int		ft_print_and_free(t_list *begin_lst, int a)
 {
 	size_t	ret;
@@ -74,8 +75,7 @@ int		ft_print_and_free(t_list *begin_lst, int a)
 	return ((int)ret);
 }
 
-int				ft_fill_stdout(const char *format,
-					       va_list *ap)
+int		ft_fill_stdout(const char *format, va_list *ap)
 {
 	size_t		i;
 	t_flag		f;
@@ -120,7 +120,7 @@ int				ft_fill_stdout(const char *format,
 	return (ft_print_and_free(begin_lst, a));
 }
 
-int				ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	int		ret;
