@@ -41,7 +41,7 @@ T_OBJ	=	./obj/
 T_LFT	=	./libft/
 
 I_INC	=	./include/
-I_LFT	=	./libft/
+I_LFT	=	./libft/include/
 L_LFT	=	-L ./libft/ -lft
 
 CL_N	=	\033[0m
