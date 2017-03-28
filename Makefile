@@ -29,7 +29,8 @@ N_SRC	=	ft_printf.c		ft_check.c\
 		ft_flags_int4.c		ft_handler_b.c\
 		ft_handler_t.c		ft_handler_q.c\
 		ft_handler_n.c		ft_handler_v.c\
-		ft_buffer.c
+		ft_buffer.c		ft_buffer2.c\
+		ft_printf2.c
 
 CC	=	gcc
 CC_FLAG	=	-Wall -Wextra -Werror
@@ -37,7 +38,7 @@ CC_FLAG	=	-Wall -Wextra -Werror
 T_SRC	=	./src/
 T_INC	=	./include/
 T_OBJ	=	./obj/
-T_LFT	=	libft/
+T_LFT	=	./libft/
 
 I_INC	=	./include/
 I_LFT	=	./libft/
