@@ -6,7 +6,7 @@
 /*   By: nbeny <nbeny@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 14:57:47 by nbeny             #+#    #+#             */
-/*   Updated: 2017/03/07 15:50:46 by nbeny            ###   ########.fr       */
+/*   Updated: 2017/03/22 13:10:48 by nbeny            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,53 +26,55 @@ typedef struct	s_list
 
 typedef struct	s_err
 {
-	size_t	i;
-	int		a;
+	size_t			i;
+	int				a;
 }				t_err;
 
 typedef struct	s_flag
 {
-	int		ret;
-	char	*format;
-	size_t	i;
-	char	c;
-	char	*arg;
-	wchar_t	*warg;
-	char	sign;
-	va_list	ap;
-	int		flag[14];
-	size_t	size;
-	char	ox[3];
-	size_t	x;
-	size_t	p;
-	int		free;
-	int		wc[2];
-	int		what;
-	int		pre;
+	int				ret;
+	char			*format;
+	size_t			i;
+	char			c;
+	char			*arg;
+	wchar_t			*warg;
+	char			sign;
+	va_list			ap;
+	int				flag[14];
+	size_t			size;
+	char			ox[3];
+	size_t			x;
+	size_t			p;
+	int				free;
+	int				wc[2];
+	int				what;
+	int				pre;
+	int				neg;
 }				t_flag;
 
 typedef struct	s_spec
 {
-	int		(*ptr)();
-	char	c;
+	int				(*ptr)();
+	char			c;
 }				t_spec;
 /*
 **multibuf
 */
-char		*ft_cpynchar(char *dest, int c, size_t n);
-size_t		ft_booster(const char *format, size_t i, t_list **begin_lst);
-int			ft_multibuf_nchar(t_list **begin_lst, int c, size_t size);
-int			ft_multibuf_arg(t_flag *f, t_list **begin_lst, size_t size);
-int			ft_multibuf_ox(t_flag *f, t_list **begin_lst, size_t size);
-int			ft_booster2(const char *format, size_t i, t_list *lst, size_t n);
-int			ft_multibuf_nchar2(t_list *lst, int c, size_t size);
-int			ft_multibuf_arg2(t_flag *f, t_list *lst, size_t size);
-int			ft_multibuf_ox2(t_flag *f, t_list *lst, size_t size);
+char			*ft_cpynchar(char *dest, int c, size_t n);
+size_t			ft_booster(const char *format, size_t i, t_list **begin_lst);
+int				ft_multibuf_nchar(t_list **begin_lst, int c, size_t size);
+int				ft_multibuf_arg(t_flag *f, t_list **begin_lst, size_t size);
+int				ft_multibuf_ox(t_flag *f, t_list **begin_lst, size_t size);
+int				ft_booster2(const char *format, size_t i,
+		t_list *lst, size_t n);
+int				ft_multibuf_nchar2(t_list *lst, int c, size_t size);
+int				ft_multibuf_arg2(t_flag *f, t_list *lst, size_t size);
+int				ft_multibuf_ox2(t_flag *f, t_list *lst, size_t size);
 /*
 **wchar
 */
 int				ft_putwchar_in_char(wchar_t wchar, char *fresh,
-							int i, t_flag *f);
+		int i, t_flag *f);
 int				ft_mask_wchar(int size, wchar_t wchar, char *fresh, int i);
 char			*ft_transform_wchar_in_char(wchar_t *ws, t_flag *f);
 void			ft_wint_to_char(wint_t wchar, t_flag *f);
@@ -81,13 +83,13 @@ void			ft_wint_to_char(wint_t wchar, t_flag *f);
 */
 int				ft_printf(const char *format, ...);
 int				ft_fill_stdout(const char *format, va_list *ap);
-int				ft_print_and_free(t_err *e, t_list *begin_lst);
+int				ft_print_and_free(t_err *e, t_list *begin_lst, t_flag *f);
 void			ft_check_init(t_flag *f);
 void			ft_init_specs1(t_spec *specs);
 void			ft_init_specs2(t_spec *specs);
 int				ft_dispatcher(t_flag *f, va_list *ap, t_list **begin_lst);
 int				ft_pourcent_gestion(t_err *e, t_list **begin_lst,
-							t_flag *f, va_list *ap);
+		t_flag *f, va_list *ap);
 int				ft_error_copy(t_err *e, const char *format, t_list **begin_lst);
 /*
 **check

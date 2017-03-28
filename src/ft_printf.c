@@ -48,7 +48,7 @@ void			ft_free(t_list *begin_lst)
 	}
 }
 
-int				ft_print_and_free(t_err *e, t_list *begin_lst)
+int				ft_print_and_free(t_err *e, t_list *begin_lst, t_flag *f)
 {
 	size_t	ret;
 	t_list	*tmp;
@@ -72,6 +72,8 @@ int				ft_print_and_free(t_err *e, t_list *begin_lst)
 	}
 	begin_lst = tmp;
 	ft_free(begin_lst);
+	if (f->neg == -1)
+		return (-1);
 	return ((int)ret);
 }
 
@@ -82,6 +84,7 @@ int				ft_fill_stdout(const char *format, va_list *ap)
 	t_list		*begin_lst;
 
 	e.i = -1;
+	f.neg = 0;
 	if (!(begin_lst = (t_list *)malloc(sizeof(t_list))))
 		return (-1);
 	begin_lst->next = NULL;
@@ -100,7 +103,7 @@ int				ft_fill_stdout(const char *format, va_list *ap)
 		else if (ft_error_copy(&e, format, &begin_lst) == -1)
 			break ;
 	}
-	return (ft_print_and_free(&e, begin_lst));
+	return (ft_print_and_free(&e, begin_lst, &f));
 }
 
 int				ft_printf(const char *format, ...)

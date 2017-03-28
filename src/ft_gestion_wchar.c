@@ -47,7 +47,10 @@ int		ft_putwchar_in_char(wchar_t wchar, char *fresh, int i, t_flag *f)
 	if (MB_CUR_MAX >= 4)
 		i = ft_mask_wchar(size, wchar, fresh, i);
 	else
+	{
 		fresh[i++] = wchar;
+		f->neg = -1;
+	}
 	f->pre += size;
 	return (i);
 }
