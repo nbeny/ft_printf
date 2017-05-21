@@ -12,5 +12,5 @@ Basic:
 - [X] Makefile
 
 Bonus:
-- [X] Buffer static listed
+- [X] Buffer static listed, très rapide ! (70/80)% en comparaison au vrai
 - [X] convertion base : 2, 3, 5, 8, 9, 10, 16, 20
