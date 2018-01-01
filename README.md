@@ -1,6 +1,6 @@
 # Project Ft_printf
 >>>> ##### exploration project.
-
+`mars 2017`
 ##### Grade ``(98/100)`` ``(98/125)*``
 --------  -----------------------
 
@@ -12,5 +12,7 @@ Basic:
 - [X] Makefile
 
 Bonus:
-- [X] Buffer static listed, très rapide ! (70/80)% en comparaison au vrai
+- [X] Buffer static listé, (70/80)% en comparaison au vrai
 - [X] convertion base : 2, 3, 5, 8, 9, 10, 16, 20
+- [X] Walcards fonctionnels
+- [X] Choix du fd en première argument
